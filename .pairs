@@ -1,0 +1,14 @@
+pairs:
+  dr: Doc Ritezel; doc
+  cj: CJ Bryan; cj
+  rh: Rob Head; rob
+  jp: Jeff Parr; jeff
+  db: Damien Burke; damien
+
+email:
+  prefix: pair
+  domain: ministryofvelocity.com
+
+email_addresses:
+
+global: true
