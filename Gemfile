@@ -48,3 +48,7 @@ end
 
 gem 'haml'
 gem 'haml-rails'
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end
