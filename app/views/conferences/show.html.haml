@@ -1,1 +1,9 @@
-HELLO
+%h1= link_to @conference.name, @conference.website_url
+%div= @conference.location
+
+%p
+  = @conference.description
+  = link_to @conference.twitter_handle,
+      "https://twitter.com/#{@conference.twitter_handle}"
+
+= image_tag @conference.logo_url
