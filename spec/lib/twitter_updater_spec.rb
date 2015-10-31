@@ -1,12 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TwitterUpdater, :vcr do
-  before do
-    allow(ENV).to receive(:fetch) do |key|
-      key.downcase
-    end
-  end
-
+RSpec.describe TwitterUpdater, :vcr, :fake_environment do
   describe '.authenticated' do
     subject(:updater) { TwitterUpdater.authenticated }
 
