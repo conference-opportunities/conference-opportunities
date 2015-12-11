@@ -2,7 +2,8 @@ class ConferencesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :return_not_found
 
   def show
-    @conference = Conference.find_by! twitter_handle: params[:id]
+    conference = Conference.find_by_twitter_handle!(params[:id])
+    @conference = ConferencePresenter.new(conference)
   end
   
   private

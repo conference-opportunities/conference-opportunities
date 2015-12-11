@@ -16,7 +16,7 @@ describe ConferencesController, type: :controller do
 
       it "assigns the conference" do
         get :show, id: twitter_handle
-        expect(assigns(:conference)).to eq conference
+        expect(assigns(:conference).twitter_name).to eq("@foobar")
       end
     end
 

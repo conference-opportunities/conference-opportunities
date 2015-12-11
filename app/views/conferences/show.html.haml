@@ -1,9 +1,10 @@
-%h1= link_to @conference.name, @conference.website_url
-%div= @conference.location
+%header
+  .logo= image_tag @conference.logo_url
+  .name= @conference.name
+  .website-url= link_to icon('external-link'), @conference.website_url
+  .location= @conference.location
 
-%p
-  = @conference.description
-  = link_to @conference.twitter_handle,
-      "https://twitter.com/#{@conference.twitter_handle}"
-
-= image_tag @conference.logo_url
+%article
+  %p= @conference.description
+  .twitter-link
+    = link_to @conference.twitter_name, @conference.twitter_url
