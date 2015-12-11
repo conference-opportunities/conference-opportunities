@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :conferences, only: :show
-
+  resources :conferences, only: [:index, :show]
+  root to: 'conferences#index'
 end
