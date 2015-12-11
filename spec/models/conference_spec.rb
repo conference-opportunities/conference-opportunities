@@ -29,4 +29,10 @@ RSpec.describe Conference, type: :model do
     specify { expect(conference.website_url).to eq('http://twitterconf.example.com') }
     specify { expect(conference.description).to eq('Ten hours of pitches') }
   end
+
+  describe "#to_param" do
+    it "returns the twitter handle" do
+      expect(conference.to_param).to eq("bobdole")
+    end
+  end
 end

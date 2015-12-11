@@ -11,4 +11,8 @@ class Conference < ActiveRecord::Base
       description: user.description,
     )
   end
+
+  def to_param
+    twitter_handle
+  end
 end
