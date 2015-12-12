@@ -1,5 +1,6 @@
 class Conference < ActiveRecord::Base
   validates :twitter_handle, presence: true, uniqueness: true
+  has_many :tweets, dependent: :destroy
 
   def self.from_twitter_user(user)
     new(

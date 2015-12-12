@@ -11,6 +11,7 @@ RSpec.describe ConferencePresenter do
       description: 'A conference on names.'
     )
   end
+  let!(:tweet) { conference.tweets.new(twitter_id: 'ham') }
 
   subject(:presenter) { ConferencePresenter.new(conference) }
 
@@ -21,4 +22,5 @@ RSpec.describe ConferencePresenter do
   specify { expect(presenter.description).to eq('A conference on names.') }
   specify { expect(presenter.twitter_name).to eq('@nameconf') }
   specify { expect(presenter.twitter_url).to eq('https://twitter.com/nameconf') }
+  specify { expect(presenter.tweets).to eq([tweet]) }
 end

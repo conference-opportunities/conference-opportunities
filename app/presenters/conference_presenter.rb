@@ -1,7 +1,7 @@
 class ConferencePresenter < Struct.new(:conference)
   extend Forwardable
   def_delegators :conference, :logo_url, :name, :website_url, :location,
-    :description
+    :description, :tweets
 
   def twitter_name
     "@#{conference.twitter_handle}"
