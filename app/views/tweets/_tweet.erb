@@ -1,0 +1,7 @@
+<article id="tweet-<%= tweet.twitter_id %>"></article>
+<script type="text/javascript">
+  twttr.widgets.createTweet(
+    '<%= tweet.twitter_id %>',
+    document.getElementById('tweet-<%= tweet.twitter_id %>')
+  );
+</script>

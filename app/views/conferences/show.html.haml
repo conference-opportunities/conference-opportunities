@@ -8,3 +8,7 @@
   %p= @conference.description
   .twitter-link
     = link_to @conference.twitter_name, @conference.twitter_url
+
+  %section
+    = render partial: "twitter"
+    = render @conference.tweets
