@@ -1,5 +1,7 @@
 # [@CallbackWomen](https://twitter.com/callbackwomen): The Website
 
+The Pivotal Tracker backlog for this project can be found at (https://www.pivotaltracker.com/n/projects/1433838).
+
 ## Development
 
 Welcome to Rails.  You'll need Postgres set up locally.
