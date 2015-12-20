@@ -15,6 +15,13 @@ class TwitterUpdater < Struct.new(:consumer_key, :consumer_secret, :access_token
       .each(&:save!)
   end
 
+  def update_tweets(since = 1)
+    twitter_client.user_timeline(since_id: since)
+      .flat_map { |t| Tweet.from_twitter(t) }
+      .select(&:valid?)
+      .each(&:save!)
+  end
+
   private
 
   def twitter_client

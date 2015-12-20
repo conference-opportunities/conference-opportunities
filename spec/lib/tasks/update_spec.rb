@@ -17,4 +17,15 @@ describe 'update tasks', :fake_environment do
       run_rake_task
     end
   end
+
+  describe 'update:tweets' do
+    def run_rake_task
+      Rake.application.invoke_task('update:tweets')
+    end
+
+    it "runs TwitterUpdater#update_tweets" do
+      expect_any_instance_of(TwitterUpdater).to receive(:update_tweets)
+      run_rake_task
+    end
+  end
 end
