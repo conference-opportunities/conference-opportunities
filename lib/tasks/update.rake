@@ -6,6 +6,7 @@ namespace :update do
 
   desc "Update all tweets"
   task tweets: :environment do
-    TwitterUpdater.authenticated.update_tweets
+    last_tweet = Tweet.all.last || NullTweet.new
+    TwitterUpdater.authenticated.update_tweets(last_tweet.twitter_id.to_i + 1)
   end
 end
