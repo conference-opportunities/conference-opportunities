@@ -12,9 +12,9 @@ http_interactions:
       User-Agent:
       - TwitterRubyGem/5.15.0
       Authorization:
-      - OAuth oauth_consumer_key="FO5k9TDDAHeVvGAGkoaHUjmuF", oauth_nonce="e3b2d2bdfaccc904f020d7a3fe6b99a4",
-        oauth_signature="s7iNCgUNZMFb0p5Z1ElQKMv%2Fx6Q%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1450573095", oauth_token="4073022433-ki4vGtoYvB22lhnouqt8Jc0oLuXdIgLx2T6SqMX",
+      - OAuth oauth_consumer_key="FO5k9TDDAHeVvGAGkoaHUjmuF", oauth_nonce="bf6d2d3f5dbe3ea0dcbc8d8a474973bd",
+        oauth_signature="7uWSIIidilAlCHmHLej8iMdVvaE%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1450668352", oauth_token="4073022433-ki4vGtoYvB22lhnouqt8Jc0oLuXdIgLx2T6SqMX",
         oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -32,18 +32,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Sun, 20 Dec 2015 00:58:15 GMT
+      - Mon, 21 Dec 2015 03:25:53 GMT
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Sun, 20 Dec 2015 00:58:15 GMT
+      - Mon, 21 Dec 2015 03:25:53 GMT
       Pragma:
       - no-cache
       Server:
       - tsa_a
       Set-Cookie:
-      - guest_id=v1%3A145057309537425981; Domain=.twitter.com; Path=/; Expires=Tue,
-        19-Dec-2017 00:58:15 UTC
+      - guest_id=v1%3A145066835338380213; Domain=.twitter.com; Path=/; Expires=Wed,
+        20-Dec-2017 03:25:53 UTC
       - lang=en; Path=/
       Status:
       - 200 OK
@@ -52,7 +52,7 @@ http_interactions:
       X-Access-Level:
       - read
       X-Connection-Hash:
-      - 67cb2354376bc8572b7eba80302a99f9
+      - 1ba4202afe023431866fbb5a40100174
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -60,13 +60,13 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '15'
       X-Rate-Limit-Remaining:
-      - '14'
+      - '9'
       X-Rate-Limit-Reset:
-      - '1450573995'
+      - '1450669236'
       X-Response-Time:
-      - '20'
+      - '30'
       X-Transaction:
-      - 8af1141164ab66e4
+      - e5156c4eec7c1139
       X-Twitter-Response-Tags:
       - BouncerCompliant
       - BouncerExempt
@@ -78,10 +78,10 @@ http_interactions:
         Oct 30 22:02:20 +0000 2015","favourites_count":0,"utc_offset":-28800,"time_zone":"Pacific
         Time (US & Canada)","geo_enabled":false,"verified":false,"statuses_count":2,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false}'
     http_version: 
-  recorded_at: Sun, 20 Dec 2015 00:58:15 GMT
+  recorded_at: Mon, 21 Dec 2015 03:25:52 GMT
 - request:
     method: get
-    uri: https://api.twitter.com/1.1/friends/list.json?cursor=-1&user_id=4073022433
+    uri: https://api.twitter.com/1.1/friends/ids.json?cursor=-1&user_id=4073022433
     body:
       encoding: US-ASCII
       string: ''
@@ -91,9 +91,9 @@ http_interactions:
       User-Agent:
       - TwitterRubyGem/5.15.0
       Authorization:
-      - OAuth oauth_consumer_key="FO5k9TDDAHeVvGAGkoaHUjmuF", oauth_nonce="1baf7b0bfd0e4302f1f5c3a9450073cc",
-        oauth_signature="tVtkZOern2fBwCDi46YnMJ0Xkuc%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1450573095", oauth_token="4073022433-ki4vGtoYvB22lhnouqt8Jc0oLuXdIgLx2T6SqMX",
+      - OAuth oauth_consumer_key="FO5k9TDDAHeVvGAGkoaHUjmuF", oauth_nonce="26e0585b135badfa2e66f608ef01c95e",
+        oauth_signature="Pr3ZXwJbr73BzTph82kjz8FtHV8%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1450668352", oauth_token="4073022433-ki4vGtoYvB22lhnouqt8Jc0oLuXdIgLx2T6SqMX",
         oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -107,22 +107,22 @@ http_interactions:
       Content-Disposition:
       - attachment; filename=json.json
       Content-Length:
-      - '1227'
+      - '88'
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Sun, 20 Dec 2015 00:58:15 GMT
+      - Mon, 21 Dec 2015 03:25:53 GMT
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Sun, 20 Dec 2015 00:58:15 GMT
+      - Mon, 21 Dec 2015 03:25:53 GMT
       Pragma:
       - no-cache
       Server:
       - tsa_a
       Set-Cookie:
-      - guest_id=v1%3A145057309545245012; Domain=.twitter.com; Path=/; Expires=Tue,
-        19-Dec-2017 00:58:15 UTC
+      - guest_id=v1%3A145066835356095162; Domain=.twitter.com; Path=/; Expires=Wed,
+        20-Dec-2017 03:25:53 UTC
       - lang=en; Path=/
       Status:
       - 200 OK
@@ -131,7 +131,7 @@ http_interactions:
       X-Access-Level:
       - read
       X-Connection-Hash:
-      - 01a0bc66ab1a4ec5c3913b8344d679fc
+      - 90a27218bfc74f90e7ea510982f6544a
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -139,20 +139,100 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '15'
       X-Rate-Limit-Remaining:
-      - '14'
+      - '9'
       X-Rate-Limit-Reset:
-      - '1450573995'
+      - '1450669237'
       X-Response-Time:
-      - '49'
+      - '14'
       X-Transaction:
-      - 8fd1cb2b0647cff3
+      - 89c99b15e2a94e2a
       X-Twitter-Response-Tags:
       - BouncerCompliant
       X-Xss-Protection:
       - 1; mode=block
     body:
       encoding: ASCII-8BIT
-      string: '{"users":[{"id":3237999706,"id_str":"3237999706","name":"&:conf","screen_name":"andconf","location":"","description":"I''m
+      string: '{"ids":[3237999706],"next_cursor":0,"next_cursor_str":"0","previous_cursor":0,"previous_cursor_str":"0"}'
+    http_version: 
+  recorded_at: Mon, 21 Dec 2015 03:25:53 GMT
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/users/lookup.json
+    body:
+      encoding: UTF-8
+      string: user_id=3237999706
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="FO5k9TDDAHeVvGAGkoaHUjmuF", oauth_nonce="c270a2fdf1dbc6afae139700d3050367",
+        oauth_signature="d5n9K%2BUTa00V3U7qk%2BIzee0RcZw%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1450668353", oauth_token="4073022433-ki4vGtoYvB22lhnouqt8Jc0oLuXdIgLx2T6SqMX",
+        oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '1180'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 21 Dec 2015 03:25:54 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Mon, 21 Dec 2015 03:25:54 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A145066835450654197; Domain=.twitter.com; Path=/; Expires=Wed,
+        20-Dec-2017 03:25:54 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read
+      X-Connection-Hash:
+      - d70268423cdf5ae4b2d66b0fd738b828
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '174'
+      X-Rate-Limit-Reset:
+      - '1450669237'
+      X-Response-Time:
+      - '49'
+      X-Transaction:
+      - 3da0598b259281a9
+      X-Tsa-Request-Body-Time:
+      - '0'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"id":3237999706,"id_str":"3237999706","name":"&:conf","screen_name":"andconf","location":"","description":"I''m
         a feminist code retreat and unconference.","url":"https:\/\/t.co\/WOnBPD3TgN","entities":{"url":{"urls":[{"url":"https:\/\/t.co\/WOnBPD3TgN","expanded_url":"https:\/\/www.andconf.io\/","display_url":"andconf.io","indices":[0,23]}]},"description":{"urls":[]}},"protected":false,"followers_count":139,"friends_count":3,"listed_count":3,"created_at":"Wed
         May 06 03:46:31 +0000 2015","favourites_count":39,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":48,"lang":"en","status":{"created_at":"Sat
         Nov 14 02:22:00 +0000 2015","id":665353962384584704,"id_str":"665353962384584704","text":"RT
@@ -163,9 +243,9 @@ http_interactions:
         is how I felt when I was at @andconf, #myfirstconf as a developer  https:\/\/t.co\/di3K4tzL4F","source":"\u003ca
         href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter
         for Android\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":1,"favorite_count":8,"entities":{"hashtags":[{"text":"myfirstconf","indices":[43,55]}],"symbols":[],"user_mentions":[{"screen_name":"andconf","name":"&:conf","id":3237999706,"id_str":"3237999706","indices":[33,41]}],"urls":[{"url":"https:\/\/t.co\/di3K4tzL4F","expanded_url":"https:\/\/twitter.com\/rockbot\/status\/664594117356318720","display_url":"twitter.com\/rockbot\/status\u2026","indices":[72,95]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"},"retweet_count":1,"favorite_count":0,"entities":{"hashtags":[{"text":"myfirstconf","indices":[56,68]}],"symbols":[],"user_mentions":[{"screen_name":"KaraAJC","name":"Kara
-        Carrell","id":609443164,"id_str":"609443164","indices":[3,11]},{"screen_name":"andconf","name":"&:conf","id":3237999706,"id_str":"3237999706","indices":[46,54]}],"urls":[{"url":"https:\/\/t.co\/di3K4tzL4F","expanded_url":"https:\/\/twitter.com\/rockbot\/status\/664594117356318720","display_url":"twitter.com\/rockbot\/status\u2026","indices":[85,108]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"000000","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/599401639540183040\/SdPLw1Iz_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/599401639540183040\/SdPLw1Iz_normal.png","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/3237999706\/1431743241","profile_link_color":"3B94D9","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"000000","profile_text_color":"000000","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":true,"follow_request_sent":false,"notifications":false,"muting":false,"blocking":false,"blocked_by":false}],"next_cursor":0,"next_cursor_str":"0","previous_cursor":0,"previous_cursor_str":"0"}'
+        Carrell","id":609443164,"id_str":"609443164","indices":[3,11]},{"screen_name":"andconf","name":"&:conf","id":3237999706,"id_str":"3237999706","indices":[46,54]}],"urls":[{"url":"https:\/\/t.co\/di3K4tzL4F","expanded_url":"https:\/\/twitter.com\/rockbot\/status\/664594117356318720","display_url":"twitter.com\/rockbot\/status\u2026","indices":[85,108]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"000000","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/599401639540183040\/SdPLw1Iz_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/599401639540183040\/SdPLw1Iz_normal.png","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/3237999706\/1431743241","profile_link_color":"3B94D9","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"000000","profile_text_color":"000000","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":true,"follow_request_sent":false,"notifications":false}]'
     http_version: 
-  recorded_at: Sun, 20 Dec 2015 00:58:15 GMT
+  recorded_at: Mon, 21 Dec 2015 03:25:55 GMT
 - request:
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?since_id=678338428191170560
@@ -178,9 +258,9 @@ http_interactions:
       User-Agent:
       - TwitterRubyGem/5.15.0
       Authorization:
-      - OAuth oauth_consumer_key="FO5k9TDDAHeVvGAGkoaHUjmuF", oauth_nonce="89c73880b5fe6f302ad714c6dcecb967",
-        oauth_signature="6Rql4L9zxRNMzU1RLDfUMFaTt6o%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1450573095", oauth_token="4073022433-ki4vGtoYvB22lhnouqt8Jc0oLuXdIgLx2T6SqMX",
+      - OAuth oauth_consumer_key="FO5k9TDDAHeVvGAGkoaHUjmuF", oauth_nonce="a70f1ebf9533bd2b186c6c063fac083f",
+        oauth_signature="kM9i3Qbs9W38YQsi38BKqa5qCbI%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1450668355", oauth_token="4073022433-ki4vGtoYvB22lhnouqt8Jc0oLuXdIgLx2T6SqMX",
         oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -198,18 +278,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Sun, 20 Dec 2015 00:58:15 GMT
+      - Mon, 21 Dec 2015 03:25:56 GMT
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Sun, 20 Dec 2015 00:58:15 GMT
+      - Mon, 21 Dec 2015 03:25:56 GMT
       Pragma:
       - no-cache
       Server:
       - tsa_a
       Set-Cookie:
-      - guest_id=v1%3A145057309556012980; Domain=.twitter.com; Path=/; Expires=Tue,
-        19-Dec-2017 00:58:15 UTC
+      - guest_id=v1%3A145066835635111749; Domain=.twitter.com; Path=/; Expires=Wed,
+        20-Dec-2017 03:25:56 UTC
       - lang=en; Path=/
       Status:
       - 200 OK
@@ -218,7 +298,7 @@ http_interactions:
       X-Access-Level:
       - read
       X-Connection-Hash:
-      - 87640064ecfc0e181f367255cb85fce4
+      - 19fefb1f751b887dd9cb4e9b8016a872
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -226,13 +306,13 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '180'
       X-Rate-Limit-Remaining:
-      - '179'
+      - '175'
       X-Rate-Limit-Reset:
-      - '1450573995'
+      - '1450669249'
       X-Response-Time:
-      - '27'
+      - '26'
       X-Transaction:
-      - 096e04927a8cd700
+      - 833849b4ef9d239b
       X-Twitter-Response-Tags:
       - BouncerCompliant
       X-Xss-Protection:
@@ -246,5 +326,5 @@ http_interactions:
         Oct 30 22:02:20 +0000 2015","favourites_count":0,"utc_offset":-28800,"time_zone":"Pacific
         Time (US & Canada)","geo_enabled":false,"verified":false,"statuses_count":2,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[{"screen_name":"andconf","name":"&:conf","id":3237999706,"id_str":"3237999706","indices":[27,35]}],"urls":[]},"favorited":false,"retweeted":false,"lang":"en"}]'
     http_version: 
-  recorded_at: Sun, 20 Dec 2015 00:58:15 GMT
+  recorded_at: Mon, 21 Dec 2015 03:25:55 GMT
 recorded_with: VCR 3.0.0

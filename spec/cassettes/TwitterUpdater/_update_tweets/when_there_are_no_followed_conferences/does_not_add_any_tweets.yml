@@ -12,9 +12,9 @@ http_interactions:
       User-Agent:
       - TwitterRubyGem/5.15.0
       Authorization:
-      - OAuth oauth_consumer_key="FO5k9TDDAHeVvGAGkoaHUjmuF", oauth_nonce="a6756d3a05a80c08c7bb2ce011efadac",
-        oauth_signature="BlTrWel5ihcLjUYH3UaNX3%2FWbDg%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1450572108", oauth_token="4073022433-ki4vGtoYvB22lhnouqt8Jc0oLuXdIgLx2T6SqMX",
+      - OAuth oauth_consumer_key="FO5k9TDDAHeVvGAGkoaHUjmuF", oauth_nonce="c391e672481d02d515e3bcd6c0363b7e",
+        oauth_signature="j5iH6kI7zoIbpYzetMQgkKH%2Fmww%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1450668347", oauth_token="4073022433-ki4vGtoYvB22lhnouqt8Jc0oLuXdIgLx2T6SqMX",
         oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -32,18 +32,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Sun, 20 Dec 2015 00:41:49 GMT
+      - Mon, 21 Dec 2015 03:25:49 GMT
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Sun, 20 Dec 2015 00:41:49 GMT
+      - Mon, 21 Dec 2015 03:25:49 GMT
       Pragma:
       - no-cache
       Server:
       - tsa_a
       Set-Cookie:
-      - guest_id=v1%3A145057210899393080; Domain=.twitter.com; Path=/; Expires=Tue,
-        19-Dec-2017 00:41:49 UTC
+      - guest_id=v1%3A145066834902382369; Domain=.twitter.com; Path=/; Expires=Wed,
+        20-Dec-2017 03:25:49 UTC
       - lang=en; Path=/
       Status:
       - 200 OK
@@ -52,7 +52,7 @@ http_interactions:
       X-Access-Level:
       - read
       X-Connection-Hash:
-      - d8a4dbb137b781e9364ceee608e3b8d2
+      - e8a79724f2843b137df31b13dd0d71d2
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -60,13 +60,13 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '180'
       X-Rate-Limit-Remaining:
-      - '163'
+      - '179'
       X-Rate-Limit-Reset:
-      - '1450572702'
+      - '1450669249'
       X-Response-Time:
       - '30'
       X-Transaction:
-      - e18c253074bcd63c
+      - 25f88173cbdf70c9
       X-Twitter-Response-Tags:
       - BouncerCompliant
       X-Xss-Protection:
@@ -96,5 +96,5 @@ http_interactions:
         of Velocity","id":1638346088,"id_str":"1638346088","indices":[124,133]}],"urls":[]},"favorited":false,"retweeted":true,"lang":"en"},"is_quote_status":false,"retweet_count":3,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[{"screen_name":"andconf","name":"&:conf","id":3237999706,"id_str":"3237999706","indices":[3,11]},{"screen_name":"minifast","name":"Ministry
         of Velocity","id":1638346088,"id_str":"1638346088","indices":[137,144]}],"urls":[]},"favorited":false,"retweeted":true,"lang":"en"}]'
     http_version: 
-  recorded_at: Sun, 20 Dec 2015 00:41:49 GMT
+  recorded_at: Mon, 21 Dec 2015 03:25:48 GMT
 recorded_with: VCR 3.0.0

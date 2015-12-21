@@ -9,7 +9,7 @@ class TwitterUpdater < Struct.new(:consumer_key, :consumer_secret, :access_token
   end
 
   def update_conferences
-    twitter_client.friends
+    friends
       .map { |f| Conference.from_twitter_user(f) }
       .select(&:valid?)
       .each(&:save!)
@@ -23,6 +23,12 @@ class TwitterUpdater < Struct.new(:consumer_key, :consumer_secret, :access_token
   end
 
   private
+
+  def friends(count = 100)
+    twitter_client.friend_ids.each_slice(count).flat_map do |friend_ids|
+      twitter_client.users(friend_ids)
+    end
+  end
 
   def twitter_client
     Twitter::REST::Client.new do |config|
