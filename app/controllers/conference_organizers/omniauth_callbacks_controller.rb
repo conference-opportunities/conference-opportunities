@@ -5,7 +5,7 @@ class ConferenceOrganizers::OmniauthCallbacksController < Devise::OmniauthCallba
       sign_in organizer
       redirect_to conference_path(organizer.conference)
     else
-      redirect_to root_path
+      redirect_to root_path, alert: 'You are not a conference'
     end
   end
 end

@@ -30,6 +30,11 @@ RSpec.describe ConferenceOrganizers::OmniauthCallbacksController do
         get :twitter
         expect(response).to redirect_to root_path
       end
+
+      it 'warns the user that they are not a conference' do
+        get :twitter
+        expect(flash[:alert]).to eq 'You are not a conference'
+      end
     end
   end
 end
