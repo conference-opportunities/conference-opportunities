@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Conference, type: :model do
+RSpec.describe Conference do
   subject(:conference) { Conference.create!(twitter_handle: 'bobdole') }
 
   specify { expect(subject).to have_many(:tweets).dependent(:destroy) }

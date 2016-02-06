@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ConferencesController, type: :controller do
+RSpec.describe ConferencesController do
   let(:twitter_handle) { "foobar" }
 
   describe "GET #show" do
