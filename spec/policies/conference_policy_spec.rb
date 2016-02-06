@@ -1,21 +1,50 @@
 require "rails_helper"
 
 RSpec.describe ConferencePolicy do
-  let(:policy) { ConferencePolicy.new(organizer, conference) }
+  let(:conference) { Conference.create(twitter_handle: "handleconf") }
+  let(:organizer) { ConferenceOrganizer.create(conference: conference) }
+
+  subject(:policy) { ConferencePolicy.new(organizer, conference) }
 
   describe "#edit?" do
-    let(:conference) { Conference.create(twitter_handle: "handleconf") }
-
     context "when the conference organizer owns the conference" do
-      let(:organizer) { ConferenceOrganizer.create(conference: conference) }
-
-      specify { expect(policy).to be_edit }
+      it { is_expected.to be_edit }
     end
 
     context "when the conference organizer does NOT own the conference" do
       let(:organizer) { ConferenceOrganizer.create }
 
-      specify { expect(policy).not_to be_edit }
+      it { is_expected.not_to be_edit }
+    end
+  end
+
+  describe "#show?" do
+    context "when the conference is not approved" do
+      it { is_expected.not_to be_show }
+    end
+
+    context "when the conference is approved" do
+      let(:conference) { Conference.create(twitter_handle: "handleconf", approved_at: Date.today) }
+      it { is_expected.to be_show }
+    end
+  end
+
+  describe ConferencePolicy::Scope do
+    let!(:approved_conference) do
+      Conference.create(twitter_handle: 'happycon', approved_at: Time.now)
+    end
+
+    let!(:unapproved_conference) do
+      Conference.create(twitter_handle: 'grumpycon', approved_at: nil)
+    end
+
+    describe "#resolve" do
+      subject(:conferences) do
+        ConferencePolicy::Scope.new(organizer, Conference).resolve
+      end
+
+      it { is_expected.to include(approved_conference) }
+      it { is_expected.not_to include(unapproved_conference) }
     end
   end
 end

@@ -4,11 +4,12 @@ RSpec.describe ConferencesController do
   let(:twitter_handle) { "foobar" }
 
   describe "GET #show" do
-    context "when twitter_handle is known" do
-      let!(:conference) do
-        Conference.create(twitter_handle: twitter_handle)
-      end
+    let!(:conference) do
+      Conference.create(twitter_handle: twitter_handle, approved_at: approved_at)
+    end
+    let(:approved_at) { Time.now }
 
+    context "when requested conference is approved" do
       specify do
         get :show, id: twitter_handle
         expect(response).to be_success
@@ -20,9 +21,18 @@ RSpec.describe ConferencesController do
       end
     end
 
-    context "when twitter_handle is unknown" do
-      it "raises a not found exception" do
+    context "when the conference is not approved" do
+      let(:approved_at) { nil }
+
+      it "redirects to the home page" do
         expect { get :show, id: twitter_handle }.
+          to raise_error(Pundit::NotAuthorizedError)
+      end
+    end
+
+    context "when the requested conference doesn't exist" do
+      it "raises a not found exception" do
+        expect { get :show, id: "fake_twitter_handle" }.
           to raise_error(ActiveRecord::RecordNotFound)
       end
     end
@@ -67,7 +77,11 @@ RSpec.describe ConferencesController do
 
   describe "GET #index" do
     let!(:conference) do
-      Conference.create(twitter_handle: twitter_handle)
+      Conference.create(twitter_handle: twitter_handle, approved_at: Time.now)
+    end
+
+    let!(:unapproved_conference) do
+      Conference.create(twitter_handle: 'grumpyconf', approved_at: nil)
     end
 
     it "returns http success" do
@@ -75,7 +89,7 @@ RSpec.describe ConferencesController do
       expect(response).to have_http_status(:success)
     end
 
-    it "assigns all the conferences ever" do
+    it "assigns all the approved conferences" do
       get :index
       expect(assigns(:conferences)).to eq([conference])
     end

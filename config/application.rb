@@ -11,5 +11,6 @@ module ConferenceOpportunities
     config.autoload_paths << Rails.root.join('lib')
     config.autoload_paths << Rails.root.join('app/presenters')
     config.active_record.raise_in_transactional_callbacks = true
+    config.action_dispatch.rescue_responses["Pundit::NotAuthorizedError"] = :forbidden
   end
 end

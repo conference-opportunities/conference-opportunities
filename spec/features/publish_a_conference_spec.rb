@@ -21,10 +21,19 @@ RSpec.feature "Publish a conference", :js do
   end
 
   scenario "a followed conference organizer can list their conference" do
+    visit root_path
+    expect(page).not_to have_content "Interesting conference"
+
     visit approval_path
     click_on "Yes, list me!"
     expect(page).to have_content "List your conference"
     click_on "Create listing"
     expect(page).to have_content "@conferencename"
+
+    logout(:conference_organizer)
+
+    visit root_path
+    click_on "Interesting conference"
+    expect(current_path).to eq conference_path(conference)
   end
 end

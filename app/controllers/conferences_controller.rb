@@ -2,10 +2,11 @@ class ConferencesController < ApplicationController
   before_action :authenticate_conference_organizer!, only: [:edit]
 
   def index
-    @conferences = Conference.all
+    @conferences = policy_scope(Conference)
   end
 
   def show
+    authorize current_conference
     @conference = ConferencePresenter.new(current_conference)
   end
 
