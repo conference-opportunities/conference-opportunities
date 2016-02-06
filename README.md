@@ -19,6 +19,13 @@ For integration testing, we use [@fakemovaccount](https://twitter.com/fakemovacc
 $ bundle exec rspec
 ```
 
+## Deployment
+
+Use Heroku.
+
+Later, make sure the Twitter app has a Callback URL set in the Settings tab.
+Otherwise you'll see a 401 error from Omniauth.
+
 ## Contributing
 
 1. Fork it ( https://github.com/minifast/conference-opportunities/fork )
