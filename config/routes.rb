@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :conferences, only: [:index, :show, :edit] do
     resource :approval, only: [:create], module: :conferences
   end
+  resource :approval, only: [:show]
   root to: 'conferences#index'
 end
