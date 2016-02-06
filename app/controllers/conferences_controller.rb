@@ -1,5 +1,4 @@
 class ConferencesController < ApplicationController
-  include Pundit
   before_action :authenticate_conference_organizer!, only: [:edit]
 
   def index
@@ -19,9 +18,5 @@ class ConferencesController < ApplicationController
 
   def current_conference
     Conference.find_by_twitter_handle!(params[:id])
-  end
-
-  def pundit_user
-    current_conference_organizer
   end
 end
