@@ -149,6 +149,8 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -285,6 +287,7 @@ DEPENDENCIES
   omniauth-twitter
   pg
   poltergeist
+  pundit
   rails (= 4.2.4)
   rails_12factor
   rspec-rails
@@ -298,4 +301,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

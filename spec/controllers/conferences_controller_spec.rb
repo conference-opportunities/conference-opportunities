@@ -16,14 +16,51 @@ RSpec.describe ConferencesController do
 
       it "assigns the conference" do
         get :show, id: twitter_handle
-        expect(assigns(:conference).twitter_name).to eq("@foobar")
+        expect(assigns(:conference).instance).to eq(conference)
       end
     end
 
     context "when twitter_handle is unknown" do
+      it "raises a not found exception" do
+        expect { get :show, id: twitter_handle }.
+          to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+  end
+
+  describe "GET #edit" do
+    let!(:conference) do
+      Conference.create(twitter_handle: twitter_handle)
+    end
+    let(:organizer) do
+      ConferenceOrganizer.create(uid: '123', provider: 'twitter', conference: conference)
+    end
+
+    context 'when not signed in' do
+      it 'boots the browser back to the root path' do
+        get :edit, id: twitter_handle
+        expect(response).to redirect_to(root_path)
+      end
+    end
+
+    context 'when the appropriate organizer is signed in' do
+      before { sign_in :conference_organizer, organizer }
+
       it "assigns the conference" do
-        get :show, id: twitter_handle
-        expect(response).to have_http_status(404)
+        get :edit, id: twitter_handle
+        expect(assigns(:conference)).to eq(conference)
+      end
+    end
+
+    context 'when a different organizer is signed in' do
+      before do
+        Conference.create(twitter_handle: "not_my_twitter_handle")
+        sign_in :conference_organizer, organizer
+      end
+
+      it "raises a not authorized error" do
+        expect { get :edit, id: "not_my_twitter_handle" }.
+          to raise_error(Pundit::NotAuthorizedError)
       end
     end
   end

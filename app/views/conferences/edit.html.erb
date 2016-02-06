@@ -1,0 +1,6 @@
+<h1>List your conference</h1>
+
+<%= form_for @conference do |f| %>
+  <%= f.hidden_field :published_at, value: Time.now %>
+  <%= f.submit 'Create listing' %>
+<% end %>

@@ -1,18 +1,27 @@
 class ConferencesController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :return_not_found
-
-  def show
-    conference = Conference.find_by_twitter_handle!(params[:id])
-    @conference = ConferencePresenter.new(conference)
-  end
+  include Pundit
+  before_action :authenticate_conference_organizer!, only: [:edit]
 
   def index
     @conferences = Conference.all
   end
 
+  def show
+    @conference = ConferencePresenter.new(current_conference)
+  end
+
+  def edit
+    @conference = current_conference
+    authorize @conference
+  end
+
   private
 
-  def return_not_found
-    render file: '/public/404.html', status: 404
+  def current_conference
+    Conference.find_by_twitter_handle!(params[:id])
+  end
+
+  def pundit_user
+    current_conference_organizer
   end
 end
