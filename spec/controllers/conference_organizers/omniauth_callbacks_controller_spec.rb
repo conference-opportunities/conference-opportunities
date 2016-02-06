@@ -19,9 +19,9 @@ RSpec.describe ConferenceOrganizers::OmniauthCallbacksController do
         Conference.create!(twitter_handle: 'conf')
       end
 
-      it "redirects the organizer's conference page" do
+      it "redirects the organizer's conference edit page" do
         get :twitter
-        expect(response).to redirect_to conference_path(conference)
+        expect(response).to redirect_to edit_conference_path(conference)
       end
     end
 
