@@ -1,0 +1,11 @@
+<% if flash.any? %>
+<section class="flash">
+  <% flash.each do |key, value| %>
+    <%= check_box_tag key %>
+    <%= content_tag(:article, class: key) do %>
+      <%= content_tag(:p, value) %>
+      <%= content_tag(:label, '&times;'.html_safe, for: key) %>
+    <% end %>
+  <% end %>
+</section
+<% end %>

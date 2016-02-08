@@ -1,0 +1,19 @@
+section.flash {
+  input {
+    display: none;
+  }
+
+  input:checked + article {
+    display: none;
+  }
+
+  article {
+    position: relative;
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
