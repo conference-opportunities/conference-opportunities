@@ -1,0 +1,15 @@
+$callback-blue: rgb(74, 144, 226);
+$callback-green: rgb(95, 225, 194);
+$callback-grey: rgb(216, 216, 216);
+$callback-dark-grey: rgb(51, 51, 51);
+$callback-gray: $callback-grey; // http://grammarist.com/spelling/gray-grey
+$callback-dark-gray: $callback-dark-grey;
+
+$base-font-color: $callback-dark-grey;
+$action-color: $callback-blue;
+
+$base-border-color: $callback-blue;
+$base-border: 0.1rem solid $base-border-color;
+
+$base-background-color: $callback-gray;
+$secondary-background-color: #fff;

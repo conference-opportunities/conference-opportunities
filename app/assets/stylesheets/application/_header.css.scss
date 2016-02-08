@@ -1,20 +1,32 @@
-$callback-blue: #00f;
-
-header {
-  width: 100%;
-  margin: 0;
+body > header {
+  padding: 1rem;
+  background-color: $base-background-color;
 
   display: flex;
   justify-content: space-between;
+
+  h1 {
+    font-size: 1.7rem;
+    line-height: 1;
+    margin: 0;
+  }
 
   a {
     color: $callback-blue;
     text-decoration: none;
   }
 
+  ul {
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
   nav a {
     border: 0.1rem solid $callback-blue;
-    border-radius: 0.25rem;
-    padding: 0.25rem;
+    border-radius: $base-border-radius;
+    padding: 0.25rem 0.5rem;
   }
 }
