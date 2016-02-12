@@ -34,6 +34,17 @@ RSpec.describe TwitterUpdater, :vcr do
         }.to change(Conference, :count).by(0)
       end
     end
+
+    context "when a conference exists that is no longer followed" do
+      let!(:unfollowed_conference) do
+        Conference.create!(twitter_handle: 'broconf')
+      end
+
+      it "deletes the conference" do
+        TwitterUpdater.authenticated.update_conferences
+        expect(Conference.find_by(twitter_handle: 'broconf')).to be_nil
+      end
+    end
   end
 
   describe '#update_tweets' do

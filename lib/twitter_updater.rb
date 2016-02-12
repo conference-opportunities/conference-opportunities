@@ -13,6 +13,7 @@ class TwitterUpdater < Struct.new(:consumer_key, :consumer_secret, :access_token
       .map { |f| Conference.from_twitter_user(f) }
       .select(&:valid?)
       .each(&:save!)
+    Conference.where.not(twitter_handle: friends.map(&:screen_name)).destroy_all
   end
 
   def update_tweets(since = 1)
@@ -25,8 +26,8 @@ class TwitterUpdater < Struct.new(:consumer_key, :consumer_secret, :access_token
   private
 
   def friends(count = 100)
-    twitter_client.friend_ids.each_slice(count).flat_map do |friend_ids|
-      twitter_client.users(friend_ids)
+    @friends ||= twitter_client.friend_ids.each_slice(count).flat_map do |ids|
+      twitter_client.users(ids)
     end
   end
 
