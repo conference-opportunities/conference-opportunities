@@ -3,7 +3,24 @@
 </header>
 
 <%= form_for(@conference, url: conference_approval_path(@conference), method: "post") do |f| %>
-  <fieldset class="submit">
+  <section class="inputs">
+    <fieldset>
+      <%= f.label :name, 'Conference name' %>
+      <%= f.text_field :name %>
+
+      <%= f.label :website_url, 'Website' %>
+      <%= f.text_field :website_url %>
+
+      <%= f.label :twitter_handle, 'Twitter handle' %>
+      <%= f.text_field :twitter_handle, disabled: true %>
+    </fieldset>
+
+    <figure>
+      <%= image_tag @conference.logo_url %>
+    </figure>
+  </section>
+
+  <section class="submit">
     <%= f.submit "Create listing" %>
-  </fieldset>
+  </section>
 <% end %>

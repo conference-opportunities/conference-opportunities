@@ -30,14 +30,23 @@ RSpec.describe Conferences::ApprovalsController do
     context "organizer is authorized" do
       before { sign_in :conference_organizer, organizer }
 
+      def make_request(conference = {name: "hamconf"})
+        post :create, conference_id: "myconf", conference: conference
+      end
+
       it "redirects to the conference" do
-        post :create, conference_id: "myconf"
+        make_request
         expect(response).to redirect_to(conference)
       end
 
       it "approves the conference" do
-        expect { post :create, conference_id: "myconf" }.
+        expect { make_request }.
         to change { conference.reload.approved_at }.from(nil)
+      end
+
+      it "updates passed in attributes" do
+        expect { make_request(name: "Most excellent conf") }.
+        to change { conference.reload.name }.to("Most excellent conf")
       end
     end
   end

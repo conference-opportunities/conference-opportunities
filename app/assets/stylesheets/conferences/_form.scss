@@ -1,5 +1,5 @@
 .conferences main {
-  fieldset.submit {
+  section.submit {
     text-align: center;
   }
 
@@ -8,7 +8,26 @@
   }
 
   form {
-    width: 30rem;
+    max-width: 30rem;
     margin: 0 auto;
+  }
+
+  section.inputs {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  figure {
+    padding-top: 1.75rem;
+    flex: 0 1 8rem;
+
+    img {
+      width: 8rem;
+    }
+  }
+
+  fieldset {
+    flex: 0 1 22rem;
+    padding-right: 1rem;
   }
 }
