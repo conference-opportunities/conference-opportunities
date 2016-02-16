@@ -1,3 +1,9 @@
-<h1>List your conference</h1>
+<header>
+  <h2>List your conference</h2>
+</header>
 
-<%= button_to "Create listing", conference_approval_path(@conference) %>
+<%= form_for(@conference, url: conference_approval_path(@conference), method: "post") do |f| %>
+  <fieldset class="submit">
+    <%= f.submit "Create listing" %>
+  </fieldset>
+<% end %>

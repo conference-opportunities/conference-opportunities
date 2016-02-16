@@ -4,15 +4,19 @@ $callback-red: rgb(255, 162, 108);
 $callback-yellow: rgb(255, 199, 108);
 
 $callback-grey: rgb(216, 216, 216);
+$callback-medium-grey: rgb(153, 153, 153);
 $callback-dark-grey: rgb(51, 51, 51);
-$callback-gray: $callback-grey; // http://grammarist.com/spelling/gray-grey
+
+// For the North American speller, see http://grammarist.com/spelling/gray-grey
+$callback-gray: $callback-grey;
+$callback-medium-gray: $callback-medium-grey;
 $callback-dark-gray: $callback-dark-grey;
 
 $base-font-color: $callback-dark-grey;
 $action-color: $callback-blue;
 
-$base-border-color: $callback-blue;
+$base-border-color: $callback-medium-grey;
 $base-border: 0.1rem solid $base-border-color;
 
-$base-background-color: $callback-gray;
-$secondary-background-color: #fff;
+$base-background-color: #fff;
+$header-background-color: $callback-gray;

@@ -1,11 +1,11 @@
 .approvals main {
   header {
-    color: $action-color;
-    background-color: $base-background-color;
+    color: $callback-blue;
+    background-color: $header-background-color;
 
     padding: 3rem 1rem;
     text-align: center;
-    border-bottom: 0.1rem solid darken($base-background-color, 15%);
+    border-bottom: 0.1rem solid darken($header-background-color, 15%);
   }
 
   h2 {
