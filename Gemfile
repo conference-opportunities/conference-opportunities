@@ -30,6 +30,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
