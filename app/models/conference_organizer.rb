@@ -5,7 +5,7 @@ class ConferenceOrganizer < ActiveRecord::Base
 
   validates :conference_id, presence: true, uniqueness: true
   validates :provider, presence: true
-  validates :uid, presence: true, uniqueness: {scope: :provider}
+  validates :uid, presence: true, uniqueness: {scope: :provider, case_sensitive: false}
 
   def self.from_omniauth(auth)
     ConferenceOrganizer.find_or_initialize_by(uid: auth.uid, provider: auth.provider) do |organizer|

@@ -6,7 +6,7 @@ RSpec.describe Tweet do
 
   it { is_expected.to belong_to(:conference) }
   it { is_expected.to validate_presence_of(:conference) }
-  it { is_expected.to validate_uniqueness_of(:twitter_id).scoped_to(:conference_id) }
+  it { is_expected.to validate_uniqueness_of(:twitter_id).scoped_to(:conference_id).case_insensitive }
 
   describe '.from_twitter' do
     let!(:conference) { Conference.create!(twitter_handle: 'andconf') }

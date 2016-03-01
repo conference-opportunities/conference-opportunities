@@ -16,7 +16,7 @@ RSpec.describe ConferenceOrganizer do
 
   specify { expect(subject).to validate_presence_of(:provider) }
   specify { expect(subject).to validate_presence_of(:uid) }
-  specify { expect(subject).to validate_uniqueness_of(:uid).scoped_to(:provider) }
+  specify { expect(subject).to validate_uniqueness_of(:uid).scoped_to(:provider).case_insensitive }
 
   describe ".from_omniauth" do
     let(:info) { OpenStruct.new(nickname: 'confconf') }
