@@ -18,7 +18,7 @@ gem 'byebug', groups: [:development, :test]
 gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.0'
 end
 
 group :production do
