@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301231933) do
+ActiveRecord::Schema.define(version: 20160311202259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,15 +28,23 @@ ActiveRecord::Schema.define(version: 20160301231933) do
   add_index "conference_organizers", ["provider", "uid"], name: "index_conference_organizers_on_provider_and_uid", unique: true, using: :btree
 
   create_table "conferences", force: :cascade do |t|
-    t.string   "twitter_handle", null: false
+    t.string   "twitter_handle",             null: false
     t.string   "logo_url"
     t.string   "name"
     t.string   "location"
     t.string   "website_url"
     t.text     "description"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.datetime "approved_at"
+    t.datetime "cfp_deadline"
+    t.string   "cfp_url"
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.boolean  "has_travel_funding"
+    t.boolean  "has_lodging_funding"
+    t.boolean  "has_honorariums"
+    t.boolean  "has_diversity_scholarships"
   end
 
   add_index "conferences", ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
