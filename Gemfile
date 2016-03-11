@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip
 
-gem 'rails', '4.2.5.2'
+gem 'rails', '4.2.6'
 gem 'pg'
 
 gem 'devise'
