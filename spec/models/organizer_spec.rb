@@ -10,13 +10,13 @@ RSpec.describe Organizer do
     Conference.create!(twitter_handle: 'confconf')
   end
 
-  specify { expect(subject).to belong_to(:conference) }
-  specify { expect(subject).to validate_presence_of(:conference_id) }
-  specify { expect(subject).to validate_uniqueness_of(:conference_id) }
+  it { is_expected.to have_one(:organizer_conference) }
+  it { is_expected.to have_one(:conference).through(:organizer_conference) }
 
-  specify { expect(subject).to validate_presence_of(:provider) }
-  specify { expect(subject).to validate_presence_of(:uid) }
-  specify { expect(subject).to validate_uniqueness_of(:uid).scoped_to(:provider).case_insensitive }
+  it { is_expected.to validate_presence_of(:organizer_conference) }
+  it { is_expected.to validate_presence_of(:provider) }
+  it { is_expected.to validate_presence_of(:uid) }
+  it { is_expected.to validate_uniqueness_of(:uid).scoped_to(:provider).case_insensitive }
 
   describe ".from_omniauth" do
     let(:info) { OpenStruct.new(nickname: 'confconf') }

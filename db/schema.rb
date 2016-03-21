@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321173623) do
+ActiveRecord::Schema.define(version: 20160321182838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,15 +38,23 @@ ActiveRecord::Schema.define(version: 20160321173623) do
 
   add_index "conferences", ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
 
-  create_table "organizers", force: :cascade do |t|
-    t.string   "provider",      null: false
-    t.string   "uid",           null: false
+  create_table "organizer_conferences", force: :cascade do |t|
+    t.integer  "organizer_id",  null: false
     t.integer  "conference_id", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  add_index "organizers", ["conference_id"], name: "index_organizers_on_conference_id", unique: true, using: :btree
+  add_index "organizer_conferences", ["conference_id"], name: "index_organizer_conferences_on_conference_id", unique: true, using: :btree
+  add_index "organizer_conferences", ["organizer_id"], name: "index_organizer_conferences_on_organizer_id", unique: true, using: :btree
+
+  create_table "organizers", force: :cascade do |t|
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_index "organizers", ["provider", "uid"], name: "index_organizers_on_provider_and_uid", unique: true, using: :btree
 
   create_table "tweets", force: :cascade do |t|
@@ -58,4 +66,6 @@ ActiveRecord::Schema.define(version: 20160321173623) do
 
   add_index "tweets", ["conference_id", "twitter_id"], name: "index_tweets_on_conference_id_and_twitter_id", unique: true, using: :btree
 
+  add_foreign_key "organizer_conferences", "conferences"
+  add_foreign_key "organizer_conferences", "organizers"
 end
