@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe ConferenceOrganizer do
+RSpec.describe Organizer do
   subject(:organizer) do
-    ConferenceOrganizer.new(provider: 'diogenes', uid: '1',
+    Organizer.new(provider: 'diogenes', uid: '1',
                             conference: conference)
   end
 
@@ -26,12 +26,12 @@ RSpec.describe ConferenceOrganizer do
       before { organizer.save! }
 
       it "returns the existing conference organizer" do
-        expect(ConferenceOrganizer.from_omniauth(auth)).to eq(organizer)
+        expect(Organizer.from_omniauth(auth)).to eq(organizer)
       end
     end
 
     context "when the conference organizer does NOT already exist" do
-      let(:new_organizer) { ConferenceOrganizer.from_omniauth(auth) }
+      let(:new_organizer) { Organizer.from_omniauth(auth) }
 
       context "when there is a corresponding conference" do
         it "initializes a valid organizer for the conference" do

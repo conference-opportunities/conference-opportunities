@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ConferenceOrganizers::OmniauthCallbacksController do
+RSpec.describe Organizers::OmniauthCallbacksController do
   let(:valid_twitter_auth) do
     OmniAuth::AuthHash.new(
       provider: 'twitter',

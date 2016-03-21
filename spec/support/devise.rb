@@ -7,7 +7,7 @@ RSpec.configure do |config|
   config.before(:suite) { Warden.test_mode! }
 
   config.before(:each) do |example|
-    mapping = Devise.mappings[:conference_organizer]
+    mapping = Devise.mappings[:organizer]
 
     if defined?(request)
       request.env["devise.mapping"] = mapping

@@ -1,6 +1,6 @@
-class ConferenceOrganizers::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Organizers::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def twitter
-    organizer = ConferenceOrganizer.from_omniauth(request.env["omniauth.auth"])
+    organizer = Organizer.from_omniauth(request.env["omniauth.auth"])
     if organizer.save
       sign_in organizer
       redirect_to edit_conference_path(organizer.conference)

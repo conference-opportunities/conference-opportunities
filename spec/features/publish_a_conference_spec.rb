@@ -35,7 +35,7 @@ RSpec.feature "Publish a conference", :js do
     click_on "Create listing"
     expect(page).to have_content "@conferencename"
 
-    logout(:conference_organizer)
+    logout(:organizer)
 
     visit root_path
     click_on "Six hours of bathroom lines"

@@ -43,7 +43,7 @@ RSpec.describe ConferencesController do
       Conference.create(twitter_handle: twitter_handle)
     end
     let(:organizer) do
-      ConferenceOrganizer.create(uid: '123', provider: 'twitter', conference: conference)
+      Organizer.create(uid: '123', provider: 'twitter', conference: conference)
     end
 
     context 'when not signed in' do
@@ -54,7 +54,7 @@ RSpec.describe ConferencesController do
     end
 
     context 'when the appropriate organizer is signed in' do
-      before { sign_in :conference_organizer, organizer }
+      before { sign_in :organizer, organizer }
 
       it "assigns the conference" do
         get :edit, id: twitter_handle
@@ -65,7 +65,7 @@ RSpec.describe ConferencesController do
     context 'when a different organizer is signed in' do
       before do
         Conference.create(twitter_handle: "not_my_twitter_handle")
-        sign_in :conference_organizer, organizer
+        sign_in :organizer, organizer
       end
 
       it "raises a not authorized error" do
@@ -78,7 +78,7 @@ RSpec.describe ConferencesController do
   describe "PATCH #edit" do
     let!(:conference) { Conference.create! twitter_handle: "myconf" }
     let(:organizer) do
-      ConferenceOrganizer.create(uid: '123', provider: 'twitter',
+      Organizer.create(uid: '123', provider: 'twitter',
                                  conference: conference)
     end
 
@@ -92,7 +92,7 @@ RSpec.describe ConferencesController do
     context 'when a different organizer is signed in' do
       before do
         Conference.create(twitter_handle: "not_my_twitter_handle")
-        sign_in :conference_organizer, organizer
+        sign_in :organizer, organizer
       end
 
       it "raises a not authorized error" do
@@ -102,7 +102,7 @@ RSpec.describe ConferencesController do
     end
 
     context "organizer is authorized" do
-      before { sign_in :conference_organizer, organizer }
+      before { sign_in :organizer, organizer }
       let(:cfp_deadline) { DateTime.parse "Oct 1, 2016" }
       let(:begin_date) { DateTime.parse "Apr 1, 2016" }
       let(:end_date) { DateTime.parse "Apr 4, 2016" }

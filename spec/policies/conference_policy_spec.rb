@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe ConferencePolicy do
   let(:conference) { Conference.create(twitter_handle: "handleconf") }
-  let(:organizer) { ConferenceOrganizer.create(conference: conference) }
+  let(:organizer) { Organizer.create(conference: conference) }
 
   subject(:policy) { ConferencePolicy.new(organizer, conference) }
 
@@ -12,7 +12,7 @@ RSpec.describe ConferencePolicy do
     end
 
     context "when the conference organizer does NOT own the conference" do
-      let(:organizer) { ConferenceOrganizer.create }
+      let(:organizer) { Organizer.create }
 
       it { is_expected.not_to be_edit }
     end

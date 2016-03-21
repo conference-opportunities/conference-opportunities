@@ -11,21 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311202259) do
+ActiveRecord::Schema.define(version: 20160321173623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "conference_organizers", force: :cascade do |t|
-    t.string   "provider",      null: false
-    t.string   "uid",           null: false
-    t.integer  "conference_id", null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "conference_organizers", ["conference_id"], name: "index_conference_organizers_on_conference_id", unique: true, using: :btree
-  add_index "conference_organizers", ["provider", "uid"], name: "index_conference_organizers_on_provider_and_uid", unique: true, using: :btree
 
   create_table "conferences", force: :cascade do |t|
     t.string   "twitter_handle",             null: false
@@ -48,6 +37,17 @@ ActiveRecord::Schema.define(version: 20160311202259) do
   end
 
   add_index "conferences", ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
+
+  create_table "organizers", force: :cascade do |t|
+    t.string   "provider",      null: false
+    t.string   "uid",           null: false
+    t.integer  "conference_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "organizers", ["conference_id"], name: "index_organizers_on_conference_id", unique: true, using: :btree
+  add_index "organizers", ["provider", "uid"], name: "index_organizers_on_provider_and_uid", unique: true, using: :btree
 
   create_table "tweets", force: :cascade do |t|
     t.integer  "conference_id", null: false

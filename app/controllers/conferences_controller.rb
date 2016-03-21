@@ -1,5 +1,5 @@
 class ConferencesController < ApplicationController
-  before_action :authenticate_conference_organizer!, only: [:edit, :update]
+  before_action :authenticate_organizer!, only: [:edit, :update]
 
   def index
     @conferences = policy_scope(Conference)
