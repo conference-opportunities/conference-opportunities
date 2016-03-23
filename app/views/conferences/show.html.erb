@@ -9,6 +9,44 @@
   <p><%= @conference.description %></p>
   <div class="twitter-link"><%= link_to @conference.twitter_name, @conference.twitter_url %></div>
 
+  <dl>
+    <dt>CFP deadline</dt>
+    <dd><%= @conference.call_for_proposals_ends_at %></dd>
+
+    <dt>CFP URL</dt>
+    <dd><%= @conference.call_for_proposals_url %></dd>
+
+    <dt>Conference begin date</dt>
+    <dd><%= @conference.starts_at %></dd>
+
+    <dt>Conference end date</dt>
+    <dd><%= @conference.ends_at %></dd>
+
+    <dt>Speaker travel funding provided</dt>
+    <dd><%= @conference.has_travel_funding %></dd>
+
+    <dt>Speaker lodging funding provided</dt>
+    <dd><%= @conference.has_lodging_funding %></dd>
+
+    <dt>Speaker honorarium provided</dt>
+    <dd><%= @conference.has_honorariums %></dd>
+
+    <dt>Diversity scholarships available</dt>
+    <dd><%= @conference.has_diversity_scholarships %></dd>
+
+    <dt>Childcare available</dt>
+    <dd><%= @conference.has_childcare %></dd>
+
+    <dt>Code of conduct URL</dt>
+    <dd><%= @conference.code_of_conduct_url %></dd>
+
+    <dt>Speaker notification deadline</dt>
+    <dd><%= @conference.speaker_notifications_at %></dd>
+
+    <dt>Hashtag</dt>
+    <dd><%= @conference.hashtag %></dd>
+  </dl>
+
   <section>
     <%= render partial: "twitter" %>
     <%= render @conference.tweets %>
