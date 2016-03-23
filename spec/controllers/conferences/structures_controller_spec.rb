@@ -79,15 +79,24 @@ RSpec.describe Conferences::StructuresController, type: :controller do
         context 'when the conference information is valid' do
           let(:valid_data) do
             {
-              track_count: 2,
+              cfp_count: 15,
+              keynote_count: 0,
+              other_count: 0,
               plenary_count: 3,
+              prior_submissions_count: 30,
+              talk_count: 0,
+              track_count: 2,
               tutorial_count: 10,
               workshop_count: 5,
-              keynote_count: 0,
-              talk_count: 0,
-              other_count: 0,
-              cfp_count: 15,
-              prior_submissions_count: 30
+
+              cfp_url: 'https://example.com/cfp',
+              code_of_conduct_url: 'https://example.com/code_of_conduct',
+              hashtag: 'validconf',
+              has_childcare: 'true',
+              has_diversity_scholarships: 'true',
+              has_honorariums: 'true',
+              has_lodging_funding: 'true',
+              has_travel_funding: 'true',
             }
           end
 

@@ -35,6 +35,14 @@ class Conferences::StructuresController < ApplicationController
       :cfp_count,
       :prior_submissions_count,
       :panel_count,
+      :cfp_url,
+      :code_of_conduct_url,
+      :has_childcare,
+      :has_diversity_scholarships,
+      :has_honorariums,
+      :has_lodging_funding,
+      :has_travel_funding,
+      :hashtag
     )
   end
 end

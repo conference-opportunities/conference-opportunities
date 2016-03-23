@@ -53,6 +53,12 @@ RSpec.feature 'Organizer', type: :feature do
 
     fill_in 'Number of submissions received', with: '30'
 
+    find("label[for='conference_structure_has_childcare_true']").click
+    find("label[for='conference_structure_has_diversity_scholarships_true']").click
+    find("label[for='conference_structure_has_honorariums_true']").click
+    find("label[for='conference_structure_has_lodging_funding_true']").click
+    find("label[for='conference_structure_has_travel_funding_true']").click
+
     click_on 'Next'
 
     expect(page).to have_content '@interestconf'

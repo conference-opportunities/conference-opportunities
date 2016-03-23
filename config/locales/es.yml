@@ -57,8 +57,17 @@ es:
     structures:
       edit:
         account: Account
+        amenities: Amenities
         details: Details
+        does_not_have_amenity: No
+        has_amenity: Sí
+        has_childcare: 'Is there childcare?'
+        has_diversity_scholarships: 'Are there diversity scholarships?'
+        has_honoraria: 'Are honoraria offered?'
+        has_lodging_funding: 'Is lodging funded?'
+        has_travel_funding: 'Is travel funded?'
         keynote: Keynote
+        links: Links
         next: Next
         number_of_each: Number of each
         other: Other

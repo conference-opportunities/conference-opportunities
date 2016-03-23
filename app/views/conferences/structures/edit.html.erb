@@ -61,6 +61,86 @@
     <%= f.number_field :prior_submissions_count %>
   </section>
 
+  <%= label_tag t('.links') %>
+  <section>
+    <%= f.label :hashtag %>
+    <%= f.text_field :hashtag, value: @conference_structure.default_hashtag %>
+
+    <%= f.label :cfp_url %>
+    <%= f.text_field :cfp_url, value: @conference_structure.default_call_for_proposals_url %>
+
+    <%= f.label :code_of_conduct_url %>
+    <%= f.text_field :code_of_conduct_url, value: @conference_structure.default_code_of_conduct_url %>
+  </section>
+
+  <%= label_tag t('.amenities') %>
+  <section>
+    <%= label_tag t('.has_childcare') %>
+    <section class="amenity-presence">
+      <%= f.label :has_childcare_true do %>
+        <%= f.radio_button :has_childcare, true %>
+        <%= t('.has_amenity') %>
+      <% end %>
+
+      <%= f.label :has_childcare_false do %>
+        <%= f.radio_button :has_childcare, false %>
+        <%= t('.does_not_have_amenity') %>
+      <% end %>
+    </section>
+
+    <%= label_tag t('.has_diversity_scholarships') %>
+    <section class="amenity-presence">
+      <%= f.label :has_diversity_scholarships_true do %>
+        <%= f.radio_button :has_diversity_scholarships, true %>
+        <%= t('.has_amenity') %>
+      <% end %>
+
+      <%= f.label :has_diversity_scholarships_false do %>
+        <%= f.radio_button :has_diversity_scholarships, false %>
+        <%= t('.does_not_have_amenity') %>
+      <% end %>
+    </section>
+
+    <%= label_tag t('.has_honoraria') %>
+    <section class="amenity-presence">
+      <%= f.label :has_honorariums_true do %>
+        <%= f.radio_button :has_honorariums, true %>
+        <%= t('.has_amenity') %>
+      <% end %>
+
+      <%= f.label :has_honorariums_false do %>
+        <%= f.radio_button :has_honorariums, false %>
+        <%= t('.does_not_have_amenity') %>
+      <% end %>
+    </section>
+
+    <%= label_tag t('.has_lodging_funding') %>
+    <section class="amenity-presence">
+      <%= f.label :has_lodging_funding_true do %>
+        <%= f.radio_button :has_lodging_funding, true %>
+        <%= t('.has_amenity') %>
+      <% end %>
+
+      <%= f.label :has_lodging_funding_false do %>
+        <%= f.radio_button :has_lodging_funding, false %>
+        <%= t('.does_not_have_amenity') %>
+      <% end %>
+    </section>
+
+    <%= label_tag t('.has_travel_funding') %>
+    <section class="amenity-presence">
+      <%= f.label :has_travel_funding_true do %>
+        <%= f.radio_button :has_travel_funding, true %>
+        <%= t('.has_amenity') %>
+      <% end %>
+
+      <%= f.label :has_travel_funding_false do %>
+        <%= f.radio_button :has_travel_funding, false %>
+        <%= t('.does_not_have_amenity') %>
+      <% end %>
+    </section>
+  </section>
+
   <section class="submit">
     <%= f.submit t('.next') %>
   </section>
