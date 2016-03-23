@@ -32,6 +32,7 @@ class Conference::Detail
       ends_at: ends_at,
       attendees_count: attendee_count,
       call_for_proposals_ends_at: starts_at,
+      speaker_notifications_at: starts_at,
     )
   end
 end

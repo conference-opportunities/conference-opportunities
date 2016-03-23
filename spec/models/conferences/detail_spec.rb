@@ -71,6 +71,10 @@ RSpec.describe Conference::Detail, type: :model do
         expect { details.save }.to change { event.reload.call_for_proposals_ends_at }.to(start_time)
       end
 
+      it 'updates the speaker notification date' do
+        expect { details.save }.to change { event.reload.speaker_notifications_at }.to(start_time)
+      end
+
       it 'updates the conference attendee count' do
         expect { details.save }.to change { event.reload.attendees_count }.to(132)
       end
