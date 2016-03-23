@@ -3,6 +3,7 @@
   <nav>
     <ul>
       <li><%= link_to t('.find_a_conference'), root_path %></li>
+      <li><%= link_to t('.log_in_with_twitter'), organizer_omniauth_authorize_path(:twitter) %></li>
     </ul>
   </nav>
 </header>

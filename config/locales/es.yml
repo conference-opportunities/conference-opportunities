@@ -31,6 +31,7 @@ es:
   application:
     header:
       find_a_conference: Busque una conferencia
+      log_in_with_twitter: Log in con Twitter
       title: CallbackWomen
   approvals:
     show:
