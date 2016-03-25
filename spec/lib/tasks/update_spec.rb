@@ -33,7 +33,7 @@ describe 'update tasks', :fake_environment do
     end
 
     context 'when a tweet exists in the database' do
-      let(:conference) { Conference.create!(twitter_handle: "confconf") }
+      let(:conference) { Conference.create!(twitter_handle: "confconf", uid: "Bonobos") }
 
       before { Tweet.create!(twitter_id: 789, conference: conference) }
 

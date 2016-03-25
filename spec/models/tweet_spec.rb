@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Tweet do
-  let(:conference) { Conference.create!(twitter_handle: 'tweetconf') }
+  let(:conference) { Conference.create!(twitter_handle: 'tweetconf', uid: '666') }
   subject(:tweet) { conference.tweets.build(twitter_id: 1) }
 
   it { is_expected.to belong_to(:conference) }
@@ -9,7 +9,7 @@ RSpec.describe Tweet do
   it { is_expected.to validate_uniqueness_of(:twitter_id).scoped_to(:conference_id).case_insensitive }
 
   describe '.from_twitter' do
-    let!(:conference) { Conference.create!(twitter_handle: 'andconf') }
+    let!(:conference) { Conference.create!(twitter_handle: 'andconf', uid: "667") }
     let(:conference_mention) do
       double(:user_mention, screen_name: conference.twitter_handle, id: 3237999706)
     end
@@ -53,7 +53,7 @@ RSpec.describe Tweet do
       end
 
       context 'when another conference is mentioned' do
-        let!(:other_conference) { Conference.create!(twitter_handle: 'railsconf') }
+        let!(:other_conference) { Conference.create!(twitter_handle: 'railsconf', uid: "668") }
         let(:other_conference_mention) do
           double(:user_mention, screen_name: other_conference.twitter_handle, id: 5493662)
         end

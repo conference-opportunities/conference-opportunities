@@ -5,7 +5,7 @@ RSpec.describe ConferencesController do
 
   describe "GET #show" do
     let!(:conference) do
-      Conference.create(twitter_handle: twitter_handle, approved_at: approved_at)
+      Conference.create(twitter_handle: twitter_handle, approved_at: approved_at, uid: "666")
     end
     let(:approved_at) { Time.now }
 
@@ -40,7 +40,7 @@ RSpec.describe ConferencesController do
 
   describe "GET #edit" do
     let!(:conference) do
-      Conference.create(twitter_handle: twitter_handle)
+      Conference.create(twitter_handle: twitter_handle, uid: "123")
     end
     let(:organizer) do
       Organizer.create(uid: '123', provider: 'twitter', conference: conference)
@@ -64,7 +64,7 @@ RSpec.describe ConferencesController do
 
     context 'when a different organizer is signed in' do
       before do
-        Conference.create(twitter_handle: "not_my_twitter_handle")
+        Conference.create(twitter_handle: "not_my_twitter_handle", uid: "667")
         sign_in :organizer, organizer
       end
 
@@ -76,7 +76,7 @@ RSpec.describe ConferencesController do
   end
 
   describe "PATCH #edit" do
-    let!(:conference) { Conference.create! twitter_handle: "myconf" }
+    let!(:conference) { Conference.create! twitter_handle: "myconf", uid: "123" }
     let(:organizer) do
       Organizer.create(uid: '123', provider: 'twitter',
                                  conference: conference)
@@ -91,7 +91,7 @@ RSpec.describe ConferencesController do
 
     context 'when a different organizer is signed in' do
       before do
-        Conference.create(twitter_handle: "not_my_twitter_handle")
+        Conference.create(twitter_handle: "not_my_twitter_handle", uid: '321')
         sign_in :organizer, organizer
       end
 
@@ -201,11 +201,11 @@ RSpec.describe ConferencesController do
 
   describe "GET #index" do
     let!(:conference) do
-      Conference.create(twitter_handle: twitter_handle, approved_at: Time.now)
+      Conference.create(twitter_handle: twitter_handle, approved_at: Time.now, uid: "668")
     end
 
     let!(:unapproved_conference) do
-      Conference.create(twitter_handle: 'grumpyconf', approved_at: nil)
+      Conference.create(twitter_handle: 'grumpyconf', approved_at: nil, uid: "669")
     end
 
     it "returns http success" do

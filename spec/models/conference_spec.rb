@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Conference do
-  subject(:conference) { Conference.create!(twitter_handle: 'bobdole') }
+  subject(:conference) { Conference.create!(twitter_handle: 'bobdole', uid: "666") }
 
-  specify { expect(subject).to have_many(:tweets).dependent(:destroy) }
-  specify { expect(subject).to validate_presence_of(:twitter_handle) }
-  specify { expect(subject).to validate_uniqueness_of(:twitter_handle) }
+  it { is_expected.to have_many(:tweets).dependent(:destroy) }
+  it { is_expected.to validate_presence_of(:twitter_handle) }
+  it { is_expected.to validate_uniqueness_of(:twitter_handle).case_insensitive }
+  it { is_expected.to validate_presence_of(:uid) }
+  it { is_expected.to validate_uniqueness_of(:uid).case_insensitive }
 
   describe ".from_twitter_user" do
     let(:user) do

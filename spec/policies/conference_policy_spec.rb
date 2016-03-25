@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe ConferencePolicy do
-  let(:conference) { Conference.create(twitter_handle: "handleconf") }
+  let(:conference) { Conference.create(twitter_handle: "handleconf", uid: "666") }
   let(:organizer) { Organizer.create(conference: conference) }
 
   subject(:policy) { ConferencePolicy.new(organizer, conference) }
@@ -24,18 +24,18 @@ RSpec.describe ConferencePolicy do
     end
 
     context "when the conference is approved" do
-      let(:conference) { Conference.create(twitter_handle: "handleconf", approved_at: Date.today) }
+      let(:conference) { Conference.create(twitter_handle: "handleconf", approved_at: Date.today, uid: "667") }
       it { is_expected.to be_show }
     end
   end
 
   describe ConferencePolicy::Scope do
     let!(:approved_conference) do
-      Conference.create(twitter_handle: 'happycon', approved_at: Time.now)
+      Conference.create(twitter_handle: 'happycon', approved_at: Time.now, uid: "668")
     end
 
     let!(:unapproved_conference) do
-      Conference.create(twitter_handle: 'grumpycon', approved_at: nil)
+      Conference.create(twitter_handle: 'grumpycon', approved_at: nil, uid: "669")
     end
 
     describe "#resolve" do

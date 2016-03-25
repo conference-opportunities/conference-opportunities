@@ -6,7 +6,8 @@ RSpec.feature "Conferences", :vcr, :js do
       name: "Interesting conference",
       twitter_handle: "interestconf",
       description: "All about how great oatmeal is, or something",
-      approved_at: Time.now
+      approved_at: Time.now,
+      uid: "hay"
     )
   end
   let(:actual_twitter_id) { '20' }
