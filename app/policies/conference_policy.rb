@@ -1,13 +1,9 @@
-class ConferencePolicy < Struct.new(:organizer, :conference)
+class ConferencePolicy < ApplicationPolicy
   def edit?
-    organizer.conference == conference
+    user.conference == record
   end
 
-  def show?
-    conference.approved_at?
-  end
-
-  class Scope < Struct.new(:organizer, :scope)
+  class Scope < ApplicationPolicy::Scope
     def resolve
       scope.where.not(approved_at: nil)
     end

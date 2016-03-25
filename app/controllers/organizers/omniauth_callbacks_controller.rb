@@ -3,7 +3,11 @@ class Organizers::OmniauthCallbacksController < Devise::OmniauthCallbacksControl
     organizer = Organizer.from_omniauth(request.env["omniauth.auth"])
     if organizer.save
       sign_in organizer
-      redirect_to edit_conference_path(organizer.conference)
+      if organizer.admin?
+        redirect_to rails_admin.dashboard_path
+      else
+        redirect_to edit_conference_path(organizer.conference)
+      end
     else
       redirect_to root_path, alert: 'You are not a conference'
     end

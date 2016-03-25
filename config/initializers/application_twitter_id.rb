@@ -7,5 +7,5 @@ Rails.application.config.application_twitter_id =
       consumer_secret: ENV.fetch("TWITTER_CONSUMER_SECRET"),
       access_token: ENV.fetch("TWITTER_ACCESS_TOKEN"),
       access_token_secret: ENV.fetch("TWITTER_ACCESS_TOKEN_SECRET"),
-    ).user.id
+    ).user.id.to_s
   end
