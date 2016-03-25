@@ -29,6 +29,28 @@ RSpec.describe Conference do
     specify { expect(conference.location).to eq('Overpriced Urban Conclave') }
     specify { expect(conference.website_url).to eq('http://twitterconf.example.com') }
     specify { expect(conference.description).to eq('Ten hours of pitches') }
+
+    context 'when a user already exists with the screen name' do
+      let(:updated_user) do
+        Twitter::User.new(
+          id: '111',
+          screen_name: 'twitterconf',
+          name: 'Twitter Conf 2029',
+          profile_image_url_https: 'https://example.com/cyber_pugs.gif',
+          location: 'Nueva Overpriced Urban Conclave',
+          url: 'http://twitterconf2029.example.com',
+          description: 'Eleven hours of Ray Kurzweil on a large screen',
+        )
+      end
+      before { conference.save! }
+
+      it 'updates the modified fields' do
+        expect { Conference.from_twitter_user(updated_user).save! }.
+          to change { conference.reload.name }.
+          from('Twitter Conf').
+          to('Twitter Conf 2029')
+      end
+    end
   end
 
   describe "#to_param" do
