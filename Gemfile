@@ -19,6 +19,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do
   gem 'web-console', '~> 3.0'
+  gem 'pivotal_git_scripts'
 end
 
 group :production do

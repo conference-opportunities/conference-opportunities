@@ -147,6 +147,7 @@ GEM
     orm_adapter (0.5.0)
     pg (0.18.4)
     phantomjs (2.1.1.0)
+    pivotal_git_scripts (1.4.0)
     poltergeist (1.9.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -295,6 +296,7 @@ DEPENDENCIES
   omniauth-twitter
   pg
   phantomjs
+  pivotal_git_scripts
   poltergeist
   pundit
   rails (= 4.2.6)
