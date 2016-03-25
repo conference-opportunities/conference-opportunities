@@ -10,6 +10,7 @@ class Conference < ActiveRecord::Base
       location: user.location,
       website_url: user.website,
       description: user.description,
+      uid: user.id
     )
   end
 

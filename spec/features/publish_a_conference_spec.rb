@@ -1,17 +1,19 @@
 require "rails_helper"
 
 RSpec.feature "Publish a conference", :js do
+  let(:uid) { '123545' }
   let!(:conference) do
     Conference.create!(
       name: "Interesting conference",
       twitter_handle: "conferencename",
+      uid: uid,
       description: "All about how great oatmeal is, or something",
     )
   end
   let(:valid_twitter_auth) do
     OmniAuth::AuthHash.new(
       provider: 'twitter',
-      uid: '123545',
+      uid: uid,
       info: {nickname: 'conferencename'}
     )
   end

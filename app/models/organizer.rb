@@ -10,7 +10,7 @@ class Organizer < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     Organizer.find_or_initialize_by(uid: auth.uid, provider: auth.provider) do |organizer|
-      organizer.conference = Conference.find_by(twitter_handle: auth.info.nickname)
+      organizer.conference = Conference.find_by(uid: organizer.uid)
     end
   end
 

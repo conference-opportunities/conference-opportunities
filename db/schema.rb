@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321182838) do
+ActiveRecord::Schema.define(version: 20160325221902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,11 @@ ActiveRecord::Schema.define(version: 20160321182838) do
     t.boolean  "has_lodging_funding"
     t.boolean  "has_honorariums"
     t.boolean  "has_diversity_scholarships"
+    t.string   "uid"
   end
 
   add_index "conferences", ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
+  add_index "conferences", ["uid"], name: "index_conferences_on_uid", unique: true, using: :btree
 
   create_table "organizer_conferences", force: :cascade do |t|
     t.integer  "organizer_id",  null: false

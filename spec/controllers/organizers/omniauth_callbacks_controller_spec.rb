@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Organizers::OmniauthCallbacksController do
+  let(:uid) { '123545' }
   let(:valid_twitter_auth) do
     OmniAuth::AuthHash.new(
       provider: 'twitter',
-      uid: '123545',
+      uid: uid,
       info: {nickname: 'conf'}
     )
   end
@@ -16,7 +17,7 @@ RSpec.describe Organizers::OmniauthCallbacksController do
 
     context 'when the corresponding conference exists' do
       let!(:conference) do
-        Conference.create!(twitter_handle: 'conf')
+        Conference.create!(twitter_handle: 'conf', uid: uid)
       end
 
       it "redirects the organizer's conference edit page" do

@@ -4,7 +4,7 @@ RSpec.describe Organizer do
   let(:admin_twitter_id) { '123admin' }
   let(:uid) { '456' }
   let!(:conference) do
-    Conference.create!(twitter_handle: 'confconf')
+    Conference.create!(twitter_handle: 'confconf', uid: uid)
   end
 
   subject(:organizer) do
@@ -37,8 +37,7 @@ RSpec.describe Organizer do
   end
 
   describe ".from_omniauth" do
-    let(:info) { OpenStruct.new(nickname: 'confconf') }
-    let(:auth) { OpenStruct.new(provider: 'diogenes', uid: uid, info: info) }
+    let(:auth) { OpenStruct.new(provider: 'diogenes', uid: uid) }
 
     context "when the conference organizer already exist" do
       before { organizer.save! }
@@ -59,7 +58,7 @@ RSpec.describe Organizer do
       end
 
       context "when there is NOT a corresponding conference" do
-        let(:info) { OpenStruct.new(nickname: 'notaconf') }
+        let(:auth) { OpenStruct.new(provider: 'diogenes', uid: '425') }
 
         it "returns an invalid organizer" do
           expect(new_organizer).not_to be_valid
