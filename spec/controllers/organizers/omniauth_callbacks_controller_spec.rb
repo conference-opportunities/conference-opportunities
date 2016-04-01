@@ -39,7 +39,7 @@ RSpec.describe Organizers::OmniauthCallbacksController do
 
         it "redirects the organizer's conference edit page" do
           get :twitter
-          expect(response).to redirect_to edit_conference_path(conference)
+          expect(response).to redirect_to new_conference_listing_path(conference)
         end
       end
 

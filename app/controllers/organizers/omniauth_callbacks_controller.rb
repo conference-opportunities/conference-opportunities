@@ -6,7 +6,7 @@ class Organizers::OmniauthCallbacksController < Devise::OmniauthCallbacksControl
       if organizer.admin?
         redirect_to rails_admin.dashboard_path
       else
-        redirect_to edit_conference_path(organizer.conference)
+        redirect_to new_conference_listing_path(organizer.conference)
       end
     else
       redirect_to root_path, alert: 'You are not a conference'
