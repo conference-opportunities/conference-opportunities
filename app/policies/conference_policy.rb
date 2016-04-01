@@ -1,5 +1,5 @@
 class ConferencePolicy < ApplicationPolicy
-  def edit?
+  def update?
     user.conference == record
   end
 

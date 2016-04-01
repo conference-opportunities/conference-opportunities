@@ -6,15 +6,15 @@ RSpec.describe ConferencePolicy do
 
   subject(:policy) { ConferencePolicy.new(organizer, conference) }
 
-  describe "#edit?" do
+  describe "#update?" do
     context "when the conference organizer owns the conference" do
-      it { is_expected.to be_edit }
+      it { is_expected.to be_update }
     end
 
     context "when the conference organizer does NOT own the conference" do
       let(:organizer) { Organizer.create }
 
-      it { is_expected.not_to be_edit }
+      it { is_expected.not_to be_update }
     end
   end
 
