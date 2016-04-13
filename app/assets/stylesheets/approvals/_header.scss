@@ -1,19 +1,5 @@
-.approvals main {
-  header {
-    color: $callback-blue;
-    background-color: $header-background-color;
-
-    padding: 3rem 1rem;
-    text-align: center;
-    border-bottom: 0.1rem solid darken($header-background-color, 15%);
-  }
-
-  h2 {
-    font-size: 3rem;
-  }
-
-  h3 {
-    font-size: 2rem;
-    font-weight: normal;
-  }
+.approvals main header {
+  background-color: $header-background-color;
+  border-bottom: 0.1rem solid darken($header-background-color, 15%);
+  padding: 3rem 1rem;
 }

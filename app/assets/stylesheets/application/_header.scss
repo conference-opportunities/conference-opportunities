@@ -30,3 +30,20 @@ body > header {
     padding: 0.25rem 0.5rem;
   }
 }
+
+body > main {
+  header {
+    color: $callback-blue;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: normal;
+  }
+}

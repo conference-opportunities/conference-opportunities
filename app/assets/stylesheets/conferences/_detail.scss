@@ -1,0 +1,39 @@
+.details main {
+  display: flex;
+
+  nav {
+    background-color: $callback-light-grey;
+    border-right: 0.1rem solid $callback-grey;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    font-size: 1.5rem;
+    padding: 0.2rem 1rem;
+
+    &.current {
+      background-color: lighten($callback-light-grey, 10%);
+      border: 0.1rem solid $callback-grey;
+      border-left-width: 0;
+      border-right-width: 0;
+      font-weight: bold;
+    }
+  }
+
+  h3 {
+    color: $callback-blue;
+  }
+
+  form {
+    max-width: 30rem;
+    padding: 1rem;
+  }
+
+  input[type='submit'] {
+    font-size: 1.25rem;
+  }
+}
