@@ -1,4 +1,4 @@
 dependencies:
   pre:
-    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - wget http://mirror.pcbeta.com/google/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_49.0.2623.87-1_amd64.deb -O google-chrome-stable_current_amd64.deb
     - sudo dpkg -i google-chrome-stable_current_amd64.deb
