@@ -32,7 +32,7 @@ class Conferences::ListingsController < ApplicationController
     authorize @conference, :update?
     conference_listing = ConferenceListing.new(conference_params.merge(conference: @conference))
     if conference_listing.save
-      redirect_to(@conference)
+      redirect_to(edit_conference_detail_path(@conference))
     else
       flash.alert = conference_listing.errors.full_messages
       render :new

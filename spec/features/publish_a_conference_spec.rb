@@ -35,6 +35,13 @@ RSpec.feature "Publish a conference", :js do
     fill_in "Website", with: "http://www.example.com/bathroom-lines"
 
     click_on "Create listing"
+    expect(page).to have_content "Tell speakers the basics"
+
+    fill_in "Location", with: "Pulaski, TN"
+    fill_in "Start Date", with: "2016/01/01"
+    fill_in "End Date", with: "2016/01/01"
+
+    click_on "Next"
     expect(page).to have_content "@conferencename"
 
     logout(:organizer)

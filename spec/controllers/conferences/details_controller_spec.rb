@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Conferences::ListingsController do
+RSpec.describe Conferences::DetailsController do
   let!(:conference) { Conference.create!(twitter_handle: 'hamconf', uid: '123')}
   let!(:organizer) { Organizer.create!(provider: 'twitter', uid: '123', conference: conference) }
 
-  describe "GET #new" do
+  describe "GET #edit" do
     def make_request(id = conference.twitter_handle)
-      get :new, conference_id: id
+      get :edit, conference_id: id
     end
 
     context 'when logged in as the organizer for the conference' do
@@ -50,53 +50,53 @@ RSpec.describe Conferences::ListingsController do
     end
   end
 
-  describe "POST #create" do
+  describe "PATCH #update" do
     def make_request(params = {}, id = conference.twitter_handle)
-      post :create, conference_id: id, conference: params
+      patch :update, conference_id: id, conference: params
     end
 
     context 'when logged in as the organizer for the conference' do
       before { sign_in :organizer, organizer }
 
       context 'when the conference exists' do
-        context 'when the conference name is empty' do
-          before { make_request(name: '') }
+        context 'when the conference location is empty' do
+          before { make_request(location: '') }
 
           it "flashes a failure message" do
-            expect(flash.alert).to include("Name can't be blank")
+            expect(flash.alert).to include("Location can't be blank")
           end
 
           it "assigns the conference" do
             expect(assigns(:conference)).to eq(conference)
           end
 
-          it "render the new view" do
-            expect(response).to render_template(:new)
+          it "render the edit view" do
+            expect(response).to render_template(:edit)
           end
         end
 
         context 'when the conference information is valid' do
-          it "approves the conference" do
-            expect { make_request(name: 'nowconf') }
-              .to change { conference.reload.approved_at }
-              .from(nil)
+          it "updates the conference location" do
+            expect { make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today) }
+              .to change { conference.reload.location }
+              .to('Barrow, AK')
           end
 
-          it "updates the conference name" do
-            expect { make_request(name: 'confconf') }
-              .to change { conference.reload.name }
-              .to('confconf')
+          it "updates the conference start date" do
+            expect { make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today) }
+              .to change { conference.reload.starts_at }
+              .to(Date.today)
           end
 
-          it "updates the conference website url" do
-            expect { make_request(name: 'confconf', website_url: 'http://example.com/confconf') }
-              .to change { conference.reload.website_url }
-              .to('http://example.com/confconf')
+          it "updates the conference end date" do
+            expect { make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today + 1.day) }
+              .to change { conference.reload.ends_at }
+              .to(Date.today + 1.day)
           end
 
-          it 'redirects to the conference details page' do
-            make_request(name: 'indirectconf')
-            expect(response).to redirect_to(edit_conference_detail_path(conference))
+          it 'redirects to the conference page' do
+            make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today + 1.day)
+            expect(response).to redirect_to(conference_path(conference))
           end
         end
       end
@@ -127,3 +127,4 @@ RSpec.describe Conferences::ListingsController do
     end
   end
 end
+

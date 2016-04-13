@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :conferences, only: [:index, :show, :edit, :update] do
     scope module: :conferences do
       resource :listing, only: [:new, :create]
+      resource :detail, only: [:edit, :update]
     end
   end
   resource :approval, only: [:show]

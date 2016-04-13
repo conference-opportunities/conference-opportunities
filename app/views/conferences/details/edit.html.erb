@@ -1,0 +1,24 @@
+<nav>
+  <ul>
+    <li><%= link_to "Account", conference_path(@conference) %></li>
+    <li class="current"><%= link_to "Details", edit_conference_detail_path(@conference) %></li>
+  </ul>
+</nav>
+
+<%= form_for(@conference, url: conference_detail_path(@conference), method: 'patch') do |f| %>
+  <h3>Tell speakers the basics</h3>
+  <fieldset>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+
+    <%= f.label :starts_at, 'Start Date' %>
+    <%= f.date_field :starts_at %>
+
+    <%= f.label :ends_at, 'End Date' %>
+    <%= f.date_field :ends_at %>
+  </fieldset>
+
+  <section class="submit">
+    <%= f.submit "Next" %>
+  </section>
+<% end %>
