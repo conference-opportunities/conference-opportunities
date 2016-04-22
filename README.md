@@ -13,6 +13,14 @@ $ bundle install
 $ bundle exec rake db:setup
 ```
 
+You'll need 5 environment variables to start developing the app:
+
+* `GOOGLE_MAPS_API_KEY`: get this from [https://console.developers.google.com/apis/credentials](https://console.developers.google.com/apis/credentials)
+* `TWITTER_CONSUMER_KEY`: get this from [https://apps.twitter.com/](https://apps.twitter.com/)
+* `TWITTER_CONSUMER_SECRET`: ditto
+* `TWITTER_ACCESS_TOKEN`: ditto
+* `TWITTER_ACCESS_TOKEN_SECRET`: ditto
+
 ## Testing
 
 For integration testing, we use [@fakemovaccount](https://twitter.com/fakemovaccount).

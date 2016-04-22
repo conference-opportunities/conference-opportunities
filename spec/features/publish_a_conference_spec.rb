@@ -22,7 +22,7 @@ RSpec.feature "Publish a conference", :js do
     OmniAuth.config.mock_auth[:twitter] = valid_twitter_auth
   end
 
-  scenario "a followed conference organizer can list their conference" do
+  scenario "a followed conference organizer can list their conference", :chrome do
     visit root_path
     expect(page).not_to have_content "Interesting conference"
 
@@ -37,7 +37,14 @@ RSpec.feature "Publish a conference", :js do
     click_on "Create listing"
     expect(page).to have_content "Tell speakers the basics"
 
-    fill_in "Location", with: "Pulaski, TN"
+    find("#conference_location").click
+    fill_in "Location", with: "Moscone Center"
+    within '.pac-container' do
+      find(".pac-item:first-child").click
+    end
+
+    expect(find("#conference_location").value).to include('Moscone Center, San Francisco, CA')
+
     fill_in "Start Date", with: "2016/01/01"
     fill_in "End Date", with: "2016/01/01"
 

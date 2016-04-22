@@ -22,3 +22,5 @@
     <%= f.submit "Next" %>
   </section>
 <% end %>
+
+<script src="//maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=ConferenceDetailsEdit" async defer></script>
