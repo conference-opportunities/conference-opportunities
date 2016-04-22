@@ -11,7 +11,7 @@ RSpec.describe Tweet do
   describe '.from_twitter' do
     let!(:conference) { Conference.create!(twitter_handle: 'andconf', uid: "667") }
     let(:conference_mention) do
-      double(:user_mention, screen_name: conference.twitter_handle, id: 3237999706)
+      double(:user_mention, screen_name: conference.twitter_handle, id: "667")
     end
     let(:user_mentions) { [conference_mention] }
 
@@ -55,7 +55,7 @@ RSpec.describe Tweet do
       context 'when another conference is mentioned' do
         let!(:other_conference) { Conference.create!(twitter_handle: 'railsconf', uid: "668") }
         let(:other_conference_mention) do
-          double(:user_mention, screen_name: other_conference.twitter_handle, id: 5493662)
+          double(:user_mention, screen_name: other_conference.twitter_handle, id: "668")
         end
         let(:user_mentions) { [conference_mention, other_conference_mention] }
 
