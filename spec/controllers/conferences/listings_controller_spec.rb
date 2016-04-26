@@ -20,7 +20,7 @@ RSpec.describe Conferences::ListingsController do
         end
 
         it "assigns the conference" do
-          expect(assigns(:conference)).to eq(conference)
+          expect(assigns(:conference_listing).conference).to eq(conference)
         end
       end
 
@@ -52,7 +52,7 @@ RSpec.describe Conferences::ListingsController do
 
   describe "POST #create" do
     def make_request(params = {}, id = conference.twitter_handle)
-      post :create, conference_id: id, conference: params
+      post :create, conference_id: id, conference_listing: params
     end
 
     context 'when logged in as the organizer for the conference' do
@@ -67,7 +67,7 @@ RSpec.describe Conferences::ListingsController do
           end
 
           it "assigns the conference" do
-            expect(assigns(:conference)).to eq(conference)
+            expect(assigns(:conference_listing).conference).to eq(conference)
           end
 
           it "render the new view" do
@@ -103,19 +103,19 @@ RSpec.describe Conferences::ListingsController do
 
       context 'when the conference does not exist' do
         it 'raises an error' do
-          expect { make_request({}, 'nope') }.to raise_error(ActiveRecord::RecordNotFound)
+          expect { make_request({name: ''}, 'nope') }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
 
     context 'when logged in as some other organizer' do
-      let(:other_conference) { Conference.create!(twitter_handle: 'otherconf', uid: '756')}
-      let(:other_organizer) { Organizer.create!(provider: 'twitter', uid: '756', conference: other_conference) }
+      let!(:other_conference) { Conference.create!(twitter_handle: 'otherconf', uid: '756')}
+      let!(:other_organizer) { Organizer.create!(provider: 'twitter', uid: '756', conference: other_conference) }
 
       before { sign_in :organizer, other_organizer }
 
       it 'raises an error' do
-        expect { make_request }.to raise_error(Pundit::NotAuthorizedError)
+        expect { make_request(name: '') }.to raise_error(Pundit::NotAuthorizedError)
       end
     end
 

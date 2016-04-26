@@ -2,7 +2,7 @@
   <h2>List your conference</h2>
 </header>
 
-<%= form_for(@conference, url: conference_listing_path(@conference), method: 'post') do |f| %>
+<%= form_for(@conference_listing, url: conference_listing_path(conference_id: @conference_listing.id)) do |f| %>
   <section class="inputs">
     <fieldset>
       <%= f.label :name, 'Conference name' %>
@@ -16,7 +16,8 @@
     </fieldset>
 
     <figure>
-      <%= image_tag @conference.logo_url %>
+      <%= f.hidden_field :logo_url %>
+      <%= image_tag @conference_listing.logo_url %>
     </figure>
   </section>
 
