@@ -1,11 +1,11 @@
 <nav>
   <ul>
-    <li><%= link_to "Account", conference_path(@conference) %></li>
-    <li class="current"><%= link_to "Details", edit_conference_detail_path(@conference) %></li>
+    <li><%= link_to "Account", new_conference_listing_path(@conference_detail.conference) %></li>
+    <li class="current"><%= link_to "Details", edit_conference_detail_path(@conference_detail.conference) %></li>
   </ul>
 </nav>
 
-<%= form_for(@conference, url: conference_detail_path(@conference), method: 'patch') do |f| %>
+<%= form_for(@conference_detail) do |f| %>
   <h3>Tell speakers the basics</h3>
   <fieldset>
     <%= f.label :location %>

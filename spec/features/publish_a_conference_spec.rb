@@ -38,7 +38,7 @@ RSpec.feature "Publish a conference", :js do
     click_on "Create listing"
     expect(page).to have_content "Tell speakers the basics"
 
-    find("#conference_location").click
+    find("#conference_detail_location").click
     fill_in "Location", with: "Moscone Center"
     within '.pac-container' do
       find(".pac-item:first-child").click

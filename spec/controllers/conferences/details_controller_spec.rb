@@ -20,7 +20,7 @@ RSpec.describe Conferences::DetailsController do
         end
 
         it "assigns the conference" do
-          expect(assigns(:conference)).to eq(conference)
+          expect(assigns(:conference_detail).conference).to eq(conference)
         end
       end
 
@@ -52,7 +52,7 @@ RSpec.describe Conferences::DetailsController do
 
   describe "PATCH #update" do
     def make_request(params = {}, id = conference.twitter_handle)
-      patch :update, conference_id: id, conference: params
+      patch :update, conference_id: id, conference_detail: params
     end
 
     context 'when logged in as the organizer for the conference' do
@@ -67,7 +67,7 @@ RSpec.describe Conferences::DetailsController do
           end
 
           it "assigns the conference" do
-            expect(assigns(:conference)).to eq(conference)
+            expect(assigns(:conference_detail).conference).to eq(conference)
           end
 
           it "render the edit view" do
@@ -103,7 +103,9 @@ RSpec.describe Conferences::DetailsController do
 
       context 'when the conference does not exist' do
         it 'raises an error' do
-          expect { make_request({}, 'nope') }.to raise_error(ActiveRecord::RecordNotFound)
+          expect {
+            make_request({location: ''}, 'nope')
+          }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
@@ -115,7 +117,9 @@ RSpec.describe Conferences::DetailsController do
       before { sign_in :organizer, other_organizer }
 
       it 'raises an error' do
-        expect { make_request }.to raise_error(Pundit::NotAuthorizedError)
+        expect {
+          make_request(location: '')
+        }.to raise_error(Pundit::NotAuthorizedError)
       end
     end
 
