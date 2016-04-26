@@ -17,7 +17,7 @@ class Conferences::ListingsController < ApplicationController
     if @conference_listing.save
       redirect_to(edit_conference_detail_path(@conference_listing.conference))
     else
-      flash.alert = @conference_listing.errors.full_messages
+      flash.now.alert = @conference_listing.errors.full_messages
       render :new
     end
   end
