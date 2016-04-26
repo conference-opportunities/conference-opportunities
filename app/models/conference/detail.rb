@@ -1,7 +1,7 @@
 class Conference::Detail
   include ActiveModel::Model
 
-  attr_accessor :location, :starts_at, :ends_at, :conference
+  attr_accessor :conference, :location, :starts_at, :ends_at, :attendee_count
   validates :location, :starts_at, :ends_at, presence: true
 
   def id
@@ -25,6 +25,7 @@ class Conference::Detail
       location: location,
       starts_at: starts_at,
       ends_at: ends_at,
+      attendee_count: attendee_count,
     )
   end
 end

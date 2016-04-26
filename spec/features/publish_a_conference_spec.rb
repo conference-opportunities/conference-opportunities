@@ -47,6 +47,7 @@ RSpec.feature "Publish a conference", :js do
 
     fill_in "Start Date", with: "01/01/2016"
     fill_in "End Date", with: "01/01/2016"
+    fill_in "Number of Attendees", with: "2"
 
     click_on "Next"
     expect(page).to have_content "@conferencename"

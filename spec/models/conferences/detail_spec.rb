@@ -39,6 +39,7 @@ RSpec.describe Conference::Detail do
           location: 'hamville',
           starts_at: Date.today - 1.day,
           ends_at: Date.today,
+          attendee_count: 132
         }
       end
 
@@ -62,6 +63,12 @@ RSpec.describe Conference::Detail do
         expect { details.save }.
           to change { conference.reload.ends_at }.
           to(Date.today)
+      end
+
+      it 'updates the conference attendee count' do
+        expect { details.save }.
+          to change { conference.reload.attendee_count }.
+          to(132)
       end
     end
   end
