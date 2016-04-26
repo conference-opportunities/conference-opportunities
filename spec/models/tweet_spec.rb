@@ -64,14 +64,14 @@ RSpec.describe Tweet do
         end
 
         it 'returns a tweet for the first conference' do
-          expect(Tweet.from_twitter(tweet).first.attributes).to include(
-            'conference_id' => conference.id,
+          expect(Tweet.from_twitter(tweet).map(&:conference)).to include(
+            conference
           )
         end
 
         it 'returns a tweet for the second conference' do
-          expect(Tweet.from_twitter(tweet).last.attributes).to include(
-            'conference_id' => other_conference.id,
+          expect(Tweet.from_twitter(tweet).map(&:conference)).to include(
+            other_conference
           )
         end
       end
