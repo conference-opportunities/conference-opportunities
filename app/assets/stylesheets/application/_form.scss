@@ -19,6 +19,7 @@ select {
 }
 
 input[type='text'],
+input[type='number'],
 select[multiple] {
   background-color: $base-background-color;
   border: $base-border;
@@ -47,6 +48,19 @@ select[multiple] {
     &:hover {
       border: $base-border;
     }
+  }
+}
+
+input[type='date'] {
+  border: 0 none;
+  margin: 0;
+  padding: 0;
+
+  &::-webkit-datetime-edit-text,
+  &::-webkit-datetime-edit-month-field,
+  &::-webkit-datetime-edit-day-field,
+  &::-webkit-datetime-edit-year-field {
+    -webkit-appearance: none;
   }
 }
 
