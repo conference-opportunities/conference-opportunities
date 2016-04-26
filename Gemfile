@@ -4,6 +4,7 @@ ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip
 gem 'rails', '4.2.6'
 gem 'pg'
 
+gem 'date_validator'
 gem 'devise'
 gem 'font-awesome-sass'
 gem 'haml-rails'
