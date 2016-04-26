@@ -1,9 +1,19 @@
 .details main {
   display: flex;
+  min-height: 100vh;
+  flex-direction: row;
 
   nav {
     background-color: $callback-light-grey;
     border-right: 0.1rem solid $callback-grey;
+    flex: 0 0 12rem;
+    order: -1;
+  }
+
+  form {
+    flex: 1;
+    max-width: 30rem;
+    padding: 1rem;
   }
 
   ul {
@@ -28,9 +38,42 @@
     color: $callback-blue;
   }
 
-  form {
-    max-width: 30rem;
-    padding: 1rem;
+  .date-picker {
+    display: flex;
+    background-color: $base-background-color;
+    border: $base-border;
+    border-radius: $base-border-radius;
+    box-sizing: border-box;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    margin-bottom: $small-spacing;
+    padding: $base-spacing / 3;
+  }
+
+  .date-picker span {
+    padding: 0 1rem;
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 1.2rem;
+  }
+
+  .date-picker input[type='text'] {
+    border: 0 none;
+    padding: 0.15rem 0;
+    margin: 0;
+  }
+
+  .date-picker .field_with_errors,
+  .date-picker > input {
+    flex: 1;
+  }
+
+  .field_with_errors input {
+    width: 100%;
+  }
+
+  input[type='number'] {
+    width: auto;
   }
 
   input[type='submit'] {

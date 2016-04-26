@@ -1,29 +1,28 @@
+<%= form_for(@conference_detail) do |f| %>
+  <h3>Tell speakers the basics</h3>
+  <section class="fields">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+
+    <%= f.label :starts_at, 'Dates' %>
+    <section class="date-picker">
+      <%= f.date_field :starts_at %><span>→</span><%= f.date_field :ends_at %>
+    </section class="date-picker">
+
+    <%= f.label :attendee_count, 'Number of Attendees' %>
+    <%= f.number_field :attendee_count %>
+  </section>
+
+  <section class="submit">
+    <%= f.submit "Next" %>
+  </section>
+<% end %>
+
 <nav>
   <ul>
     <li><%= link_to "Account", new_conference_listing_path(@conference_detail.conference) %></li>
     <li class="current"><%= link_to "Details", edit_conference_detail_path(@conference_detail.conference) %></li>
   </ul>
 </nav>
-
-<%= form_for(@conference_detail) do |f| %>
-  <h3>Tell speakers the basics</h3>
-  <fieldset>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-
-    <%= f.label :starts_at, 'Start Date' %>
-    <%= f.date_field :starts_at %>
-
-    <%= f.label :ends_at, 'End Date' %>
-    <%= f.date_field :ends_at %>
-
-    <%= f.label :attendee_count, 'Number of Attendees' %>
-    <%= f.number_field :attendee_count %>
-  </fieldset>
-
-  <section class="submit">
-    <%= f.submit "Next" %>
-  </section>
-<% end %>
 
 <script src="//maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=ConferenceDetailsEdit" async defer></script>
