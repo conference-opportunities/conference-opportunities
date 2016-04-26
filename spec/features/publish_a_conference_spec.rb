@@ -6,6 +6,7 @@ RSpec.feature "Publish a conference", :js do
     Conference.create!(
       name: "Interesting conference",
       twitter_handle: "conferencename",
+      logo_url: 'http://placekitten.com/200/200',
       uid: uid,
       description: "All about how great oatmeal is, or something",
     )
@@ -42,11 +43,10 @@ RSpec.feature "Publish a conference", :js do
     within '.pac-container' do
       find(".pac-item:first-child").click
     end
+    expect(find("#conference_detail_location").value).to include('Moscone Center, San Francisco, CA')
 
-    expect(find("#conference_location").value).to include('Moscone Center, San Francisco, CA')
-
-    fill_in "Start Date", with: "2016/01/01"
-    fill_in "End Date", with: "2016/01/01"
+    fill_in "Start Date", with: "01/01/2016"
+    fill_in "End Date", with: "01/01/2016"
 
     click_on "Next"
     expect(page).to have_content "@conferencename"
