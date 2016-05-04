@@ -1,27 +1,28 @@
 <%= form_for(@conference_detail) do |f| %>
-  <h3>Tell speakers the basics</h3>
+  <h3><%= t('.title') %></h3>
+
   <section class="fields">
     <%= f.label :location %>
     <%= f.text_field :location %>
 
-    <%= f.label :starts_at, 'Dates' %>
+    <%= f.label :starts_at, t('.dates') %>
     <section class="date-picker">
       <%= f.date_field :starts_at %><span>→</span><%= f.date_field :ends_at %>
     </section class="date-picker">
 
-    <%= f.label :attendee_count, 'Number of Attendees' %>
+    <%= f.label :attendee_count %>
     <%= f.number_field :attendee_count %>
   </section>
 
   <section class="submit">
-    <%= f.submit "Next" %>
+    <%= f.submit t('.next') %>
   </section>
 <% end %>
 
 <nav>
   <ul>
-    <li><%= link_to "Account", new_conference_listing_path(@conference_detail.conference) %></li>
-    <li class="current"><%= link_to "Details", edit_conference_detail_path(@conference_detail.conference) %></li>
+    <li><%= link_to t('.account'), new_conference_listing_path(@conference_detail.conference) %></li>
+    <li class="current"><%= link_to t('.details'), edit_conference_detail_path(@conference_detail.conference) %></li>
   </ul>
 </nav>
 

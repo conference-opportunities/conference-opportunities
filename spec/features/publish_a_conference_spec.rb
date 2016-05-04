@@ -24,7 +24,7 @@ RSpec.feature "Publish a conference", :js do
   end
 
   scenario "a followed conference organizer can list their conference", :chrome do
-    visit root_path
+    visit root_path(locale: :en)
     expect(page).not_to have_content "Interesting conference"
 
     visit approval_path

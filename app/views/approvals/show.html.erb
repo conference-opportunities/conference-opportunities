@@ -1,16 +1,16 @@
 <header>
-  <h2>List your conference</h2>
-  <h3>Encourage thousands of speakers to submit to your conference</h3>
+  <h2><%= t '.list_your_conference' %></h2>
+  <h3><%= t '.encourage_submissions' %></h3>
 </header>
 
 <section class="qualifications">
   <dl>
-    <dt>Is your event:</dt>
-    <dd><%= icon('check-square-o') %> For professional programmers?</dd>
-    <dd><%= icon('check-square-o') %> Seeking speaker proposals?</dd>
+    <dt><%= t '.is_your_event' %></dt>
+    <dd><%= icon('check-square-o') %> <%= t '.for_professional_developers' %></dd>
+    <dd><%= icon('check-square-o') %> <%= t '.seeking_speaker_proposals' %></dd>
   </dl>
 </section>
 
 <section class="approve">
-  <%= link_to "Yes, list me!", organizer_omniauth_authorize_path(:twitter), class: "button", role: "button" %>
+  <%= link_to t('.yes_list_me'), organizer_omniauth_authorize_path(:twitter), class: "button", role: "button" %>
 </section>

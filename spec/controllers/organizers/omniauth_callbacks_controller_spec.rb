@@ -51,7 +51,7 @@ RSpec.describe Organizers::OmniauthCallbacksController do
 
         it 'warns the user that they are not a conference' do
           get :twitter
-          expect(flash[:alert]).to eq 'You are not a conference'
+          expect(flash[:alert]).to include 'Could not authenticate you'
         end
       end
     end

@@ -9,7 +9,10 @@ class Organizers::OmniauthCallbacksController < Devise::OmniauthCallbacksControl
         redirect_to new_conference_listing_path(organizer.conference)
       end
     else
-      redirect_to root_path, alert: 'You are not a conference'
+      redirect_to root_path, alert: t('devise.omniauth_callbacks.failure',
+        kind: 'Twitter',
+        reason: t('devise.omniauth_callbacks.not_followed')
+      )
     end
   end
 end

@@ -1,17 +1,17 @@
 <header>
-  <h2>List your conference</h2>
+  <h2><%= t('.title') %></h2>
 </header>
 
 <%= form_for(@conference_listing, url: conference_listing_path(conference_id: @conference_listing.id)) do |f| %>
   <section class="inputs">
     <fieldset>
-      <%= f.label :name, 'Conference name' %>
+      <%= f.label :name %>
       <%= f.text_field :name %>
 
-      <%= f.label :website_url, 'Website' %>
+      <%= f.label :website_url %>
       <%= f.text_field :website_url %>
 
-      <%= f.label :twitter_handle, 'Twitter handle' %>
+      <%= f.label :twitter_handle %>
       <%= f.text_field :twitter_handle, disabled: true %>
     </fieldset>
 
@@ -22,6 +22,6 @@
   </section>
 
   <section class="submit">
-    <%= f.submit "Create listing" %>
+    <%= f.submit t('.submit') %>
   </section>
 <% end %>

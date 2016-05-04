@@ -63,7 +63,7 @@ RSpec.describe Conferences::ListingsController do
           before { make_request(name: '') }
 
           it "flashes a failure message" do
-            expect(flash.alert).to include("Name can't be blank")
+            expect(flash.alert).to include("Conference name can't be blank")
           end
 
           it "assigns the conference" do

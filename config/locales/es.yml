@@ -1,5 +1,5 @@
 ---
-en:
+es:
   activemodel:
     attributes:
       conference/detail:
@@ -8,27 +8,27 @@ en:
         location: Location
         starts_at: Starting date
       conference/listing:
-        name: Conference name
-        twitter_handle: Twitter handle
+        name: Título de conferencia
+        twitter_handle: Cuenta de Twitter
         website_url: Website
     errors:
       models:
         conference/listing:
           attributes:
             name:
-              blank: can't be blank
+              blank: no se puede dejar en blanco
   application:
     header:
-      find_a_conference: Find a conference
+      find_a_conference: Busque una conferencia
       title: CallbackWomen
   approvals:
     show:
-      encourage_submissions: Encourage thousands of speakers to submit to your conference
-      for_professional_developers: For professional developers?
-      is_your_event: 'Is your event:'
-      list_your_conference: List your conference
-      seeking_speaker_proposals: Seeking public speaker submissions
-      yes_list_me: Yes, list me!
+      encourage_submissions: Apoye miles de presentadores para submitir a su conferencia
+      for_professional_developers: "¿...desarrolladores profesionales?"
+      is_your_event: Busca un evento para...
+      list_your_conference: Enlista su conferencia
+      seeking_speaker_proposals: "¿...submiciones para presentadores?"
+      yes_list_me: "¡Sí, agregame!"
   conferences:
     details:
       edit:
@@ -39,8 +39,8 @@ en:
         title: Tell speakers the basics
     listings:
       new:
-        submit: Create listing
-        title: List your conference
+        submit: Enlístame
+        title: Enlista su conferencia
   layouts:
     application:
       title: CallbackWomen
