@@ -11,6 +11,17 @@ en:
         name: Conference name
         twitter_handle: Twitter handle
         website_url: Website
+      conference/structure:
+        cfp_count: How many are open for CFP submissions?
+        keynote_count: Keynote
+        other_count: Other
+        panel_count: Panel
+        plenary_count: Plenary
+        prior_submissions_count: Number of submissions received
+        talk_count: Talk
+        track_count: Number of tracks
+        tutorial_count: Tutorial
+        workshop_count: Workshop
     errors:
       models:
         conference/listing:
@@ -34,13 +45,30 @@ en:
       edit:
         account: Account
         dates: Conference dates
-        details: Details
+        details: Event Details
         next: Next
+        structure: Structure
         title: Tell speakers the basics
     listings:
       new:
         submit: Create listing
         title: List your conference
+    structures:
+      edit:
+        account: Account
+        details: Event Details
+        keynote: Keynote
+        next: Next
+        number_of_each: Number of each
+        other: Other
+        panel: Panel
+        plenary: Plenary
+        structure: Structure
+        talk: Talk
+        title: Help speakers understand your event
+        tutorial: Tutorial
+        type_of_talks: Type of talks
+        workshop: Workshop
   layouts:
     application:
       title: CallbackWomen
