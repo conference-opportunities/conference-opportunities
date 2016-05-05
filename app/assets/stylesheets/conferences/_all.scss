@@ -1,2 +1,57 @@
+%conference-editor {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+}
+
+.nav--conference {
+  background-color: $callback-light-grey;
+  border-right: 0.1rem solid $callback-grey;
+  flex: 0 0 12rem;
+  order: -1;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    font-size: 1.5rem;
+    padding: 0.2rem 1rem;
+
+    &.current {
+      background-color: lighten($callback-light-grey, 10%);
+      border: 0.1rem solid $callback-grey;
+      border-left-width: 0;
+      border-right-width: 0;
+      font-weight: bold;
+    }
+  }
+}
+
+.form--conference {
+  flex: 1;
+  padding: 1rem;
+
+  h3 {
+    color: $callback-blue;
+  }
+  .field_with_errors input {
+    width: 100%;
+  }
+
+  input {
+    max-width: 30rem;
+  }
+
+  input[type='number'] {
+    width: auto;
+  }
+
+  input[type='submit'] {
+    font-size: 1.25rem;
+  }
+}
+
 @import "listing";
 @import "detail";

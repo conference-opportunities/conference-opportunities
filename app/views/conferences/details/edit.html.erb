@@ -1,4 +1,4 @@
-<%= form_for(@conference_detail) do |f| %>
+<%= form_for(@conference_detail, html: {class: "form--conference"}) do |f| %>
   <h3><%= t('.title') %></h3>
 
   <section class="fields">
@@ -19,7 +19,7 @@
   </section>
 <% end %>
 
-<nav>
+<nav class="nav--conference">
   <ul>
     <li><%= link_to t('.account'), new_conference_listing_path(@conference_detail.conference) %></li>
     <li class="current"><%= link_to t('.details'), edit_conference_detail_path(@conference_detail.conference) %></li>

@@ -1,82 +1,34 @@
-.details main {
+.date-picker {
+  background-color: $base-background-color;
+  border-radius: $base-border-radius;
+  border: $base-border;
+  box-sizing: border-box;
   display: flex;
-  min-height: 100vh;
-  flex-direction: row;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  margin-bottom: $small-spacing;
+  max-width: 30rem;
+  padding: $base-spacing / 3;
 
-  nav {
-    background-color: $callback-light-grey;
-    border-right: 0.1rem solid $callback-grey;
-    flex: 0 0 12rem;
-    order: -1;
-  }
-
-  form {
-    flex: 1;
-    max-width: 30rem;
-    padding: 1rem;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  li {
-    font-size: 1.5rem;
-    padding: 0.2rem 1rem;
-
-    &.current {
-      background-color: lighten($callback-light-grey, 10%);
-      border: 0.1rem solid $callback-grey;
-      border-left-width: 0;
-      border-right-width: 0;
-      font-weight: bold;
-    }
-  }
-
-  h3 {
-    color: $callback-blue;
-  }
-
-  .date-picker {
-    display: flex;
-    background-color: $base-background-color;
-    border: $base-border;
-    border-radius: $base-border-radius;
-    box-sizing: border-box;
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    margin-bottom: $small-spacing;
-    padding: $base-spacing / 3;
-  }
-
-  .date-picker span {
+  span {
     padding: 0 1rem;
     font-weight: bold;
     font-size: 2rem;
     line-height: 1.2rem;
   }
 
-  .date-picker input[type='text'] {
+  input[type='text'] {
     border: 0 none;
     padding: 0.15rem 0;
     margin: 0;
   }
 
-  .date-picker .field_with_errors,
-  .date-picker > input {
+  .field_with_errors,
+  & > input {
     flex: 1;
   }
+}
 
-  .field_with_errors input {
-    width: 100%;
-  }
-
-  input[type='number'] {
-    width: auto;
-  }
-
-  input[type='submit'] {
-    font-size: 1.25rem;
-  }
+.details main {
+  @extend %conference-editor;
 }
