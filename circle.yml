@@ -1,3 +1,6 @@
+general:
+  artifacts:
+    - tmp/capybara
 dependencies:
   pre:
     - gem install bundler
