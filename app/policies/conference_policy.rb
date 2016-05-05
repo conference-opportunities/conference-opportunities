@@ -1,6 +1,6 @@
 class ConferencePolicy < ApplicationPolicy
   def update?
-    user.conference == record
+    user.admin? || user.conference == record
   end
 
   class Scope < ApplicationPolicy::Scope
