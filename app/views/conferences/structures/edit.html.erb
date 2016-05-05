@@ -1,0 +1,75 @@
+<%= form_for(@conference_structure, html: {class: "form--conference"}) do |f| %>
+  <h3><%= t('.title') %></h3>
+
+  <section class="fields">
+    <%= f.label :track_count %>
+    <section class="track-count">
+    <% (1..4).each do |count| %>
+      <%= f.radio_button :track_count, count %>
+      <%= f.label :"track_count_#{count}", count %>
+    <% end %>
+    </section>
+
+    <%= label_tag t('.type_of_talks') %>
+    <section class="talk-counts">
+      <input type="checkbox" class="keynote-selected" id="conference_structure_keynote">
+      <input type="checkbox" class="plenary-selected" id="conference_structure_plenary">
+      <input type="checkbox" class="talk-selected" id="conference_structure_talk">
+      <input type="checkbox" class="tutorial-selected" id="conference_structure_tutorial">
+      <input type="checkbox" class="workshop-selected" id="conference_structure_workshop">
+      <input type="checkbox" class="panel-selected" id="conference_structure_panel">
+      <input type="checkbox" class="other-selected" id="conference_structure_other">
+      <section class="talk-types">
+        <%= label_tag 'conference_structure_keynote', t('.keynote'), class: 'keynote-toggle' %>
+        <%= label_tag 'conference_structure_plenary', t('.plenary'), class: 'plenary-toggle' %>
+        <%= label_tag 'conference_structure_talk', t('.talk'), class: 'talk-toggle' %>
+        <%= label_tag 'conference_structure_tutorial', t('.tutorial'), class: 'tutorial-toggle' %>
+        <%= label_tag 'conference_structure_workshop', t('.workshop'), class: 'workshop-toggle' %>
+        <%= label_tag 'conference_structure_panel', t('.panel'), class: 'panel-toggle' %>
+        <%= label_tag 'conference_structure_other', t('.other'), class: 'other-toggle' %>
+      </section>
+      <section class="talk-type-counts">
+        <%= label_tag t('.number_of_each') %>
+        <fieldset class="keynote">
+          <%= f.label :keynote_count %> <%= f.number_field :keynote_count %>
+        </fieldset>
+        <fieldset class="plenary">
+          <%= f.label :plenary_count %> <%= f.number_field :plenary_count %>
+        </fieldset>
+        <fieldset class="talk">
+          <%= f.label :talk_count %> <%= f.number_field :talk_count %>
+        </fieldset>
+        <fieldset class="tutorial">
+          <%= f.label :tutorial_count %> <%= f.number_field :tutorial_count %>
+        </fieldset>
+        <fieldset class="workshop">
+          <%= f.label :workshop_count %> <%= f.number_field :workshop_count %>
+        </fieldset>
+        <fieldset class="panel">
+          <%= f.label :panel_count %> <%= f.number_field :panel_count %>
+        </fieldset>
+        <fieldset class="other">
+          <%= f.label :other_count %> <%= f.number_field :other_count %>
+        </fieldset>
+
+        <%= f.label :cfp_count %>
+        <%= f.number_field :cfp_count %>
+      </section>
+    </section>
+
+    <%= f.label :prior_submissions_count %>
+    <%= f.number_field :prior_submissions_count %>
+  </section>
+
+  <section class="submit">
+    <%= f.submit t('.next') %>
+  </section>
+<% end %>
+
+<nav class="nav--conference">
+  <ul>
+    <li><%= link_to t('.account'), new_conference_listing_path(@conference_structure.conference) %></li>
+    <li><%= link_to t('.details'), edit_conference_detail_path(@conference_structure.conference) %></li>
+    <li class="current"><%= link_to t('.structure'), edit_conference_structure_path(@conference_structure.conference) %></li>
+  </ul>
+</nav>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Conferences::DetailsController do
+RSpec.describe Conferences::StructuresController do
   let!(:conference) { Conference.create!(twitter_handle: 'hamconf', uid: '123')}
   let!(:organizer) { Organizer.create!(provider: 'twitter', uid: '123', conference: conference) }
 
@@ -20,7 +20,7 @@ RSpec.describe Conferences::DetailsController do
         end
 
         it "assigns the conference" do
-          expect(assigns(:conference_detail).conference).to eq(conference)
+          expect(assigns(:conference_structure).conference).to eq(conference)
         end
       end
 
@@ -52,22 +52,22 @@ RSpec.describe Conferences::DetailsController do
 
   describe "PATCH #update" do
     def make_request(params = {}, id = conference.twitter_handle)
-      patch :update, conference_id: id, conference_detail: params
+      patch :update, conference_id: id, conference_structure: params
     end
 
     context 'when logged in as the organizer for the conference' do
       before { sign_in :organizer, organizer }
 
       context 'when the conference exists' do
-        context 'when the conference location is empty' do
-          before { make_request(location: '') }
+        context 'when the number of tracks has not been selected' do
+          before { make_request(track_count: 'zzz') }
 
           it "flashes a failure message" do
-            expect(flash.alert).to include("Location can't be blank")
+            expect(flash.alert).to include("Number of tracks is not a number")
           end
 
           it "assigns the conference" do
-            expect(assigns(:conference_detail).conference).to eq(conference)
+            expect(assigns(:conference_structure).conference).to eq(conference)
           end
 
           it "render the edit view" do
@@ -76,27 +76,35 @@ RSpec.describe Conferences::DetailsController do
         end
 
         context 'when the conference information is valid' do
-          it "updates the conference location" do
-            expect { make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today) }
-              .to change { conference.reload.location }
-              .to('Barrow, AK')
+          let(:valid_data) do
+            {
+              track_count: 2,
+              plenary_count: 3,
+              tutorial_count: 10,
+              workshop_count: 5,
+              keynote_count: 0,
+              talk_count: 0,
+              other_count: 0,
+              cfp_count: 15,
+              prior_submissions_count: 30
+            }
           end
 
-          it "updates the conference start date" do
-            expect { make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today) }
-              .to change { conference.reload.starts_at }
-              .to(Date.today)
+          it "updates the number of tracks" do
+            expect { make_request(valid_data) }
+              .to change { conference.reload.track_count }
+              .to(2)
           end
 
-          it "updates the conference end date" do
-            expect { make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today + 1.day) }
-              .to change { conference.reload.ends_at }
-              .to(Date.today + 1.day)
+          it "updates the conference plenary count" do
+            expect { make_request(valid_data) }
+              .to change { conference.reload.plenary_count }
+              .to(3)
           end
 
-          it 'redirects to the conference structure page' do
-            make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today + 1.day)
-            expect(response).to redirect_to(edit_conference_structure_path(conference))
+          it 'redirects to the conference page' do
+            make_request(valid_data)
+            expect(response).to redirect_to(conference_path(conference))
           end
         end
       end

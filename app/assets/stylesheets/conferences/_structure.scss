@@ -1,0 +1,96 @@
+%field-bubble {
+  background-color: $base-background-color;
+  border-radius: $base-border-radius;
+  border-radius: $base-border-radius;
+  border: $base-border;
+  box-sizing: border-box;
+  display: flex;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  margin-bottom: $small-spacing;
+  max-width: 30rem;
+
+  label {
+    flex: 1;
+    text-align: center;
+    margin-bottom: 0;
+    padding: $base-spacing / 3;
+  }
+
+  label + label {
+    border-left: 1px solid $base-border-color;
+  }
+}
+
+
+.structures main {
+  @extend %conference-editor;
+
+  .talk-counts {
+    .talk-types {
+      @extend %field-bubble;
+      max-width: 40rem;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .talk-type-counts,
+    .talk-type-counts fieldset {
+      display: none;
+    }
+
+    .talk-type-counts fieldset {
+      margin-left: 3rem;
+    }
+
+    .keynote-selected:checked ~ .talk-types .keynote-toggle,
+    .plenary-selected:checked ~ .talk-types .plenary-toggle,
+    .talk-selected:checked ~ .talk-types .talk-toggle,
+    .tutorial-selected:checked ~ .talk-types .tutorial-toggle,
+    .workshop-selected:checked ~ .talk-types .workshop-toggle,
+    .panel-selected:checked ~ .talk-types .panel-toggle,
+    .other-selected:checked ~ .talk-types .other-toggle {
+      background-color: #ddd;
+    }
+
+    .keynote-selected:checked ~ .talk-type-counts,
+    .plenary-selected:checked ~ .talk-type-counts,
+    .talk-selected:checked ~ .talk-type-counts,
+    .tutorial-selected:checked ~ .talk-type-counts,
+    .workshop-selected:checked ~ .talk-type-counts,
+    .panel-selected:checked ~ .talk-type-counts,
+    .other-selected:checked ~ .talk-type-counts {
+      display: block;
+    }
+
+    .keynote-selected:checked ~ .talk-type-counts .keynote,
+    .plenary-selected:checked ~ .talk-type-counts .plenary,
+    .talk-selected:checked ~ .talk-type-counts .talk,
+    .tutorial-selected:checked ~ .talk-type-counts .tutorial,
+    .workshop-selected:checked ~ .talk-type-counts .workshop,
+    .panel-selected:checked ~ .talk-type-counts .panel,
+    .other-selected:checked ~ .talk-type-counts .other {
+      display: block;
+    }
+  }
+
+  .track-count {
+    @extend %field-bubble;
+
+    input[type="radio"]:checked + label {
+      background-color: #ddd;
+    }
+
+    label + input[type="radio"] + label {
+      border-left: 1px solid $base-border-color;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+  }
+}
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426184434) do
+ActiveRecord::Schema.define(version: 20160427184821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20160426184434) do
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.integer  "attendee_count"
+    t.integer  "cfp_count"
+    t.integer  "keynote_count"
+    t.integer  "other_count"
+    t.integer  "panel_count"
+    t.integer  "plenary_count"
+    t.integer  "prior_submissions_count"
+    t.integer  "talk_count"
+    t.integer  "track_count"
+    t.integer  "tutorial_count"
+    t.integer  "workshop_count"
   end
 
   add_index "conferences", ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree

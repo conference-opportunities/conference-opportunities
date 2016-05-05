@@ -15,7 +15,7 @@ class Conferences::DetailsController < ApplicationController
     @conference_detail = Conference::Detail.new(conference_params.merge(conference: current_conference))
     authorize @conference_detail
     if @conference_detail.save
-      redirect_to(@conference_detail.conference)
+      redirect_to(edit_conference_structure_path(@conference_detail.conference))
     else
       flash.now.alert = @conference_detail.errors.full_messages
       render :edit

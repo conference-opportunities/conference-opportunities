@@ -50,6 +50,23 @@ RSpec.feature "Publish a conference", :js do
     fill_in "Number of Attendees", with: "2"
 
     click_on "Next"
+
+    expect(page).to have_content "Help speakers understand your event"
+
+    find('label[for="conference_structure_track_count_1"]').click
+    find('label[for="conference_structure_plenary"]').click
+    find('label[for="conference_structure_tutorial"]').click
+    find('label[for="conference_structure_workshop"]').click
+
+    fill_in "Plenary", with: "3"
+    fill_in "Tutorial", with: "10"
+    fill_in "Workshop", with: "5"
+    fill_in "How many are open for CFP submissions?", with: "15"
+
+    fill_in "Number of submissions received", with: "30"
+
+    click_on "Next"
+
     expect(page).to have_content "@conferencename"
 
     logout(:organizer)
