@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Publish a conference", :js do
+RSpec.feature "Publish a conference (es_ES)", :js do
   let(:uid) { '123545' }
   let!(:conference) do
     Conference.create!(
