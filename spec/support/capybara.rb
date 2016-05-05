@@ -1,3 +1,5 @@
+require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
 require 'capybara/poltergeist'
 
 Capybara.register_driver :chrome do |app|

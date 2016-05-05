@@ -27,7 +27,7 @@ RSpec.feature "Publish a conference", :js do
     visit root_path(locale: :en)
     expect(page).not_to have_content "Interesting conference"
 
-    visit approval_path
+    visit approval_path(locale: :en)
     click_on "Yes, list me!"
 
     expect(find_field("Conference name").value).to eq "Interesting conference"
@@ -71,7 +71,7 @@ RSpec.feature "Publish a conference", :js do
 
     logout(:organizer)
 
-    visit root_path
+    visit root_path(locale: :en)
     click_on "Six hours of bathroom lines"
     expect(current_path).to eq conference_path(conference)
   end
