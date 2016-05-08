@@ -47,8 +47,7 @@ RSpec.describe ApplicationController do
   describe '#current_locale' do
     context 'when no locale or organizer are present' do
       it 'returns the default locale' do
-        expect(I18n).to receive(:default_locale).and_return('ha_SA')
-        expect(controller.current_locale).to eq('ha_SA')
+        expect(controller.current_locale).to eq('en')
       end
     end
 

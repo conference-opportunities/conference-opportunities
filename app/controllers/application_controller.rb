@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def current_locale
     return params[:locale] if params.has_key?(:locale)
     return current_organizer.locale if organizer_signed_in?
-    I18n.default_locale
+    I18n.default_locale.to_s
   end
 
   def set_locale
