@@ -43,7 +43,7 @@ RSpec.feature "Publish a conference", :js do
     within '.pac-container' do
       find(".pac-item:first-child").click
     end
-    expect(find("#conference_detail_location").value).to include('Moscone Center, San Francisco, CA')
+    expect(find("#conference_detail_location").value).to include('San Francisco, CA')
 
     fill_in "conference_detail_starts_at", with: "01/01/2016"
     fill_in "conference_detail_ends_at", with: "01/01/2016"
