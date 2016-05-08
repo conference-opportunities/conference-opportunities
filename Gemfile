@@ -28,6 +28,7 @@ group :development do
 end
 
 group :production do
+  gem 'dalli'
   gem 'rails_12factor'
 end
 
