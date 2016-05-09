@@ -169,6 +169,7 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    locale_setter (0.4.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -382,6 +383,7 @@ DEPENDENCIES
   i18n-tasks
   jquery-rails
   launchy
+  locale_setter
   omniauth-twitter
   pg
   phantomjs
@@ -404,5 +406,8 @@ DEPENDENCIES
   web-console (~> 3.0)
   webmock
 
+RUBY VERSION
+   ruby 2.3.0p0
+
 BUNDLED WITH
-   1.11.2
+   1.12.3
