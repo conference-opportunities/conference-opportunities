@@ -39,7 +39,16 @@ Next, you'll need to create a ```.env``` file and generate the 5 environment var
 
   ![twitter_tokens_instructions](/app/assets/images/readme_screenshots/twitter_tokens_instructions.png)
 
+**TROUBLESHOOTING STEPS**
+
+* Try adding `export ` in front of each environment variable. Example:
+  ```export GOOGLE_MAPS_API_KEY: key```
+* Try `cd`-ing out and back into the folder.
+* Make sure your `.env` file is located at the root level of the project.
+
 ##Database Setup
+
+Seed data will supply you with three test organizers and three test conferences.
 
 Create your ```database.yml``` file by doing
 ```
