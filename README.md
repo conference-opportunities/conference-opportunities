@@ -4,6 +4,8 @@
 
 The Pivotal Tracker backlog for this project can be found at (https://www.pivotaltracker.com/n/projects/1433838).
 
+The site can be found at (http://www.callbackwomen.com)
+
 ## Development
 
 Welcome to Rails.  You'll need Postgres set up locally.
@@ -11,17 +13,36 @@ Welcome to Rails.  You'll need Postgres set up locally.
 ```
 $ bundle install
 ```
+Next, you'll need to create a ```.env``` file and generate the 5 environment variables to start developing the app:
+
+* `GOOGLE_MAPS_API_KEY`=YOUR_KEY_HERE
+* `TWITTER_CONSUMER_KEY=YOUR_KEY_HERE
+* `TWITTER_CONSUMER_SECRET`=YOUR_KEY_HERE
+* `TWITTER_ACCESS_TOKEN`=YOUR_KEY_HERE
+* `TWITTER_ACCESS_TOKEN_SECRET`=YOUR_KEY_HERE
+
+###Env Variables
+* `GOOGLE_MAPS_API_KEY`
++ get this from [https://console.developers.google.com/apis/credentials](https://console.developers.google.com/apis/credentials)
++ When you see the screen pictured below, enter in a name to create the project. The name can be anything of your choosing.
++ Choose "Browser key"
++ Copy key into the ```.env``` file. (Example: ```GOOGLE_MAPS_API_KAY=YOUR_KEY_HERE```)
+
+* `TWITTER_CONSUMER_KEY` (and all twitter keys)
++ get this from [https://apps.twitter.com/](https://apps.twitter.com/)
++ For "website", enter ```http://www.callbackwomen.com```
++ For the rest of the twitter-related keys, go to the "keys and access tokens" tab (screenshot below)
+
+##Database Setup
+
+Create your ```database.yml``` file by doing
+```
+$ cp config/database.yml.example config/database.yml
+```
+
 ```
 $ bundle exec rake db:setup
 ```
-
-You'll need 5 environment variables to start developing the app:
-
-* `GOOGLE_MAPS_API_KEY`: get this from [https://console.developers.google.com/apis/credentials](https://console.developers.google.com/apis/credentials)
-* `TWITTER_CONSUMER_KEY`: get this from [https://apps.twitter.com/](https://apps.twitter.com/)
-* `TWITTER_CONSUMER_SECRET`: ditto
-* `TWITTER_ACCESS_TOKEN`: ditto
-* `TWITTER_ACCESS_TOKEN_SECRET`: ditto
 
 ## Testing
 
@@ -30,6 +51,9 @@ For integration testing, we use [@fakemovaccount](https://twitter.com/fakemovacc
 ```
 $ bundle exec rspec
 ```
+
+**Note:** The first time you run the spec, phantomjs will install. Do not be alarmed.
+**Note:** While running the specs, the browser will open running feature specs. Do not be alarmed.
 
 ## Deployment
 
