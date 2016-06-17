@@ -25,13 +25,16 @@ Next, you'll need to create a ```.env``` file and generate the 5 environment var
 * `GOOGLE_MAPS_API_KEY`
   * Get this from [https://console.developers.google.com/apis/credentials](https:/console.developers.google.com/apis/credentials)
   * When you see the screen pictured below, enter in a name to create the project. The name can be anything of your choosing.
+  ![create_project](/images/readme_screenshots/create_project.png)
   * Choose "Browser key"
+  ![google_api_instructions](/images/readme_screenshots/google_api_instructions.png)
   * Copy key into the ```.env``` file. (Example: ```GOOGLE_MAPS_API_KAY=YOUR_KEY_HERE```)
 
 * `TWITTER_CONSUMER_KEY` (and all twitter keys)
   * Get this from [https://apps.twitter.com/](https://apps.twitter.com/)
   * For "website", enter ```http://www.callbackwomen.com```
   * For the rest of the twitter-related keys, go to the "keys and access tokens" tab (screenshot below)
+  ![twitter_tokens_instructions](/images/readme_screenshots/twitter_token_instructions.png)
 
 ##Database Setup
 
