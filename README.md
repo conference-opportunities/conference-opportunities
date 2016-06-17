@@ -10,6 +10,8 @@ Welcome to Rails.  You'll need Postgres set up locally.
 
 ```
 $ bundle install
+```
+```
 $ bundle exec rake db:setup
 ```
 
