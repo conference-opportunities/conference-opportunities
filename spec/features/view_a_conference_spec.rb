@@ -19,9 +19,5 @@ RSpec.feature "Conferences", :vcr, :js do
     visit root_path
     click_on conference.name
     expect(page).to have_content conference.description
-    expect(page).to have_css '#twitter-widget-0'
-    within_frame('twitter-widget-0') do
-      expect(page).to have_content "just setting up my twttr"
-    end
   end
 end

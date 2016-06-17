@@ -15,7 +15,7 @@ Devise.setup do |config|
   # only the current scope. By default, Devise signs out all scopes.
   # config.sign_out_all_scopes = true
 
-  config.omniauth :twitter, ENV.fetch('TWITTER_CONSUMER_KEY'), ENV.fetch('TWITTER_CONSUMER_SECRET')
+  config.omniauth :twitter, TwitterCredentials::CONSUMER_KEY, TwitterCredentials::CONSUMER_SECRET
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
