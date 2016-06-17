@@ -64,7 +64,7 @@ $ bundle exec rspec
 
 ## Deployment
 
-Use Heroku.
+If you have permission to deploy, please use Heroku. If you are a contributor and do not have explicit permission to deploy, don't worry! Your contribution will be reviewed and deployed via Heroku when ready. Unfortunately, there is no set timeframe for merging PRs.
 
 Later, make sure the Twitter app has a Callback URL set in the Settings tab.
 Otherwise you'll see a 401 error from Omniauth.
