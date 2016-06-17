@@ -29,7 +29,7 @@ Next, you'll need to create a ```.env``` file and generate the 5 environment var
   ![create_project](/app/assets/images/readme_screenshots/create_project.png)
   * Choose "Browser key"
 
-  ![google_api_instructions](/app/assets/images/readme_screenshots/google_api_instructions.png)
+  ![google_api_instruction](/app/assets/images/readme_screenshots/google_api_instruction.png)
   * Copy key into the ```.env``` file. (Example: ```GOOGLE_MAPS_API_KAY=YOUR_KEY_HERE```)
 
 * `TWITTER_CONSUMER_KEY` (and all twitter keys)
@@ -37,7 +37,7 @@ Next, you'll need to create a ```.env``` file and generate the 5 environment var
   * For "website", enter ```http://www.callbackwomen.com```
   * For the rest of the twitter-related keys, go to the "keys and access tokens" tab (screenshot below)
 
-  ![twitter_tokens_instructions](/app/assets/images/readme_screenshots/twitter_token_instructions.png)
+  ![twitter_tokens_instructions](/app/assets/images/readme_screenshots/twitter_tokens_instructions.png)
 
 ##Database Setup
 
