@@ -4,15 +4,17 @@ window.ConferenceDetailsEdit = function() {
   autocomplete.addListener('place_changed', getCoords(locationInput.value));
 };
 
-// on select
+// On location Autocomplete select
 function getCoords(location) {
-  // console.log('hey hey');
-  // console.log(location);
-  // console.log('in getCoords');
   var url = 'http://nominatim.openstreetmap.org/search/' + location + '?format=json&addressdetails=1';
   $.ajax({ 
   	url: url 
-  }).done(function(json) {
-  	console.log(json);
+  }).done(function(data) {
+    var lat = data[0]["lat"].toString();
+    var lon = data[0]["lon"].toString();
+    var center = lon + ',' + lat;
+    console.log(center);
+  }).fail(function() {
+  	console.log('uh oh');
   });
 }
