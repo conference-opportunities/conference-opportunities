@@ -6,10 +6,10 @@ RSpec.describe TwitterUpdater, :vcr do
 
     it 'returns a configured twitter updater' do
       expect(updater.to_h).to eq(
-        consumer_key: 'twitter_consumer_key',
-        consumer_secret: 'twitter_consumer_secret',
-        access_token: 'twitter_access_token',
-        access_token_secret: 'twitter_access_token_secret',
+        consumer_key: TwitterCredentials::CONSUMER_KEY,
+        consumer_secret: TwitterCredentials::CONSUMER_SECRET,
+        access_token: TwitterCredentials::ACCESS_TOKEN,
+        access_token_secret: TwitterCredentials::ACCESS_TOKEN_SECRET,
       )
     end
   end
