@@ -59,6 +59,7 @@ $ bundle exec rspec
 ```
 
 **Note:** The first time you run the spec, phantomjs will install. Do not be alarmed.
+
 **Note:** While running the specs, the browser will open running feature specs. Do not be alarmed.
 
 ## Deployment
