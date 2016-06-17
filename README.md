@@ -16,22 +16,22 @@ $ bundle install
 Next, you'll need to create a ```.env``` file and generate the 5 environment variables to start developing the app:
 
 * `GOOGLE_MAPS_API_KEY`=YOUR_KEY_HERE
-* `TWITTER_CONSUMER_KEY=YOUR_KEY_HERE
+* `TWITTER_CONSUMER_KEY`=YOUR_KEY_HERE
 * `TWITTER_CONSUMER_SECRET`=YOUR_KEY_HERE
 * `TWITTER_ACCESS_TOKEN`=YOUR_KEY_HERE
 * `TWITTER_ACCESS_TOKEN_SECRET`=YOUR_KEY_HERE
 
 ###Env Variables
 * `GOOGLE_MAPS_API_KEY`
-+ get this from [https://console.developers.google.com/apis/credentials](https://console.developers.google.com/apis/credentials)
-+ When you see the screen pictured below, enter in a name to create the project. The name can be anything of your choosing.
-+ Choose "Browser key"
-+ Copy key into the ```.env``` file. (Example: ```GOOGLE_MAPS_API_KAY=YOUR_KEY_HERE```)
+  * Get this from [https://console.developers.google.com/apis/credentials](https:/console.developers.google.com/apis/credentials)
+  * When you see the screen pictured below, enter in a name to create the project. The name can be anything of your choosing.
+  * Choose "Browser key"
+  * Copy key into the ```.env``` file. (Example: ```GOOGLE_MAPS_API_KAY=YOUR_KEY_HERE```)
 
 * `TWITTER_CONSUMER_KEY` (and all twitter keys)
-+ get this from [https://apps.twitter.com/](https://apps.twitter.com/)
-+ For "website", enter ```http://www.callbackwomen.com```
-+ For the rest of the twitter-related keys, go to the "keys and access tokens" tab (screenshot below)
+  * Get this from [https://apps.twitter.com/](https://apps.twitter.com/)
+  * For "website", enter ```http://www.callbackwomen.com```
+  * For the rest of the twitter-related keys, go to the "keys and access tokens" tab (screenshot below)
 
 ##Database Setup
 
