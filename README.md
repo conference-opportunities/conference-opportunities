@@ -34,7 +34,7 @@ Next, you'll need to create a ```.env``` file and generate the 5 environment var
 
 * `TWITTER_CONSUMER_KEY` (and all twitter keys)
   * Get this from [https://apps.twitter.com/](https://apps.twitter.com/)
-  * For "website", enter ```http://www.callbackwomen.com```
+  * For "website", enter ```http://cfp.callbackwomen.com```
   * For the rest of the twitter-related keys, go to the "keys and access tokens" tab (screenshot below)
 
   ![twitter_tokens_instructions](/app/assets/images/readme_screenshots/twitter_tokens_instructions.png)
