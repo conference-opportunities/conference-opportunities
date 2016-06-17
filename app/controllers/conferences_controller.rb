@@ -4,7 +4,7 @@ class ConferencesController < ApplicationController
   end
 
   def show
-    authorize current_conference
+    #authorize current_conference
     @conference = ConferencePresenter.new(current_conference)
   end
 
