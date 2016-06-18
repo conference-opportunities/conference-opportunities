@@ -1,11 +1,21 @@
-# [@CallbackWomen](https://twitter.com/callbackwomen): The Website
+# Conference Opportunties
 [![Circle CI](https://circleci.com/gh/minifast/conference-opportunities.svg?style=svg)](https://circleci.com/gh/minifast/conference-opportunities) [![Code Climate](https://codeclimate.com/github/minifast/conference-opportunities/badges/gpa.svg)](https://codeclimate.com/github/minifast/conference-opportunities) [![Test Coverage](https://codeclimate.com/github/minifast/conference-opportunities/badges/coverage.svg)](https://codeclimate.com/github/minifast/conference-opportunities/coverage) [![Issue Count](https://codeclimate.com/github/minifast/conference-opportunities/badges/issue_count.svg)](https://codeclimate.com/github/minifast/conference-opportunities) [![Dependency Status](https://gemnasium.com/minifast/conference-opportunities.svg)](https://gemnasium.com/minifast/conference-opportunities)
 
-Conference Opportunities is a branded (but reusable under the MIT license!) open source application powering the CallbackWomen conference search site.
+Conference Opportunities is a branded (but reusable under the MIT license!) open source application powering the CallbackWomen conference search site.  CallbackWomen curates data about conferences for professional programmers, specifically data around:
 
-The Pivotal Tracker backlog for this project can be found at (https://www.pivotaltracker.com/n/projects/1433838).
+1. Gender Diversity, Inclusion, and Access
+2. Outstanding talks given by women and by gender nonbinary people
 
-The site can be found at (http://www.callbackwomen.com).
+Conference Opportunities serves CallbackWomen's mission of increasing gender diversity at technology conferences.  Find out more about CallbackWomen, as well as resources for conferences and speakers, at (http://www.callbackwomen.com).
+
+
+#### How does Conference Opportunities work?
+
+**If you're the administrator** Conference Opportunities lists your Twitter followers as Conferences.  If you've tweeted at (or retweeted) a Conference, those Tweets appear in that Conference's profile page.
+
+**If you're followed by the administrator** Conference Opportunities lets you log in with your Twitter account and approve your listing on the front page.  By default, the only information that gets displayed is what you've entered on Twitter.  You can take this one step further and list upcoming Occasions that you'd like to solicit talks from Speakers.
+
+**If you'd like to speak at a conference** Conference Opportunities is the best place to check out all the latest information about upcoming CFPs and D+I information on Conferences.
 
 
 ## Development
@@ -105,12 +115,14 @@ Add or change the following lines in your `.env` file (minus the square brackets
 GOOGLE_MAPS_API_KEY=[Key]
 ```
 
-**TROUBLESHOOTING STEPS**
+
+## Troubleshooting
 
 * Try adding `export ` in front of each environment variable. Example:
   ```export GOOGLE_MAPS_API_KEY=key```
 * Try `cd`-ing out and back into the folder.
 * Make sure your `.env` file is located at the root level of the project.
+* Make sure the Twitter app has a Callback URL set in the Settings tab. Otherwise you'll see a 401 error from Omniauth.
 
 
 ## Testing
@@ -126,10 +138,7 @@ $ bundle exec rspec
 
 ## Deployment
 
-If you have permission to deploy, please use Heroku. If you are a contributor and do not have explicit permission to deploy, don't worry! Your contribution will be reviewed and deployed via Heroku when ready. Unfortunately, there is no set timeframe for merging PRs.
-
-Later, make sure the Twitter app has a Callback URL set in the Settings tab.
-Otherwise you'll see a 401 error from Omniauth.
+CallbackWomen is automatically deployed whenever [CircleCI](https://circleci.com/gh/minifast/conference-opportunities) determines that all tests have passed.  If you create a pull request, Heroku will create a sample application to review your proposed changes.
 
 
 ## Contributing
@@ -139,3 +148,8 @@ Otherwise you'll see a 401 error from Omniauth.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+
+### What should I work on?
+
+The Pivotal Tracker backlog for this project can be found at (https://www.pivotaltracker.com/n/projects/1433838).  The backlog contains a roadmap for the immediate future of development.  Issues and open work items for the community are curated at (https://github.com/minifast/conference-opportunities/issues).
