@@ -1,10 +1,10 @@
 class TwitterUpdater < Struct.new(:consumer_key, :consumer_secret, :access_token, :access_token_secret)
   def self.authenticated
     new(
-      TwitterCredentials::CONSUMER_KEY,
-      TwitterCredentials::CONSUMER_SECRET,
-      TwitterCredentials::ACCESS_TOKEN,
-      TwitterCredentials::ACCESS_TOKEN_SECRET
+      TwitterCredentials.create.consumer_key,
+      TwitterCredentials.create.consumer_secret,
+      TwitterCredentials.create.access_token,
+      TwitterCredentials.create.access_token_secret
     )
   end
 
