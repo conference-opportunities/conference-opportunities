@@ -1,4 +1,6 @@
 Devise.setup do |config|
+  config.secret_key = ENV.fetch('DEVISE_SECRET_KEY', '3a7de3ccabd893cb91c97fd3015140f0160cbf775d80e2da1c107cf220ac9ef79d38336022bd1c972be9d7e256d54900c9fdc2ca7c9038f43eaec3b3c6532d24')
+
   require 'devise/orm/active_record'
 
   # ==> Scopes configuration
