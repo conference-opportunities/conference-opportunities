@@ -22,7 +22,7 @@ class Conferences::StructuresController < ApplicationController
     @conference_structure = Conference::Structure.new(conference_params.merge(conference: current_conference))
     authorize @conference_structure
     if @conference_structure.save
-      redirect_to(@conference_structure.conference)
+      redirect_to conference_path(@conference_structure.conference)
     else
       flash.now.alert = @conference_structure.errors.full_messages
       render :edit
