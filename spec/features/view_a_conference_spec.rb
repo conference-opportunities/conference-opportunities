@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Conferences", :vcr, :js do
+RSpec.feature "Viewing a conference", type: :feature do
   let!(:conference) do
     Conference.create!(
       name: "Interesting conference",
@@ -10,14 +10,10 @@ RSpec.feature "Conferences", :vcr, :js do
       uid: "hay"
     )
   end
-  let(:actual_twitter_id) { '20' }
-  before do
-    conference.tweets.create!(twitter_id: actual_twitter_id)
-  end
 
-  scenario "Speaker views a conference", :chrome do
+  scenario "displays the conference description" do
     visit root_path
     click_on conference.name
-    expect(page).to have_content conference.description
+    expect(page).to have_content(conference.description)
   end
 end

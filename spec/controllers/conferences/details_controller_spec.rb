@@ -10,7 +10,7 @@ RSpec.describe Conferences::DetailsController do
     end
 
     context 'when logged in as the organizer for the conference' do
-      before { sign_in :organizer, organizer }
+      before { sign_in(organizer, scope: :organizer) }
 
       context 'when the conference exists' do
         before { make_request }
@@ -35,7 +35,7 @@ RSpec.describe Conferences::DetailsController do
       let(:other_conference) { Conference.create!(twitter_handle: 'otherconf', uid: '756')}
       let(:other_organizer) { Organizer.create!(provider: 'twitter', uid: '756', conference: other_conference) }
 
-      before { sign_in :organizer, other_organizer }
+      before { sign_in(other_organizer, scope: :organizer) }
 
       it 'raises an error' do
         expect { make_request }.to raise_error(Pundit::NotAuthorizedError)
@@ -56,7 +56,7 @@ RSpec.describe Conferences::DetailsController do
     end
 
     context 'when logged in as the organizer for the conference' do
-      before { sign_in :organizer, organizer }
+      before { sign_in(organizer, scope: :organizer) }
 
       context 'when the conference exists' do
         context 'when the conference location is empty' do
@@ -114,7 +114,7 @@ RSpec.describe Conferences::DetailsController do
       let(:other_conference) { Conference.create!(twitter_handle: 'otherconf', uid: '756')}
       let(:other_organizer) { Organizer.create!(provider: 'twitter', uid: '756', conference: other_conference) }
 
-      before { sign_in :organizer, other_organizer }
+      before { sign_in(other_organizer, scope: :organizer) }
 
       it 'raises an error' do
         expect {

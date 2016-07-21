@@ -1,6 +1,44 @@
 general:
   artifacts:
     - tmp/capybara
+machine:
+  pre:
+    - mkdir $CIRCLE_TEST_REPORTS/teaspoon
 dependencies:
   pre:
-    - gem install bundler
+    - gem list -i bundler || gem install bundler
+  cache_directories:
+    - "public/assets"
+    - "/opt/circleci/.rvm/gems"
+database:
+  post:
+    - bundle exec rake assets:precompile assets:clean:
+        environment:
+          RAILS_GROUPS: assets
+test:
+  override:
+    - bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
+    - bundle exec teaspoon --format="junit>$CIRCLE_TEST_REPORTS/teaspoon/junit.xml"
+  post:
+    - bundle exec license_finder
+deployment:
+  staging:
+    branch: master
+    commands:
+      - heroku maintenance:on --app callback-women-staging
+      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+      - git push git@heroku.com:callback-women-staging.git $CIRCLE_SHA1:refs/heads/master
+      - heroku pg:backups capture --app callback-women-staging
+      - heroku run rake db:migrate --app callback-women-staging
+      - heroku ps:restart --app callback-women-staging
+      - heroku maintenance:off --app callback-women-staging
+  production:
+    branch: production
+    commands:
+      - heroku maintenance:on --app callback-women-production
+      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+      - git push git@heroku.com:callback-women-production.git $CIRCLE_SHA1:refs/heads/master
+      - heroku pg:backups capture --app callback-women-production
+      - heroku run rake db:migrate --app callback-women-production
+      - heroku ps:restart --app callback-women-production
+      - heroku maintenance:off --app callback-women-production

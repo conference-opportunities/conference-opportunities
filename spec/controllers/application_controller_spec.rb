@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe ApplicationController do
+RSpec.describe ApplicationController, type: :controller do
   let(:scope) { double(:scope) }
 
   describe "#new_session_path" do
@@ -13,7 +13,7 @@ RSpec.describe ApplicationController do
     let(:conference) { Conference.create!(twitter_handle: "punditconf", uid: '123') }
     let(:organizer) { Organizer.create!(uid: '123', provider: 'twitter', conference: conference) }
 
-    before { sign_in organizer }
+    before { sign_in(organizer, scope: :organizer) }
 
     it "returns the current organizer" do
       expect(controller.pundit_user).to eq(organizer)

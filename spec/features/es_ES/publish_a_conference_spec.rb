@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Publish a conference (es_ES)", :js do
+RSpec.feature "Publishing a conference in Spanish", type: :feature do
   let(:uid) { '123545' }
   let!(:conference) do
     Conference.create!(
@@ -23,7 +23,7 @@ RSpec.feature "Publish a conference (es_ES)", :js do
     OmniAuth.config.mock_auth[:twitter] = valid_twitter_auth
   end
 
-  scenario "a followed conference organizer can list their conference", :chrome do
+  scenario "prompts for approval in Spanish" do
     visit approval_path(locale: :es)
     click_on I18n.t('approvals.show.yes_list_me', locale: :es)
   end

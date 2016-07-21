@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Publish a conference", :js do
+RSpec.feature "Publishing a conference", type: :feature do
   let(:uid) { '123545' }
   let!(:conference) do
     Conference.create!(
@@ -23,7 +23,7 @@ RSpec.feature "Publish a conference", :js do
     OmniAuth.config.mock_auth[:twitter] = valid_twitter_auth
   end
 
-  scenario "a followed conference organizer can list their conference", :chrome do
+  scenario "lists the conference", :js do
     visit root_path(locale: :en)
     expect(page).not_to have_content "Interesting conference"
 
@@ -38,11 +38,7 @@ RSpec.feature "Publish a conference", :js do
     click_on "Create listing"
     expect(page).to have_content "Tell speakers the basics"
 
-    find("#conference_detail_location").click
-    fill_in "Location", with: "Moscone Center"
-    within '.pac-container' do
-      find(".pac-item:first-child").click
-    end
+    fill_in_autocomplete 'conference_detail_location', with: 'Moscone Center'
     expect(find("#conference_detail_location").value).to include('San Francisco, CA')
 
     fill_in "conference_detail_starts_at", with: "01/01/2016"
