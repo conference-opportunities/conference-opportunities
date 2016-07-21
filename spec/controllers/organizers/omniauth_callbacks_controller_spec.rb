@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Organizers::OmniauthCallbacksController do
+RSpec.describe Organizers::OmniauthCallbacksController, type: :controller do
   let(:uid) { '123545' }
   let(:twitter_handle) { 'conf' }
 
@@ -17,6 +17,10 @@ RSpec.describe Organizers::OmniauthCallbacksController do
       request.env['omniauth.auth'] = valid_twitter_auth
     end
 
+    def make_request
+      get :twitter
+    end
+
     context 'when the corresponding conference exists' do
       let!(:conference) do
         Conference.create!(twitter_handle: 'conf', uid: uid)
@@ -26,8 +30,8 @@ RSpec.describe Organizers::OmniauthCallbacksController do
       end
 
       it 'redirects to the admin path' do
-        get :twitter
-        expect(response).to redirect_to('/admin/')
+        make_request
+        expect(response).to redirect_to(/admin/)
       end
     end
 
@@ -38,19 +42,19 @@ RSpec.describe Organizers::OmniauthCallbacksController do
         end
 
         it "redirects the organizer's conference edit page" do
-          get :twitter
+          make_request
           expect(response).to redirect_to new_conference_listing_path(conference)
         end
       end
 
       context 'when there is no corresponding conference' do
         it 'redirects to the home page' do
-          get :twitter
+          make_request
           expect(response).to redirect_to root_path
         end
 
         it 'warns the user that they are not a conference' do
-          get :twitter
+          make_request
           expect(flash[:alert]).to include 'Could not authenticate you'
         end
       end

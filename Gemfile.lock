@@ -107,6 +107,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.1.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
     domain_name (0.5.20160615)
@@ -176,6 +177,7 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     http-form_data (1.0.1)
+    http_accept_language (2.0.5)
     http_parser.rb (0.6.0)
     httparty (0.13.7)
       json (~> 1.8)
@@ -205,7 +207,6 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    locale_setter (0.4.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.10)
@@ -294,6 +295,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (4.0.9)
+      i18n (~> 0.7)
+      railties (~> 4.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -311,6 +315,10 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 1.0)
       sass-rails (>= 4.0, < 6)
+    rails_admin-i18n (1.10.3)
+    rails_locale_detection (2.0.0)
+      http_accept_language (~> 2.0.5)
+      rails (>= 3.2.0)
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
     railties (4.2.6)
@@ -364,6 +372,17 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (1.10.0)
+      bundler
+      ffi (~> 1.9.6)
+      sass (>= 3.3.0)
+    sassc-rails (1.2.1)
+      railties (>= 4.0.0)
+      sass
+      sassc (~> 1.9)
+      sprockets (> 2.11)
+      sprockets-rails
+      tilt
     selenium-webdriver (2.53.4)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
@@ -451,6 +470,7 @@ DEPENDENCIES
   date_validator
   derailed
   devise
+  devise-i18n
   dotenv-rails
   font-awesome-sass
   fuubar
@@ -459,7 +479,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   license_finder
-  locale_setter
   newrelic_rpm
   omniauth-twitter
   parallel_tests
@@ -467,19 +486,22 @@ DEPENDENCIES
   phantomjs
   pivotal_git_scripts
   poltergeist
-  pry
   puma
   pundit
   quiet_assets
   rack-contrib
   rack-mini-profiler
   rails (= 4.2.6)
+  rails-i18n
   rails_12factor
   rails_admin
+  rails_admin-i18n
+  rails_locale_detection
   rapporteur
   rspec-rails
   rspec_junit_formatter
-  sass-rails (~> 5.0)
+  sass-rails
+  sassc-rails
   selenium-webdriver
   shoulda-matchers
   teaspoon-jasmine
