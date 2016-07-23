@@ -5,7 +5,7 @@ class Tweet < ActiveRecord::Base
 
   def self.from_twitter(tweet)
     mentioned_users = tweet.user_mentions.map(&:id)
-    Conference.where(uid: mentioned_users)
-              .map { |c| c.tweets.build(twitter_id: tweet.id) }
+    conferences = Conference.where(uid: mentioned_users)
+    conferences.map { |c| c.tweets.build(twitter_id: tweet.id) }
   end
 end

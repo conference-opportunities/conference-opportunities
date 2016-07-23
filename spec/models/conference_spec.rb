@@ -1,7 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Conference do
-  subject(:conference) { Conference.create!(twitter_handle: 'bobdole', uid: "666") }
+  let(:user) do
+    Twitter::User.new(
+      id: '111',
+      screen_name: 'twitterconf',
+      name: 'Twitter Conf',
+      profile_image_url_https: 'https://example.com/pugs.gif',
+      location: 'Overpriced Urban Conclave',
+      url: 'http://twitterconf.example.com',
+      description: 'Ten hours of pitches',
+    )
+  end
+
+  subject(:conference) { Conference.create!(twitter_handle: 'bobdole', uid: '666') }
 
   it { is_expected.to have_many(:tweets).dependent(:destroy) }
   it { is_expected.to validate_presence_of(:twitter_handle) }
@@ -9,19 +21,7 @@ RSpec.describe Conference do
   it { is_expected.to validate_presence_of(:uid) }
   it { is_expected.to validate_uniqueness_of(:uid).case_insensitive }
 
-  describe ".from_twitter_user" do
-    let(:user) do
-      Twitter::User.new(
-        id: '111',
-        screen_name: 'twitterconf',
-        name: 'Twitter Conf',
-        profile_image_url_https: 'https://example.com/pugs.gif',
-        location: 'Overpriced Urban Conclave',
-        url: 'http://twitterconf.example.com',
-        description: 'Ten hours of pitches',
-      )
-    end
-
+  describe '.from_twitter_user' do
     subject(:conference) { Conference.from_twitter_user(user) }
 
     specify { expect(conference).to be_valid }
@@ -55,9 +55,22 @@ RSpec.describe Conference do
     end
   end
 
-  describe "#to_param" do
-    it "returns the twitter handle" do
-      expect(conference.to_param).to eq("bobdole")
+  describe '#update_from_twitter' do
+    it 'assigns attributes from the twitter user' do
+      expect(conference.update_from_twitter(user)).to eq(conference)
+      expect(conference).to be_valid
+      expect(conference.twitter_handle).to eq('twitterconf')
+      expect(conference.name).to eq('Twitter Conf')
+      expect(conference.logo_url).to eq('https://example.com/pugs.gif')
+      expect(conference.location).to eq('Overpriced Urban Conclave')
+      expect(conference.website_url).to eq('http://twitterconf.example.com')
+      expect(conference.description).to eq('Ten hours of pitches')
+    end
+  end
+
+  describe '#to_param' do
+    it 'returns the twitter handle' do
+      expect(conference.to_param).to eq('bobdole')
     end
   end
 end
