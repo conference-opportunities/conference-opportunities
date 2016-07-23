@@ -24,6 +24,10 @@ gem 'rails_admin-i18n'
 gem 'rails_locale_detection'
 gem 'sass-rails', require: false
 gem 'sassc-rails'
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
+gem 'sidekiq-unique-jobs'
+gem 'sinatra', require: false
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'virtus'
@@ -55,7 +59,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper'
-  gem 'codeclimate-test-reporter', require: nil
+  gem 'codeclimate-test-reporter', require: false
   gem 'database_cleaner'
   gem 'fuubar'
   gem 'launchy'

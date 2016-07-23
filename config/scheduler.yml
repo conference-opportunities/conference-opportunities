@@ -1,0 +1,21 @@
+default: &default
+  conference_batch:
+    cron: '*/15 * * * *'
+    class: 'ConferenceBatchJob'
+    queue: default
+
+  create_tweets:
+    cron: '*/15 * * * *'
+    class: 'CreateTweetsJob'
+    queue: default
+
+test: &test
+
+development: &development
+  << : *default
+
+staging: &staging
+  << : *default
+
+production: &production
+  << : *default

@@ -31,6 +31,7 @@ You'll need to install the following software:
 
 * Ruby 2.3.1
 * Postgres 9.4+
+* Redis 3+
 * Heroku Toolbelt
 
 

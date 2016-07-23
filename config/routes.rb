@@ -1,6 +1,14 @@
+require 'sidekiq/web'
+require 'sidekiq-scheduler/web'
+
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :organizers, controllers: {omniauth_callbacks: 'organizers/omniauth_callbacks'}
+
+  authenticate :organizer, lambda { |organizer| organizer.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :conferences, only: [:index, :show] do
     scope module: :conferences do
       resource :listing, only: [:new, :create]

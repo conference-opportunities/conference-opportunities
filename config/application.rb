@@ -27,5 +27,7 @@ module ConferenceOpportunities
     config.i18n.available_locales = [:en, :es]
     config.i18n.enforce_available_locales = false
     config.i18n.fallbacks = {:es => [:en], en: [:es]}
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
