@@ -1,8 +1,7 @@
 {
-  "name": "callback-women",
+  "name": "conference-opportunities",
   "description": "Handcrafted conference information powered by @callbackwomen",
-  "scripts": {
-  },
+  "scripts": {},
   "env": {
     "DEVISE_SECRET_KEY": {
       "required": true
@@ -42,17 +41,19 @@
     }
   },
   "formation": {
-    "web": {
+    "worker": {
       "quantity": 1
     },
-    "worker": {
+    "web": {
       "quantity": 1
     }
   },
   "addons": [
     "memcachedcloud",
+    "newrelic",
     "papertrail",
-    "heroku-postgresql"
+    "heroku-postgresql",
+    "heroku-redis"
   ],
   "buildpacks": [
     {
