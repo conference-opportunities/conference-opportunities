@@ -51,10 +51,8 @@
   },
   "addons": [
     "memcachedcloud",
-    "newrelic",
     "papertrail",
-    "heroku-postgresql",
-    "scheduler"
+    "heroku-postgresql"
   ],
   "buildpacks": [
     {
