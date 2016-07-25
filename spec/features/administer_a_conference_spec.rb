@@ -1,6 +1,6 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.feature "Administrator", :vcr, :js do
+RSpec.feature 'Administrator', type: :feature do
   let(:organizer_uid) { '123' }
   let(:admin_uid) { 'abc' }
   let(:organizer) do
@@ -25,7 +25,7 @@ RSpec.feature "Administrator", :vcr, :js do
   end
 
   context 'when not logged in as an organizer' do
-    scenario "cannot view the rails admin dashboard" do
+    scenario 'cannot view the rails admin dashboard' do
       visit rails_admin.dashboard_path
       expect(current_path).not_to eq(rails_admin.dashboard_path)
     end
@@ -36,7 +36,7 @@ RSpec.feature "Administrator", :vcr, :js do
 
     before { login_as(organizer, scope: :organizer) }
 
-    scenario "can view the rails admin dashboard" do
+    scenario 'can view the rails admin dashboard' do
       visit rails_admin.dashboard_path
       expect(current_path).to eq(rails_admin.dashboard_path)
     end

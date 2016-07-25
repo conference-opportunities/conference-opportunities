@@ -19,7 +19,7 @@ class Conferences::StructuresController < ApplicationController
   end
 
   def update
-    @conference_structure = Conference::Structure.new(conference_params.merge(conference: current_conference))
+    @conference_structure = Conference::Structure.new(conference_params.to_h.merge(conference: current_conference))
     authorize @conference_structure
     if @conference_structure.save
       redirect_to conference_path(@conference_structure.conference)

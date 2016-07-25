@@ -12,7 +12,7 @@ RSpec.describe Organizers::OmniauthCallbacksController, type: :controller do
     )
   end
 
-  describe "#twitter" do
+  describe '#twitter' do
     before do
       request.env['omniauth.auth'] = valid_twitter_auth
     end
@@ -41,7 +41,7 @@ RSpec.describe Organizers::OmniauthCallbacksController, type: :controller do
           Conference.create!(twitter_handle: twitter_handle, uid: uid)
         end
 
-        it "redirects the organizer's conference edit page" do
+        it 'redirects the conference listing page' do
           make_request
           expect(response).to redirect_to new_conference_listing_path(conference)
         end

@@ -4,9 +4,9 @@ RSpec.describe Conferences::ListingsController do
   let!(:conference) { Conference.create!(twitter_handle: 'hamconf', uid: '123')}
   let!(:organizer) { Organizer.create!(provider: 'twitter', uid: '123', conference: conference) }
 
-  describe "GET #new" do
+  describe 'GET #new' do
     def make_request(id = conference.twitter_handle)
-      get :new, conference_id: id
+      get :new, params: {conference_id: id}
     end
 
     context 'when logged in as the organizer for the conference' do
@@ -15,11 +15,11 @@ RSpec.describe Conferences::ListingsController do
       context 'when the conference exists' do
         before { make_request }
 
-        it "succeeds" do
+        it 'succeeds' do
           expect(response).to be_success
         end
 
-        it "assigns the conference" do
+        it 'assigns the conference' do
           expect(assigns(:conference_listing).conference).to eq(conference)
         end
       end
@@ -50,9 +50,9 @@ RSpec.describe Conferences::ListingsController do
     end
   end
 
-  describe "POST #create" do
+  describe 'POST #create' do
     def make_request(params = {}, id = conference.twitter_handle)
-      post :create, conference_id: id, conference_listing: params
+      post :create, params: {conference_id: id, conference_listing: params}
     end
 
     context 'when logged in as the organizer for the conference' do
@@ -62,33 +62,33 @@ RSpec.describe Conferences::ListingsController do
         context 'when the conference name is empty' do
           before { make_request(name: '') }
 
-          it "flashes a failure message" do
+          it 'flashes a failure message' do
             expect(flash.alert).to include("Conference name can't be blank")
           end
 
-          it "assigns the conference" do
+          it 'assigns the conference' do
             expect(assigns(:conference_listing).conference).to eq(conference)
           end
 
-          it "render the new view" do
+          it 'render the new view' do
             expect(response).to render_template(:new)
           end
         end
 
         context 'when the conference information is valid' do
-          it "approves the conference" do
+          it 'approves the conference' do
             expect { make_request(name: 'nowconf') }
               .to change { conference.reload.approved_at }
               .from(nil)
           end
 
-          it "updates the conference name" do
+          it 'updates the conference name' do
             expect { make_request(name: 'confconf') }
               .to change { conference.reload.name }
               .to('confconf')
           end
 
-          it "updates the conference website url" do
+          it 'updates the conference website url' do
             expect { make_request(name: 'confconf', website_url: 'http://example.com/confconf') }
               .to change { conference.reload.website_url }
               .to('http://example.com/confconf')

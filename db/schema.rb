@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -47,20 +46,18 @@ ActiveRecord::Schema.define(version: 20160722220716) do
     t.integer  "tutorial_count"
     t.integer  "workshop_count"
     t.datetime "unfollowed_at"
+    t.index ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
+    t.index ["uid"], name: "index_conferences_on_uid", unique: true, using: :btree
   end
-
-  add_index "conferences", ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
-  add_index "conferences", ["uid"], name: "index_conferences_on_uid", unique: true, using: :btree
 
   create_table "organizer_conferences", force: :cascade do |t|
     t.integer  "organizer_id",  null: false
     t.integer  "conference_id", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["conference_id"], name: "index_organizer_conferences_on_conference_id", unique: true, using: :btree
+    t.index ["organizer_id"], name: "index_organizer_conferences_on_organizer_id", unique: true, using: :btree
   end
-
-  add_index "organizer_conferences", ["conference_id"], name: "index_organizer_conferences_on_conference_id", unique: true, using: :btree
-  add_index "organizer_conferences", ["organizer_id"], name: "index_organizer_conferences_on_organizer_id", unique: true, using: :btree
 
   create_table "organizers", force: :cascade do |t|
     t.string   "provider",                  null: false
@@ -68,18 +65,16 @@ ActiveRecord::Schema.define(version: 20160722220716) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "locale",     default: "en", null: false
+    t.index ["provider", "uid"], name: "index_organizers_on_provider_and_uid", unique: true, using: :btree
   end
-
-  add_index "organizers", ["provider", "uid"], name: "index_organizers_on_provider_and_uid", unique: true, using: :btree
 
   create_table "tweets", force: :cascade do |t|
     t.integer  "conference_id", null: false
     t.string   "twitter_id",    null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["conference_id", "twitter_id"], name: "index_tweets_on_conference_id_and_twitter_id", unique: true, using: :btree
   end
-
-  add_index "tweets", ["conference_id", "twitter_id"], name: "index_tweets_on_conference_id_and_twitter_id", unique: true, using: :btree
 
   add_foreign_key "organizer_conferences", "conferences"
   add_foreign_key "organizer_conferences", "organizers"

@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Conferences::StructuresController do
-  let!(:conference) { Conference.create!(twitter_handle: 'hamconf', uid: '123')}
+  let!(:conference) { Conference.create!(twitter_handle: 'hamconf', uid: '123') }
   let!(:organizer) { Organizer.create!(provider: 'twitter', uid: '123', conference: conference) }
 
-  describe "GET #edit" do
+  describe 'GET #edit' do
     def make_request(id = conference.twitter_handle)
-      get :edit, conference_id: id
+      get :edit, params: {conference_id: id}
     end
 
     context 'when logged in as the organizer for the conference' do
@@ -15,11 +15,11 @@ RSpec.describe Conferences::StructuresController do
       context 'when the conference exists' do
         before { make_request }
 
-        it "succeeds" do
+        it 'succeeds' do
           expect(response).to be_success
         end
 
-        it "assigns the conference" do
+        it 'assigns the conference' do
           expect(assigns(:conference_structure).conference).to eq(conference)
         end
       end
@@ -32,7 +32,7 @@ RSpec.describe Conferences::StructuresController do
     end
 
     context 'when logged in as some other organizer' do
-      let(:other_conference) { Conference.create!(twitter_handle: 'otherconf', uid: '756')}
+      let(:other_conference) { Conference.create!(twitter_handle: 'otherconf', uid: '756') }
       let(:other_organizer) { Organizer.create!(provider: 'twitter', uid: '756', conference: other_conference) }
 
       before { sign_in(other_organizer, scope: :organizer) }
@@ -50,9 +50,9 @@ RSpec.describe Conferences::StructuresController do
     end
   end
 
-  describe "PATCH #update" do
+  describe 'PATCH #update' do
     def make_request(params = {}, id = conference.twitter_handle)
-      patch :update, conference_id: id, conference_structure: params
+      patch :update, params: {conference_id: id, conference_structure: params}
     end
 
     context 'when logged in as the organizer for the conference' do
@@ -62,15 +62,15 @@ RSpec.describe Conferences::StructuresController do
         context 'when the number of tracks has not been selected' do
           before { make_request(track_count: 'zzz') }
 
-          it "flashes a failure message" do
-            expect(flash.alert).to include("Number of tracks is not a number")
+          it 'flashes a failure message' do
+            expect(flash.alert).to include('Number of tracks is not a number')
           end
 
-          it "assigns the conference" do
+          it 'assigns the conference' do
             expect(assigns(:conference_structure).conference).to eq(conference)
           end
 
-          it "render the edit view" do
+          it 'render the edit view' do
             expect(response).to render_template(:edit)
           end
         end
@@ -90,13 +90,13 @@ RSpec.describe Conferences::StructuresController do
             }
           end
 
-          it "updates the number of tracks" do
+          it 'updates the number of tracks' do
             expect { make_request(valid_data) }
               .to change { conference.reload.track_count }
               .to(2)
           end
 
-          it "updates the conference plenary count" do
+          it 'updates the conference plenary count' do
             expect { make_request(valid_data) }
               .to change { conference.reload.plenary_count }
               .to(3)

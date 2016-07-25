@@ -1,45 +1,104 @@
+GIT
+  remote: git://github.com/afcapel/rack-pjax.git
+  revision: c776a9a9eaa0641636e9ece5cfe88fc739339072
+  specs:
+    rack-pjax (0.8.0)
+      nokogiri (>= 1.5)
+      rack (>= 1.1)
+
+GIT
+  remote: git://github.com/minifast/rails_locale_detection.git
+  revision: d959f16cfb12c1e9c23c7904ce8edb4054a27ad8
+  specs:
+    rails_locale_detection (2.0.0)
+      http_accept_language (~> 2.0.5)
+      rails (>= 3.2.0)
+
+GIT
+  remote: git://github.com/mshibuya/remotipart.git
+  revision: 88d9a7d55bde66acb6cf3a3c6036a5a1fc991d5e
+  specs:
+    remotipart (1.2.1)
+
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 4ef5be43eeb57af08eab00ff545ae0a356fe3659
+  specs:
+    rails_admin (1.0.0.rc)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (~> 4.0)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (>= 0.7)
+      rails (>= 4.0, < 6)
+      remotipart (~> 1.0)
+      sass-rails (>= 4.0, < 6)
+
+GIT
+  remote: git://github.com/sinatra/rack-protection.git
+  revision: cc19dafb0c6266c2927e629688464c9992efedf8
+  specs:
+    rack-protection (2.0.0)
+      rack
+
+GIT
+  remote: git://github.com/sinatra/sinatra.git
+  revision: cafdc4d3a71155c34bb63ef98723b0f9a003f81e
+  specs:
+    sinatra (2.0.0.pre.alpha)
+      mustermann (~> 0.4)
+      rack (~> 2.0)
+      rack-protection (~> 2.0)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.2.6)
-      actionpack (= 4.2.6)
-      actionview (= 4.2.6)
-      activejob (= 4.2.6)
+    actioncable (5.0.0)
+      actionpack (= 5.0.0)
+      nio4r (~> 1.2)
+      websocket-driver (~> 0.6.1)
+    actionmailer (5.0.0)
+      actionpack (= 5.0.0)
+      actionview (= 5.0.0)
+      activejob (= 5.0.0)
       mail (~> 2.5, >= 2.5.4)
-      rails-dom-testing (~> 1.0, >= 1.0.5)
-    actionpack (4.2.6)
-      actionview (= 4.2.6)
-      activesupport (= 4.2.6)
-      rack (~> 1.6)
-      rack-test (~> 0.6.2)
-      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-dom-testing (~> 2.0)
+    actionpack (5.0.0)
+      actionview (= 5.0.0)
+      activesupport (= 5.0.0)
+      rack (~> 2.0)
+      rack-test (~> 0.6.3)
+      rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (4.2.6)
-      activesupport (= 4.2.6)
+    actionview (5.0.0)
+      activesupport (= 5.0.0)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    activejob (4.2.6)
-      activesupport (= 4.2.6)
-      globalid (>= 0.3.0)
-    activemodel (4.2.6)
-      activesupport (= 4.2.6)
-      builder (~> 3.1)
-    activerecord (4.2.6)
-      activemodel (= 4.2.6)
-      activesupport (= 4.2.6)
-      arel (~> 6.0)
-    activesupport (4.2.6)
+    activejob (5.0.0)
+      activesupport (= 5.0.0)
+      globalid (>= 0.3.6)
+    activemodel (5.0.0)
+      activesupport (= 5.0.0)
+    activerecord (5.0.0)
+      activemodel (= 5.0.0)
+      activesupport (= 5.0.0)
+      arel (~> 7.0)
+    activesupport (5.0.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
-      json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
-      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
     archive-zip (0.7.0)
       io-like (~> 0.3.0)
-    arel (6.0.3)
+    arel (7.1.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -136,7 +195,6 @@ GEM
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
     get_process_mem (0.2.1)
-    git-version-bump (0.15.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     guard (2.14.0)
@@ -156,20 +214,9 @@ GEM
       multi_json (~> 1.8)
     haml (4.0.7)
       tilt
-    haml-rails (0.9.0)
-      actionpack (>= 4.0.1)
-      activesupport (>= 4.0.1)
-      haml (>= 4.0.6, < 5.0)
-      html2haml (>= 1.0.1)
-      railties (>= 4.0.1)
     hashdiff (0.3.0)
     hashie (3.4.4)
     heapy (0.1.2)
-    html2haml (2.0.0)
-      erubis (~> 2.7.0)
-      haml (~> 4.0.0)
-      nokogiri (~> 1.6.0)
-      ruby_parser (~> 3.5)
     http (1.0.4)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -224,10 +271,13 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    mustermann (0.4.0)
+      tool (~> 0.2)
     naught (1.1.0)
     nenv (0.3.0)
     nested_form (0.3.2)
     newrelic_rpm (3.16.0.318)
+    nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -263,69 +313,45 @@ GEM
     puma (3.6.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
-    quiet_assets (1.1.0)
-      railties (>= 3.1, < 5.0)
-    rack (1.6.4)
-    rack-contrib (1.4.0)
-      git-version-bump (~> 0.15)
-      rack (~> 1.4)
+    rack (2.0.1)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
-    rack-pjax (0.8.0)
-      nokogiri (~> 1.5)
-      rack (~> 1.1)
-    rack-protection (1.5.3)
-      rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (4.2.6)
-      actionmailer (= 4.2.6)
-      actionpack (= 4.2.6)
-      actionview (= 4.2.6)
-      activejob (= 4.2.6)
-      activemodel (= 4.2.6)
-      activerecord (= 4.2.6)
-      activesupport (= 4.2.6)
+    rails (5.0.0)
+      actioncable (= 5.0.0)
+      actionmailer (= 5.0.0)
+      actionpack (= 5.0.0)
+      actionview (= 5.0.0)
+      activejob (= 5.0.0)
+      activemodel (= 5.0.0)
+      activerecord (= 5.0.0)
+      activesupport (= 5.0.0)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.2.6)
-      sprockets-rails
-    rails-deprecated_sanitizer (1.0.3)
-      activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.7)
-      activesupport (>= 4.2.0.beta, < 5.0)
+      railties (= 5.0.0)
+      sprockets-rails (>= 2.0.0)
+    rails-controller-testing (0.1.1)
+      actionpack (~> 5.x)
+      actionview (~> 5.x)
+      activesupport (~> 5.x)
+    rails-dom-testing (2.0.1)
+      activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6.0)
-      rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-i18n (4.0.9)
+    rails-i18n (5.0.0)
       i18n (~> 0.7)
-      railties (~> 4.0)
+      railties (~> 5.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_admin (0.8.1)
-      builder (~> 3.1)
-      coffee-rails (~> 4.0)
-      font-awesome-rails (>= 3.0, < 5)
-      haml (~> 4.0)
-      jquery-rails (>= 3.0, < 5)
-      jquery-ui-rails (~> 5.0)
-      kaminari (~> 0.14)
-      nested_form (~> 0.3)
-      rack-pjax (~> 0.7)
-      rails (~> 4.0)
-      remotipart (~> 1.0)
-      safe_yaml (~> 1.0)
-      sass-rails (>= 4.0, < 6)
     rails_admin-i18n (1.10.3)
-    rails_locale_detection (2.0.0)
-      http_accept_language (~> 2.0.5)
-      rails (>= 3.2.0)
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
-    railties (4.2.6)
-      actionpack (= 4.2.6)
-      activesupport (= 4.2.6)
+    railties (5.0.0)
+      actionpack (= 5.0.0)
+      activesupport (= 5.0.0)
+      method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.2.2)
@@ -335,7 +361,6 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     redis (3.3.1)
-    remotipart (1.2.1)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rspec (3.5.0)
@@ -364,8 +389,6 @@ GEM
       rspec-core (>= 2, < 4, != 2.12.0)
     ruby-progressbar (1.8.1)
     ruby_dep (1.3.1)
-    ruby_parser (3.8.2)
-      sexp_processor (~> 4.1)
     rubyzip (1.2.0)
     rufus-scheduler (3.1.10)
     safe_yaml (1.0.4)
@@ -376,30 +399,17 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    sassc (1.10.0)
-      bundler
-      ffi (~> 1.9.6)
-      sass (>= 3.3.0)
-    sassc-rails (1.2.1)
-      railties (>= 4.0.0)
-      sass
-      sassc (~> 1.9)
-      sprockets (> 2.11)
-      sprockets-rails
-      tilt
     selenium-webdriver (2.53.4)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    sexp_processor (4.7.0)
     shellany (0.0.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
-    sidekiq (4.1.4)
+    sidekiq (4.1.2)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
-      sinatra (>= 1.4.7)
     sidekiq-scheduler (2.0.8)
       multi_json (~> 1)
       redis (~> 3)
@@ -415,10 +425,6 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    sinatra (1.4.7)
-      rack (~> 1.5)
-      rack-protection (~> 1.4)
-      tilt (>= 1.3, < 3)
     slop (3.6.0)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
@@ -434,6 +440,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    tool (0.2.3)
     twitter (5.16.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
@@ -461,10 +468,11 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.6)
       rack (>= 1.0)
-    web-console (3.3.0)
-      activemodel (>= 4.2)
+    web-console (3.3.1)
+      actionview (>= 5.0)
+      activemodel (>= 5.0)
       debug_inspector
-      railties (>= 4.2)
+      railties (>= 5.0)
     webmock (2.1.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -487,6 +495,7 @@ DEPENDENCIES
   capybara-screenshot
   chromedriver-helper
   codeclimate-test-reporter
+  coffee-rails
   dalli
   database_cleaner
   date_validator
@@ -497,41 +506,42 @@ DEPENDENCIES
   font-awesome-sass
   fuubar
   guard-livereload (~> 2.5)
-  haml-rails
   jquery-rails
   launchy
   license_finder
   newrelic_rpm
   omniauth-twitter
   parallel_tests
-  pg (~> 0.15)
+  pg (~> 0.18)
   phantomjs
   pivotal_git_scripts
   poltergeist
-  puma
+  puma (~> 3.0)
   pundit
-  quiet_assets
-  rack-contrib
   rack-mini-profiler
-  rails (= 4.2.6)
+  rack-pjax!
+  rack-protection!
+  rails (~> 5.0.0)
+  rails-controller-testing
   rails-i18n
   rails_12factor
-  rails_admin
+  rails_admin!
   rails_admin-i18n
-  rails_locale_detection
+  rails_locale_detection!
   rapporteur
+  remotipart!
   rspec-rails
   rspec_junit_formatter
-  sass-rails
-  sassc-rails
+  sass-rails (~> 5.0)
   selenium-webdriver
   shoulda-matchers
   sidekiq
   sidekiq-scheduler
   sidekiq-unique-jobs
-  sinatra
+  sinatra!
   teaspoon-jasmine
   twitter
+  tzinfo-data
   uglifier (>= 1.3.0)
   vcr
   virtus
@@ -542,4 +552,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.2
+   1.12.5

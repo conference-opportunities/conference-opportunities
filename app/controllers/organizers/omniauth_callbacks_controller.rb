@@ -1,6 +1,6 @@
 class Organizers::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def twitter
-    organizer = Organizer.from_omniauth(request.env["omniauth.auth"])
+    organizer = Organizer.from_omniauth(request.env['omniauth.auth'])
     if organizer.save
       sign_in organizer
       if organizer.admin?
