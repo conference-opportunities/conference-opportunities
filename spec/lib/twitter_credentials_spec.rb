@@ -49,8 +49,19 @@ RSpec.describe TwitterCredentials do
   end
 
   describe '#client' do
-    it 'configures a new instance of the client class with twitter credentials' do
+    it 'configures a new instance of the client with twitter credentials' do
       expect(credentials.client(OpenStruct).to_h).to eq(
+        consumer_key: 'consumer_key',
+        consumer_secret: 'consumer_secret',
+        access_token: 'access_token',
+        access_token_secret: 'access_token_secret',
+      )
+    end
+  end
+
+  describe '#stream' do
+    it 'configures a new instance of the streaming client with twitter credentials' do
+      expect(credentials.stream(OpenStruct).to_h).to eq(
         consumer_key: 'consumer_key',
         consumer_secret: 'consumer_secret',
         access_token: 'access_token',

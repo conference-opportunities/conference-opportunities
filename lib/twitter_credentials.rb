@@ -13,4 +13,8 @@ class TwitterCredentials < Struct.new(:consumer_key, :consumer_secret, :access_t
   def client(client_class = Twitter::REST::Client)
     client_class.new(self.to_h)
   end
+
+  def stream(client_class = Twitter::Streaming::Client)
+    client_class.new(self.to_h)
+  end
 end
