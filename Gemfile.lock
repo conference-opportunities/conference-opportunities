@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: git://github.com/sinatra/sinatra.git
-  revision: cafdc4d3a71155c34bb63ef98723b0f9a003f81e
+  revision: bd1a9dc8c9c0a75b50bacb18cbf9ec1923764edb
   specs:
     sinatra (2.0.0.pre.alpha)
       mustermann (~> 0.4)
@@ -406,10 +406,11 @@ GEM
     shellany (0.0.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
-    sidekiq (4.1.2)
+    sidekiq (4.1.4)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
+      sinatra (>= 1.4.7)
     sidekiq-scheduler (2.0.8)
       multi_json (~> 1)
       redis (~> 3)
