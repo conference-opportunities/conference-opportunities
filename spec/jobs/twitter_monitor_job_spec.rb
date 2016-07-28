@@ -16,24 +16,16 @@ RSpec.describe TwitterMonitorJob, type: :job do
 
   describe '#perform' do
     context 'when the streaming client does not emit any events' do
-      it 'does not enqueue a creation' do
-        expect { job.perform }.not_to enqueue_job(CreateTweetJob)
-      end
-
-      it 'does not enqueue a deletion' do
-        expect { job.perform }.not_to enqueue_job(DeleteTweetJob)
+      it 'does not enqueue any jobs' do
+        expect { job.perform }.not_to enqueue_job
       end
     end
 
     context 'when the streaming client emits an irrelevant event' do
       before { allow(stream).to receive(:user).and_yield(event) }
 
-      it 'does not enqueue a creation' do
-        expect { job.perform }.not_to enqueue_job(CreateTweetJob)
-      end
-
-      it 'does not enqueue a deletion' do
-        expect { job.perform }.not_to enqueue_job(DeleteTweetJob)
+      it 'does not enqueue any jobs' do
+        expect { job.perform }.not_to enqueue_job
       end
     end
 
@@ -46,10 +38,6 @@ RSpec.describe TwitterMonitorJob, type: :job do
       it 'enqueues a creation' do
         expect { job.perform }.to enqueue_job(CreateTweetJob).with(1, [123])
       end
-
-      it 'does not enqueue a deletion' do
-        expect { job.perform }.not_to enqueue_job(DeleteTweetJob)
-      end
     end
 
     context 'when the streaming client emits a tweet deletion' do
@@ -57,12 +45,30 @@ RSpec.describe TwitterMonitorJob, type: :job do
 
       before { allow(stream).to receive(:user).and_yield(event) }
 
-      it 'does not enqueue a creation' do
-        expect { job.perform }.not_to enqueue_job(CreateTweetJob)
-      end
-
       it 'enqueues a deletion' do
         expect { job.perform }.to enqueue_job(DeleteTweetJob).with(1)
+      end
+    end
+
+    context 'when the streaming client emits a follow' do
+      let(:user) { {id: 123} }
+      let(:event) { Twitter::Streaming::Event.new(event: :follow, source: user, target: user) }
+
+      before { allow(stream).to receive(:user).and_yield(event) }
+
+      it 'enqueues a follow' do
+        expect { job.perform }.to enqueue_job(ConferenceFollowJob).with(123)
+      end
+    end
+
+    context 'when the streaming client emits an unfollow' do
+      let(:user) { {id: 123} }
+      let(:event) { Twitter::Streaming::Event.new(event: :unfollow, source: user, target: user) }
+
+      before { allow(stream).to receive(:user).and_yield(event) }
+
+      it 'enqueues a follow' do
+        expect { job.perform }.to enqueue_job(ConferenceUnfollowJob).with(123)
       end
     end
   end

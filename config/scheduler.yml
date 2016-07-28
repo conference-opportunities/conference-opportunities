@@ -9,6 +9,11 @@ default: &default
     class: 'CreateTweetsJob'
     queue: default
 
+  twitter_monitor:
+    cron: '* * * * *'
+    class: 'TwitterMonitorJob'
+    queue: default
+
 test: &test
 
 development: &development
