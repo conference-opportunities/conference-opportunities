@@ -40,14 +40,14 @@ GIT
 
 GIT
   remote: git://github.com/sinatra/rack-protection.git
-  revision: cc19dafb0c6266c2927e629688464c9992efedf8
+  revision: 4716bc20c606fcf09080afe93a013f67b10c6821
   specs:
     rack-protection (2.0.0)
       rack
 
 GIT
   remote: git://github.com/sinatra/sinatra.git
-  revision: bd1a9dc8c9c0a75b50bacb18cbf9ec1923764edb
+  revision: 30d4fb468fd1d6373f82127d845b153f17b54c51
   specs:
     sinatra (2.0.0.pre.alpha)
       mustermann (~> 0.4)
@@ -98,7 +98,7 @@ GEM
     addressable (2.4.0)
     archive-zip (0.7.0)
       io-like (~> 0.3.0)
-    arel (7.1.0)
+    arel (7.1.1)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -107,7 +107,7 @@ GEM
     benchmark-ips (2.6.1)
     buftok (0.2.0)
     builder (3.2.2)
-    bullet (5.1.1)
+    bullet (5.2.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.0.5)
@@ -195,7 +195,7 @@ GEM
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
     get_process_mem (0.2.1)
-    globalid (0.3.6)
+    globalid (0.3.7)
       activesupport (>= 4.1.0)
     guard (2.14.0)
       formatador (>= 0.2.4)
@@ -367,7 +367,7 @@ GEM
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
-    rspec-core (3.5.1)
+    rspec-core (3.5.2)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)

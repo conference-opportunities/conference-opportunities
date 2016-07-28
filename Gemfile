@@ -17,21 +17,28 @@ gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'omniauth-twitter'
 gem 'pundit'
-gem 'rack-protection', github: 'sinatra/rack-protection'
 gem 'rails-i18n'
-gem 'rack-pjax', github: 'afcapel/rack-pjax'
-gem 'rails_admin', github: 'sferik/rails_admin', require: 'rails_admin'
 gem 'rails_admin-i18n'
-gem 'remotipart', github: 'mshibuya/remotipart'
-gem 'rails_locale_detection', github: 'minifast/rails_locale_detection'
 gem 'sass-rails', '~> 5.0'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'sidekiq-unique-jobs'
-gem 'sinatra', github: 'sinatra/sinatra', require: false
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'virtus'
+
+# Rails 5 uses Rack 2, ergo Sinatra 2 is required wherever Sinatra 1 was
+# Sinatra 2 needs the most recent rack-protection, which has not been released
+gem 'rack-protection', github: 'sinatra/rack-protection'
+gem 'sinatra', github: 'sinatra/sinatra', require: false
+
+# RailsLocaleDetection is not compatible with Rails 5 yet, so use our fork
+gem 'rails_locale_detection', github: 'minifast/rails_locale_detection'
+
+# RailsAdmin is not compatible with Rails 5 yet, so use compatible forks
+gem 'rack-pjax', github: 'afcapel/rack-pjax'
+gem 'rails_admin', github: 'sferik/rails_admin', require: 'rails_admin'
+gem 'remotipart', github: 'mshibuya/remotipart'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
