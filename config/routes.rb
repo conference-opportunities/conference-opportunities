@@ -1,6 +1,9 @@
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
+Sidekiq::Web.instance_variable_get(:@middleware).delete_if { |klass,_,_| klass == Rack::Protection }
+Sidekiq::Web.set :protection, except: :content_security_policy
+
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :organizers, controllers: {omniauth_callbacks: 'organizers/omniauth_callbacks'}
