@@ -50,8 +50,6 @@
   },
   "addons": [
     "memcachedcloud",
-    "newrelic",
-    "papertrail",
     "heroku-postgresql",
     "heroku-redis"
   ],
