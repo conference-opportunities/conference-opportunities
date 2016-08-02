@@ -29,16 +29,16 @@ gem 'virtus'
 
 # Rails 5 uses Rack 2, ergo Sinatra 2 is required wherever Sinatra 1 was
 # Sinatra 2 needs the most recent rack-protection, which has not been released
-gem 'rack-protection', github: 'sinatra/rack-protection'
-gem 'sinatra', github: 'sinatra/sinatra', require: false
+gem 'rack-protection', git: 'https://github.com/sinatra/rack-protection'
+gem 'sinatra', git: 'https://github.com/sinatra/sinatra', require: false
 
 # RailsLocaleDetection is not compatible with Rails 5 yet, so use our fork
-gem 'rails_locale_detection', github: 'minifast/rails_locale_detection'
+gem 'rails_locale_detection', git: 'https://github.com/minifast/rails_locale_detection'
 
 # RailsAdmin is not compatible with Rails 5 yet, so use compatible forks
-gem 'rack-pjax', github: 'afcapel/rack-pjax'
-gem 'rails_admin', github: 'sferik/rails_admin', require: 'rails_admin'
-gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rack-pjax', git: 'https://github.com/afcapel/rack-pjax'
+gem 'rails_admin', git: 'https://github.com/sferik/rails_admin', require: 'rails_admin'
+gem 'remotipart', git: 'https://github.com/mshibuya/remotipart'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

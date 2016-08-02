@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/afcapel/rack-pjax.git
+  remote: https://github.com/afcapel/rack-pjax
   revision: c776a9a9eaa0641636e9ece5cfe88fc739339072
   specs:
     rack-pjax (0.8.0)
@@ -7,7 +7,7 @@ GIT
       rack (>= 1.1)
 
 GIT
-  remote: git://github.com/minifast/rails_locale_detection.git
+  remote: https://github.com/minifast/rails_locale_detection
   revision: d959f16cfb12c1e9c23c7904ce8edb4054a27ad8
   specs:
     rails_locale_detection (2.0.0)
@@ -15,14 +15,14 @@ GIT
       rails (>= 3.2.0)
 
 GIT
-  remote: git://github.com/mshibuya/remotipart.git
+  remote: https://github.com/mshibuya/remotipart
   revision: 88d9a7d55bde66acb6cf3a3c6036a5a1fc991d5e
   specs:
     remotipart (1.2.1)
 
 GIT
-  remote: git://github.com/sferik/rails_admin.git
-  revision: 4ef5be43eeb57af08eab00ff545ae0a356fe3659
+  remote: https://github.com/sferik/rails_admin
+  revision: eefa8acce1f07024c46efbdf560d2ff1b6dec43d
   specs:
     rails_admin (1.0.0.rc)
       builder (~> 3.1)
@@ -39,15 +39,15 @@ GIT
       sass-rails (>= 4.0, < 6)
 
 GIT
-  remote: git://github.com/sinatra/rack-protection.git
-  revision: 4716bc20c606fcf09080afe93a013f67b10c6821
+  remote: https://github.com/sinatra/rack-protection
+  revision: 7e723a74763bb83989d1249cdceb9cceb2ee6f01
   specs:
     rack-protection (2.0.0)
       rack
 
 GIT
-  remote: git://github.com/sinatra/sinatra.git
-  revision: 30d4fb468fd1d6373f82127d845b153f17b54c51
+  remote: https://github.com/sinatra/sinatra
+  revision: 92a82e47459b1ed7dcd484866777ad9a79e0c586
   specs:
     sinatra (2.0.0.pre.alpha)
       mustermann (~> 0.4)
