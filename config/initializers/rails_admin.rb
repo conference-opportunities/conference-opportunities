@@ -19,6 +19,12 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
+  config.navigation_static_links = {
+    'Sidekiq' => '/sidekiq'
+  }
+
+  config.excluded_models << "OrganizerConference"
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory

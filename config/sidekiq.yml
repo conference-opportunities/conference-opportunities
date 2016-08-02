@@ -3,5 +3,4 @@ staging:
   :concurrency: 10
 production:
   :concurrency: 10
-:queues:
-  - default
+:queues: ["conference-opportunities_<%= ENV.fetch('RAILS_ENV', 'development') %>_default"]
