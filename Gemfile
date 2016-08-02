@@ -73,6 +73,7 @@ group :test do
   gem 'launchy'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'poltergeist'
+  gem 'pundit-matchers'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter', require: false
   gem 'selenium-webdriver'

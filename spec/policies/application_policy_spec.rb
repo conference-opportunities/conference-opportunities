@@ -1,48 +1,54 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe ApplicationPolicy do
-  let(:conference) { Conference.create!(twitter_handle: 'hamtasteconf', uid: 'taste') }
-  let!(:organizer) { Organizer.create!(provider: 'ham', uid: 'taste', conference: conference) }
-
-  subject(:policy) { ApplicationPolicy.new(organizer, organizer) }
-
-  it { is_expected.not_to be_index }
-  it { is_expected.not_to be_create }
-  it { is_expected.not_to be_new }
-  it { is_expected.not_to be_update }
-  it { is_expected.not_to be_edit }
-  it { is_expected.not_to be_destroy }
-
-  describe '#dashboard?' do
-    context 'when the UID is not the admin UID' do
-      before { allow(Rails.application.config).to receive(:application_twitter_id).and_return('1') }
-      it { is_expected.not_to be_dashboard }
+  let(:conference) { Conference.create!(uid: '765', twitter_handle: 'policyconf') }
+  let(:record) do
+    class Application
+      def id; 0; end
+      def self.where(conditions = {}); OpenStruct.new(exists?: true); end
     end
-
-    context 'when the UID is the admin UID' do
-      before { allow(Rails.application.config).to receive(:application_twitter_id).and_return('taste') }
-      it { is_expected.to be_dashboard }
-    end
+    Application.new
   end
 
-  describe "#show?" do
-    context "when the record is not persisted" do
-      let(:organizer) { Conference.new(id: 0, twitter_handle: "handleconf", approved_at: Date.today) }
-      it { is_expected.not_to be_show }
-    end
+  subject(:policy) { ApplicationPolicy.new(user, record) }
 
-    context "when the record is persisted" do
-      it { is_expected.to be_show }
-    end
+  context 'when not logged in' do
+    let(:user) { nil }
+
+    it { is_expected.to forbid_action(:index) }
+    it { is_expected.to forbid_action(:show) }
+    it { is_expected.to forbid_action(:new) }
+    it { is_expected.to forbid_action(:create) }
+    it { is_expected.to forbid_action(:edit) }
+    it { is_expected.to forbid_action(:update) }
+    it { is_expected.to forbid_action(:destroy) }
   end
 
-  describe ApplicationPolicy::Scope do
-    describe "#resolve" do
-      subject(:conferences) do
-        ApplicationPolicy::Scope.new(organizer, Organizer).resolve.all
-      end
+  context 'when logged in as the admin' do
+    let(:user) { Organizer.create!(conference: conference, uid: '765', provider: 'twitter') }
 
-      it { is_expected.to eq([organizer]) }
+    before do
+      allow(Rails.application.config).to receive(:application_twitter_id).and_return('765')
     end
+
+    it { is_expected.to permit_action(:index) }
+    it { is_expected.to permit_action(:show) }
+    it { is_expected.to permit_action(:new) }
+    it { is_expected.to permit_action(:create) }
+    it { is_expected.to permit_action(:edit) }
+    it { is_expected.to permit_action(:update) }
+    it { is_expected.to forbid_action(:destroy) }
+  end
+
+  context 'when logged in as a normal organizer' do
+    let(:user) { Organizer.create!(conference: conference, uid: '765', provider: 'twitter') }
+
+    it { is_expected.to permit_action(:index) }
+    it { is_expected.to permit_action(:show) }
+    it { is_expected.to forbid_action(:new) }
+    it { is_expected.to forbid_action(:create) }
+    it { is_expected.to forbid_action(:edit) }
+    it { is_expected.to forbid_action(:update) }
+    it { is_expected.to forbid_action(:destroy) }
   end
 end

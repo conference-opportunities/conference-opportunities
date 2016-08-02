@@ -1,50 +1,126 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe ConferencePolicy do
-  let(:conference) { Conference.create(twitter_handle: "handleconf", uid: "666") }
-  let(:organizer) { Organizer.create(conference: conference) }
+  let(:conference_uid) { '123' }
+  let(:organizer_uid) { '987' }
+  let(:conference) { Conference.create!(twitter_handle: 'policyconf', uid: conference_uid) }
+  let(:user) { Organizer.create!(conference: conference, uid: organizer_uid, provider: 'twitter') }
 
-  subject(:policy) { ConferencePolicy.new(organizer, conference) }
+  subject(:policy) { ConferencePolicy.new(user, conference) }
 
-  describe "#update?" do
-    context "when the conference organizer owns the conference" do
-      it { is_expected.to be_update }
-    end
+  context 'when not logged in' do
+    let(:user) { nil }
 
-    context "when the conference organizer does NOT own the conference" do
-      let(:organizer) { Organizer.create }
+    context 'when the conference has been approved by its organizer' do
+      let(:conference) { Conference.create!(twitter_handle: 'policyconf', uid: conference_uid, approved_at: Time.current) }
 
-      it { is_expected.not_to be_update }
-    end
-  end
-
-  describe "#show?" do
-    context "when the conference is not approved" do
-      it { is_expected.not_to be_show }
-    end
-
-    context "when the conference is approved" do
-      let(:conference) { Conference.create(twitter_handle: "handleconf", approved_at: Date.today, uid: "667") }
-      it { is_expected.to be_show }
-    end
-  end
-
-  describe ConferencePolicy::Scope do
-    let!(:approved_conference) do
-      Conference.create(twitter_handle: 'happycon', approved_at: Time.now, uid: "668")
-    end
-
-    let!(:unapproved_conference) do
-      Conference.create(twitter_handle: 'grumpycon', approved_at: nil, uid: "669")
-    end
-
-    describe "#resolve" do
-      subject(:conferences) do
-        ConferencePolicy::Scope.new(organizer, Conference).resolve
+      context 'when the conference is followed by the main account' do
+        it { is_expected.to permit_action(:index) }
+        it { is_expected.to permit_action(:show) }
+        it { is_expected.to forbid_action(:new) }
+        it { is_expected.to forbid_action(:create) }
+        it { is_expected.to forbid_action(:edit) }
+        it { is_expected.to forbid_action(:update) }
+        it { is_expected.to forbid_action(:destroy) }
       end
 
-      it { is_expected.to include(approved_conference) }
-      it { is_expected.not_to include(unapproved_conference) }
+      context 'when the conference was unfollowed by the main account' do
+        let(:conference) { Conference.create!(twitter_handle: 'policyconf', uid: conference_uid, unfollowed_at: Time.current, approved_at: Time.current) }
+
+        it { is_expected.to permit_action(:index) }
+        it { is_expected.to forbid_action(:show) }
+        it { is_expected.to forbid_action(:new) }
+        it { is_expected.to forbid_action(:create) }
+        it { is_expected.to forbid_action(:edit) }
+        it { is_expected.to forbid_action(:update) }
+        it { is_expected.to forbid_action(:destroy) }
+      end
+    end
+
+    context 'when the conference has not been approved by its organizer' do
+      it { is_expected.to permit_action(:index) }
+      it { is_expected.to forbid_action(:show) }
+      it { is_expected.to forbid_action(:new) }
+      it { is_expected.to forbid_action(:create) }
+      it { is_expected.to forbid_action(:edit) }
+      it { is_expected.to forbid_action(:update) }
+      it { is_expected.to forbid_action(:destroy) }
+    end
+  end
+
+  context 'when logged in as the admin' do
+    let(:user) { Organizer.create!(conference: conference, uid: '765', provider: 'twitter') }
+
+    before do
+      allow(Rails.application.config).to receive(:application_twitter_id).and_return('765')
+    end
+
+    it { is_expected.to permit_action(:index) }
+    it { is_expected.to permit_action(:show) }
+    it { is_expected.to permit_action(:new) }
+    it { is_expected.to permit_action(:create) }
+    it { is_expected.to permit_action(:edit) }
+    it { is_expected.to permit_action(:update) }
+    it { is_expected.to forbid_action(:destroy) }
+  end
+
+  context 'when logged in as a regular organizer' do
+    let(:user) { Organizer.create!(conference: conference, uid: organizer_uid, provider: 'twitter') }
+
+    context 'when the organizer owns the conference' do
+      let(:conference_uid) { '123' }
+      let(:organizer_uid) { '123' }
+
+      it { is_expected.to permit_action(:index) }
+      it { is_expected.to permit_action(:show) }
+      it { is_expected.to forbid_action(:new) }
+      it { is_expected.to forbid_action(:create) }
+      it { is_expected.to permit_action(:edit) }
+      it { is_expected.to permit_action(:update) }
+      it { is_expected.to forbid_action(:destroy) }
+    end
+
+    context 'when the organizer does not own the conference' do
+      let(:other_conference) { Conference.create!(twitter_handle: 'unpolicyconf', uid: '456', approved_at: Time.current) }
+      let(:user) { Organizer.create!(conference: other_conference, uid: organizer_uid, provider: 'twitter') }
+      let(:conference_uid) { '123' }
+      let(:organizer_uid) { '987' }
+
+      context 'when the conference has been approved by its organizer' do
+        let(:conference) { Conference.create!(twitter_handle: 'policyconf', uid: conference_uid, approved_at: Time.current) }
+
+        context 'when the conference is followed by the main account' do
+          it { is_expected.to permit_action(:index) }
+          it { is_expected.to permit_action(:show) }
+          it { is_expected.to forbid_action(:new) }
+          it { is_expected.to forbid_action(:create) }
+          it { is_expected.to forbid_action(:edit) }
+          it { is_expected.to forbid_action(:update) }
+          it { is_expected.to forbid_action(:destroy) }
+        end
+
+        context 'when the conference was unfollowed by the main account' do
+          let(:conference) { Conference.create!(twitter_handle: 'policyconf', uid: conference_uid, unfollowed_at: Time.current, approved_at: Time.current) }
+
+          it { is_expected.to permit_action(:index) }
+          it { is_expected.to forbid_action(:show) }
+          it { is_expected.to forbid_action(:new) }
+          it { is_expected.to forbid_action(:create) }
+          it { is_expected.to forbid_action(:edit) }
+          it { is_expected.to forbid_action(:update) }
+          it { is_expected.to forbid_action(:destroy) }
+        end
+      end
+
+      context 'when the conference has not been approved by its organizer' do
+        it { is_expected.to permit_action(:index) }
+        it { is_expected.to forbid_action(:show) }
+        it { is_expected.to forbid_action(:new) }
+        it { is_expected.to forbid_action(:create) }
+        it { is_expected.to forbid_action(:edit) }
+        it { is_expected.to forbid_action(:update) }
+        it { is_expected.to forbid_action(:destroy) }
+      end
     end
   end
 end

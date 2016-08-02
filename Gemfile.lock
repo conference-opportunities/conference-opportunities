@@ -305,6 +305,9 @@ GEM
     puma (3.6.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
+    pundit-matchers (1.1.0)
+      pundit (~> 1.1, >= 1.1.0)
+      rspec-rails (>= 3.0.0)
     rack (2.0.1)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
@@ -514,6 +517,7 @@ DEPENDENCIES
   poltergeist
   puma (~> 3.0)
   pundit
+  pundit-matchers
   rack-mini-profiler
   rack-pjax!
   rack-protection!

@@ -6,20 +6,16 @@ class ApplicationPolicy
     @record = record
   end
 
-  def dashboard?
-    user.admin?
-  end
-
   def index?
-    false
+    user.present?
   end
 
   def show?
-    scope.where(id: record.id).exists?
+    scope.where(id: record.id).exists? && user.present?
   end
 
   def create?
-    false
+    user.present? && user.admin?
   end
 
   def new?
@@ -27,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    user.present? && user.admin?
   end
 
   def edit?

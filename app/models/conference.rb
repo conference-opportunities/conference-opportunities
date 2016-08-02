@@ -1,6 +1,15 @@
 class Conference < ActiveRecord::Base
-  validates :twitter_handle, :uid, presence: true, uniqueness: { case_sensitive: false }
   has_many :tweets, dependent: :destroy
+
+  validates :twitter_handle, :uid, presence: true, uniqueness: { case_sensitive: false }
+
+  def self.followed
+    where(unfollowed_at: nil)
+  end
+
+  def self.approved
+    where.not(approved_at: nil)
+  end
 
   def self.from_twitter_user(user)
     Conference.find_or_initialize_by(uid: user.id).update_from_twitter(user)

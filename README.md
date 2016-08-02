@@ -67,7 +67,7 @@ You'll need to install the following software:
 
 Conference Opportunities uses Twitter to authenticate Organizers and site admins.  In order to log in with a Twitter account, your application needs secret credentials.  In order to get those secret Twitter credentials, you'll probably need to make a new development account.
 
-> For example, developers at [Ministry of Velocity](https://ministryofvelocity.com) made `@callbackstaging` for the staging environment.  Sharing is great, but please make your own totally fake Twitter handle for your own development purposes.
+> For example, developers at [Ministry of Velocity](https://ministryofvelocity.com) made `@costaging` for the staging environment.  Sharing is great, but please make your own totally fake Twitter handle for your own development purposes.
 
 Once you've got a development account, you'll need to make a Twitter app at (https://apps.twitter.com).  Click the "Create New App" button, and on the next screen enter the following information:
 

@@ -13,13 +13,71 @@ RSpec.describe Conference do
     )
   end
 
-  subject(:conference) { Conference.create!(twitter_handle: 'bobdole', uid: '666') }
+  subject(:conference) { Conference.create!(twitter_handle: 'pretzel', uid: '321') }
 
   it { is_expected.to have_many(:tweets).dependent(:destroy) }
   it { is_expected.to validate_presence_of(:twitter_handle) }
   it { is_expected.to validate_uniqueness_of(:twitter_handle).case_insensitive }
   it { is_expected.to validate_presence_of(:uid) }
   it { is_expected.to validate_uniqueness_of(:uid).case_insensitive }
+
+  describe '.followed' do
+    context 'when there are no conferences' do
+      specify { expect(Conference.followed).to eq([]) }
+    end
+
+    context 'when there is a conference' do
+      let(:unfollowed_at) { nil }
+      let!(:conference) do
+        Conference.create!(
+          twitter_handle: 'penultimateconf',
+          uid: '123',
+          unfollowed_at: unfollowed_at
+        )
+      end
+
+      context 'when the conference has not been unfollowed' do
+        let(:unfollowed_at) { nil }
+
+        specify { expect(Conference.followed).to eq([conference]) }
+      end
+
+      context 'when the conference has been unfollowed' do
+        let(:unfollowed_at) { Time.current }
+
+        specify { expect(Conference.followed).to eq([]) }
+      end
+    end
+  end
+
+  describe '.approved' do
+    context 'when there are no conferences' do
+      specify { expect(Conference.approved).to eq([]) }
+    end
+
+    context 'when there is a conference' do
+      let(:approved_at) { nil }
+      let!(:conference) do
+        Conference.create!(
+          twitter_handle: 'penultimateconf',
+          uid: '123',
+          approved_at: approved_at
+        )
+      end
+
+      context 'when the conference has not been approved' do
+        let(:approved_at) { nil }
+
+        specify { expect(Conference.approved).to eq([]) }
+      end
+
+      context 'when the conference has been approved' do
+        let(:approved_at) { Time.current }
+
+        specify { expect(Conference.approved).to eq([conference]) }
+      end
+    end
+  end
 
   describe '.from_twitter_user' do
     subject(:conference) { Conference.from_twitter_user(user) }
@@ -70,7 +128,7 @@ RSpec.describe Conference do
 
   describe '#to_param' do
     it 'returns the twitter handle' do
-      expect(conference.to_param).to eq('bobdole')
+      expect(conference.to_param).to eq('pretzel')
     end
   end
 end
