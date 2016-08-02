@@ -1,11 +1,11 @@
 default: &default
   conference_batch:
-    cron: '* */6 * * *'
+    cron: '0 */6 * * *'
     class: 'ConferenceBatchJob'
     queue: default
 
   create_tweets:
-    cron: '* */6 * * *'
+    cron: '0 */6 * * *'
     class: 'CreateTweetsJob'
     queue: default
 
