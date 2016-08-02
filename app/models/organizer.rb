@@ -8,6 +8,8 @@ class Organizer < ActiveRecord::Base
   validates :provider, presence: true
   validates :uid, presence: true, uniqueness: {scope: :provider, case_sensitive: false}
 
+  delegate :twitter_handle, to: :conference, allow_nil: true
+
   def self.from_omniauth(auth)
     Organizer.find_or_initialize_by(uid: auth.uid, provider: auth.provider) do |organizer|
       organizer.conference = Conference.find_by(uid: organizer.uid)

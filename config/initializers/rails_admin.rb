@@ -23,8 +23,6 @@ RailsAdmin.config do |config|
     'Sidekiq' => '/sidekiq'
   }
 
-  config.excluded_models << "OrganizerConference"
-
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -39,5 +37,19 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+
+  config.excluded_models << "OrganizerConference"
+
+  config.model 'Organizer' do
+    object_label_method { :twitter_handle }
+  end
+
+  config.model 'Conference' do
+    object_label_method { :twitter_handle }
+  end
+
+  config.model 'Tweet' do
+    object_label_method { :twitter_id }
   end
 end

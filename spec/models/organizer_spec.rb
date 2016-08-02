@@ -24,6 +24,8 @@ RSpec.describe Organizer do
   it { is_expected.to validate_presence_of(:uid) }
   it { is_expected.to validate_uniqueness_of(:uid).scoped_to(:provider).case_insensitive }
 
+  it { is_expected.to delegate_method(:twitter_handle).to(:conference) }
+
   describe '#organizer_conference' do
     context 'when the organizer is an admin' do
       let(:uid) { admin_twitter_id }
