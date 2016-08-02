@@ -7,14 +7,6 @@ GIT
       rack (>= 1.1)
 
 GIT
-  remote: https://github.com/minifast/rails_locale_detection
-  revision: d959f16cfb12c1e9c23c7904ce8edb4054a27ad8
-  specs:
-    rails_locale_detection (2.0.0)
-      http_accept_language (~> 2.0.5)
-      rails (>= 3.2.0)
-
-GIT
   remote: https://github.com/mshibuya/remotipart
   revision: 88d9a7d55bde66acb6cf3a3c6036a5a1fc991d5e
   specs:
@@ -346,6 +338,9 @@ GEM
       rails_serve_static_assets
       rails_stdout_logging
     rails_admin-i18n (1.10.3)
+    rails_locale_detection (2.1.0)
+      http_accept_language (~> 2.0.5)
+      rails (>= 3.2.0)
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
     railties (5.0.0)
@@ -528,7 +523,7 @@ DEPENDENCIES
   rails_12factor
   rails_admin!
   rails_admin-i18n
-  rails_locale_detection!
+  rails_locale_detection
   rapporteur
   remotipart!
   rspec-rails

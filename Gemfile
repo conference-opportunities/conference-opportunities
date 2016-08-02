@@ -19,6 +19,7 @@ gem 'omniauth-twitter'
 gem 'pundit'
 gem 'rails-i18n'
 gem 'rails_admin-i18n'
+gem 'rails_locale_detection'
 gem 'sass-rails', '~> 5.0'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
@@ -31,9 +32,6 @@ gem 'virtus'
 # Sinatra 2 needs the most recent rack-protection, which has not been released
 gem 'rack-protection', git: 'https://github.com/sinatra/rack-protection'
 gem 'sinatra', git: 'https://github.com/sinatra/sinatra', require: false
-
-# RailsLocaleDetection is not compatible with Rails 5 yet, so use our fork
-gem 'rails_locale_detection', git: 'https://github.com/minifast/rails_locale_detection'
 
 # RailsAdmin is not compatible with Rails 5 yet, so use compatible forks
 gem 'rack-pjax', git: 'https://github.com/afcapel/rack-pjax'
