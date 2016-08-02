@@ -1,5 +1,5 @@
 # Conference Opportunties
-[![Circle CI](https://circleci.com/gh/minifast/conference-opportunities.svg?style=svg)](https://circleci.com/gh/minifast/conference-opportunities) [![Code Climate](https://codeclimate.com/github/minifast/conference-opportunities/badges/gpa.svg)](https://codeclimate.com/github/minifast/conference-opportunities) [![Test Coverage](https://codeclimate.com/github/minifast/conference-opportunities/badges/coverage.svg)](https://codeclimate.com/github/minifast/conference-opportunities/coverage) [![Issue Count](https://codeclimate.com/github/minifast/conference-opportunities/badges/issue_count.svg)](https://codeclimate.com/github/minifast/conference-opportunities) [![Dependency Status](https://gemnasium.com/minifast/conference-opportunities.svg)](https://gemnasium.com/minifast/conference-opportunities)
+[![CircleCI](https://circleci.com/gh/conference-opportunities/conference-opportunities.svg?style=svg)](https://circleci.com/gh/conference-opportunities/conference-opportunities) [![Code Climate](https://codeclimate.com/github/conference-opportunities/conference-opportunities/badges/gpa.svg)](https://codeclimate.com/github/conference-opportunities/conference-opportunities) [![Test Coverage](https://codeclimate.com/github/conference-opportunities/conference-opportunities/badges/coverage.svg)](https://codeclimate.com/github/conference-opportunities/conference-opportunities/coverage) [![Issue Count](https://codeclimate.com/github/conference-opportunities/conference-opportunities/badges/issue_count.svg)](https://codeclimate.com/github/conference-opportunities/conference-opportunities) [![Dependency Status](https://gemnasium.com/conference-opportunities/conference-opportunities.svg)](https://gemnasium.com/conference-opportunities/conference-opportunities)
 
 Conference Opportunities is a branded (but reusable under the MIT license!) open source application powering the CallbackWomen conference search site.  CallbackWomen curates data about conferences for professional programmers, specifically data around:
 
@@ -139,12 +139,12 @@ $ bundle exec rspec
 
 ## Deployment
 
-CallbackWomen is automatically deployed whenever [CircleCI](https://circleci.com/gh/minifast/conference-opportunities) determines that all tests have passed.  If you create a pull request, Heroku will create a sample application to review your proposed changes.
+CallbackWomen is automatically deployed whenever [CircleCI](https://circleci.com/gh/conference-opportunities/conference-opportunities) determines that all tests have passed.  If you create a pull request, Heroku will create a sample application to review your proposed changes.
 
 
 ## Contributing
 
-1. Fork it ( https://github.com/minifast/conference-opportunities/fork )
+1. Fork it ( https://github.com/conference-opportunities/conference-opportunities/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -153,4 +153,4 @@ CallbackWomen is automatically deployed whenever [CircleCI](https://circleci.com
 
 ### What should I work on?
 
-The Pivotal Tracker backlog for this project can be found at (https://www.pivotaltracker.com/n/projects/1433838).  The backlog contains a roadmap for the immediate future of development.  Issues and open work items for the community are curated at (https://github.com/minifast/conference-opportunities/issues).
+The Pivotal Tracker backlog for this project can be found at (https://www.pivotaltracker.com/n/projects/1433838).  The backlog contains a roadmap for the immediate future of development.  Issues and open work items for the community are curated at (https://github.com/conference-opportunities/conference-opportunities/issues).
