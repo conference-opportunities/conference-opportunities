@@ -281,7 +281,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
-    notiffany (0.1.0)
+    notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
     oauth (0.5.1)
@@ -455,7 +455,7 @@ GEM
       simple_oauth (~> 0.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.0)
+    uglifier (3.0.1)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
