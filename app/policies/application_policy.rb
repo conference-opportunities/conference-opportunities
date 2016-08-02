@@ -6,6 +6,18 @@ class ApplicationPolicy
     @record = record
   end
 
+  def dashboard?
+    user.present? && user.admin?
+  end
+
+  def show_in_app?
+    user.present? && user.admin?
+  end
+
+  def export?
+    user.present? && user.admin?
+  end
+
   def index?
     user.present?
   end

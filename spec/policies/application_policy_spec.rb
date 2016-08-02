@@ -22,6 +22,10 @@ RSpec.describe ApplicationPolicy do
     it { is_expected.to forbid_action(:edit) }
     it { is_expected.to forbid_action(:update) }
     it { is_expected.to forbid_action(:destroy) }
+
+    it { is_expected.to forbid_action(:dashboard) }
+    it { is_expected.to forbid_action(:show_in_app) }
+    it { is_expected.to forbid_action(:export) }
   end
 
   context 'when logged in as the admin' do
@@ -38,6 +42,10 @@ RSpec.describe ApplicationPolicy do
     it { is_expected.to permit_action(:edit) }
     it { is_expected.to permit_action(:update) }
     it { is_expected.to forbid_action(:destroy) }
+
+    it { is_expected.to permit_action(:dashboard) }
+    it { is_expected.to permit_action(:show_in_app) }
+    it { is_expected.to permit_action(:export) }
   end
 
   context 'when logged in as a normal organizer' do
@@ -50,5 +58,9 @@ RSpec.describe ApplicationPolicy do
     it { is_expected.to forbid_action(:edit) }
     it { is_expected.to forbid_action(:update) }
     it { is_expected.to forbid_action(:destroy) }
+
+    it { is_expected.to forbid_action(:dashboard) }
+    it { is_expected.to forbid_action(:show_in_app) }
+    it { is_expected.to forbid_action(:export) }
   end
 end
