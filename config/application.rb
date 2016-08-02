@@ -21,7 +21,6 @@ module ConferenceOpportunities
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths << Rails.root.join('lib')
-    config.autoload_paths << Rails.root.join('app/presenters')
 
     config.action_dispatch.rescue_responses['Pundit::NotAuthorizedError'] = :forbidden
 
@@ -29,7 +28,5 @@ module ConferenceOpportunities
     config.i18n.available_locales = [:en, :es]
     config.i18n.enforce_available_locales = false
     config.i18n.fallbacks = {:es => [:en], en: [:es]}
-
-    config.active_job.queue_adapter = :sidekiq
   end
 end
