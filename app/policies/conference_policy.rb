@@ -15,7 +15,7 @@ class ConferencePolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
     def resolve
-      return scope if user.present? && user.admin?
+      return scope.all if user.present? && user.admin?
       scope.followed.approved
     end
   end
