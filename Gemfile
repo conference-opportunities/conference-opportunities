@@ -58,6 +58,8 @@ end
 group :development, :test do
   gem 'bullet'
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
+  gem 'ffaker'
   gem 'parallel_tests'
   gem 'rspec-rails'
   gem 'teaspoon-jasmine'

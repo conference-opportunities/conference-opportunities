@@ -22,9 +22,8 @@ RSpec.describe Organizers::OmniauthCallbacksController, type: :controller do
     end
 
     context 'when the corresponding conference exists' do
-      let!(:conference) do
-        Conference.create!(twitter_handle: 'conf', uid: uid)
-      end
+      let!(:conference) { FactoryGirl.create(:conference, twitter_handle: twitter_handle, uid: uid) }
+
       before do
         allow(Rails.application.config).to receive(:application_twitter_id).and_return(uid)
       end
@@ -37,9 +36,7 @@ RSpec.describe Organizers::OmniauthCallbacksController, type: :controller do
 
     context 'when the organizer is not an admin' do
       context 'when the corresponding conference exists' do
-        let!(:conference) do
-          Conference.create!(twitter_handle: twitter_handle, uid: uid)
-        end
+        let!(:conference) { FactoryGirl.create(:conference, twitter_handle: twitter_handle, uid: uid) }
 
         it 'redirects the conference listing page' do
           make_request

@@ -10,8 +10,8 @@ RSpec.describe ApplicationController, type: :controller do
   end
 
   describe '#pundit_user' do
-    let(:conference) { Conference.create!(twitter_handle: 'punditconf', uid: '123') }
-    let(:organizer) { Organizer.create!(uid: '123', provider: 'twitter', conference: conference) }
+    let(:conference) { FactoryGirl.create(:conference) }
+    let(:organizer) { FactoryGirl.create(:organizer, conference: conference) }
 
     before { sign_in(organizer, scope: :organizer) }
 

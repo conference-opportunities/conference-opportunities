@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApprovalsController do
+RSpec.describe ApprovalsController, type: :controller do
   describe 'GET #show' do
     it 'succeeds' do
       get :show

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Conferences::DetailsController do
-  let!(:conference) { Conference.create!(twitter_handle: 'hamconf', uid: '123')}
-  let!(:organizer) { Organizer.create!(provider: 'twitter', uid: '123', conference: conference) }
+RSpec.describe Conferences::DetailsController, type: :controller do
+  let(:conference) { FactoryGirl.create(:conference) }
+  let(:organizer) { FactoryGirl.create(:organizer, conference: conference) }
 
   describe 'GET #edit' do
     def make_request(id = conference.twitter_handle)
@@ -32,8 +32,8 @@ RSpec.describe Conferences::DetailsController do
     end
 
     context 'when logged in as some other organizer' do
-      let(:other_conference) { Conference.create!(twitter_handle: 'otherconf', uid: '756')}
-      let(:other_organizer) { Organizer.create!(provider: 'twitter', uid: '756', conference: other_conference) }
+      let(:other_conference) { FactoryGirl.create(:conference) }
+      let(:other_organizer) { FactoryGirl.create(:organizer, conference: other_conference) }
 
       before { sign_in(other_organizer, scope: :organizer) }
 
@@ -111,8 +111,8 @@ RSpec.describe Conferences::DetailsController do
     end
 
     context 'when logged in as some other organizer' do
-      let(:other_conference) { Conference.create!(twitter_handle: 'otherconf', uid: '756')}
-      let(:other_organizer) { Organizer.create!(provider: 'twitter', uid: '756', conference: other_conference) }
+      let(:other_conference) { FactoryGirl.create(:conference) }
+      let(:other_organizer) { FactoryGirl.create(:organizer, conference: other_conference) }
 
       before { sign_in(other_organizer, scope: :organizer) }
 
