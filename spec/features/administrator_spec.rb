@@ -3,13 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Administrator', type: :feature do
   let(:organizer_uid) { '123' }
   let(:admin_uid) { 'abc' }
-  let(:organizer) do
-    Organizer.create!(provider: 'twitter', uid: organizer_uid, conference: conference)
-  end
-
-  let(:conference) do
-    Conference.create!(twitter_handle: 'more_conferences_plz', uid: organizer_uid)
-  end
+  let(:organizer) { FactoryGirl.create(:organizer, uid: organizer_uid) }
 
   let(:valid_twitter_auth) do
     OmniAuth::AuthHash.new(

@@ -17,7 +17,7 @@
 
     <figure>
       <%= f.hidden_field :logo_url %>
-      <%= image_tag @conference_listing.logo_url %>
+      <%= image_tag @conference_listing.logo_url if @conference_listing.logo_url %>
     </figure>
   </section>
 

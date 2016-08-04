@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ConferencePresenter do
   let(:conference) do
-    Conference.new(
+    FactoryGirl.build(:conference,
       logo_url: 'http://example.com/logo.png',
       name: 'Nameconf',
       twitter_handle: 'nameconf',
@@ -11,7 +11,7 @@ RSpec.describe ConferencePresenter do
       description: 'A conference on names.'
     )
   end
-  let!(:tweet) { conference.tweets.new(twitter_id: 'ham') }
+  let!(:tweet) { FactoryGirl.create(:tweet, conference: conference) }
 
   subject(:presenter) { ConferencePresenter.new(conference) }
 

@@ -1,16 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature 'Publishing a conference', type: :feature do
+RSpec.feature 'Organizer', type: :feature do
   let(:uid) { '123545' }
-  let!(:conference) do
-    Conference.create!(
-      name: 'Interesting conference',
-      twitter_handle: 'conferencename',
-      logo_url: 'http://placekitten.com/200/200',
-      uid: uid,
-      description: 'All about how great oatmeal is, or something',
-    )
-  end
+  let!(:conference) { FactoryGirl.create(:conference, uid: uid, twitter_handle: 'interestconf', name: 'Interesting conference') }
   let(:valid_twitter_auth) do
     OmniAuth::AuthHash.new(
       provider: 'twitter',
@@ -23,7 +15,7 @@ RSpec.feature 'Publishing a conference', type: :feature do
     OmniAuth.config.mock_auth[:twitter] = valid_twitter_auth
   end
 
-  scenario 'lists the conference', :js do
+  scenario 'approves a conference and creates a new event', :js do
     visit root_path(locale: :en)
     expect(page).not_to have_content 'Interesting conference'
 
@@ -63,7 +55,7 @@ RSpec.feature 'Publishing a conference', type: :feature do
 
     click_on 'Next'
 
-    expect(page).to have_content '@conferencename'
+    expect(page).to have_content '@interestconf'
 
     logout(:organizer)
 

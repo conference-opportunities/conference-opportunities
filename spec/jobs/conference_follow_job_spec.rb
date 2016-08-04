@@ -25,7 +25,7 @@ RSpec.describe ConferenceFollowJob, type: :job do
     end
 
     context 'when the conference exists and is currently followed' do
-      let!(:conference) { Conference.create!(uid: 3237999706, twitter_handle: 'andconf', unfollowed_at: nil) }
+      let!(:conference) { FactoryGirl.create(:conference, uid: 3237999706) }
 
       it 'does not create a new conference' do
         expect { job.perform(3237999706) }.not_to change(Conference, :count)
@@ -37,7 +37,7 @@ RSpec.describe ConferenceFollowJob, type: :job do
     end
 
     context 'when the conference exists and is currently unfollowed' do
-      let!(:conference) { Conference.create!(uid: 3237999706, twitter_handle: 'andconf', unfollowed_at: 1.day.ago) }
+      let!(:conference) { FactoryGirl.create(:conference, :unfollowed, uid: 3237999706) }
 
       it 'does not create a new conference' do
         expect { job.perform(3237999706) }.not_to change(Conference, :count)

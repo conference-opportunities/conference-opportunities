@@ -10,8 +10,8 @@ RSpec.describe ConferenceUnfollowJob, type: :job do
       end
     end
 
-    context 'when the conference does exist' do
-      let(:conference) { Conference.create!(uid: 1, twitter_handle: 'jam') }
+    context 'when the conference exists' do
+      let!(:conference) { FactoryGirl.create(:conference, uid: 1) }
 
       it 'sets the unfollowed time' do
         expect { job.perform(1) }.to change { conference.reload.unfollowed_at }.from(nil)

@@ -48,7 +48,7 @@ RSpec.describe ConferenceBatchJob, type: :job do
     end
 
     context 'when the account follows a conference' do
-      before { Conference.create!(twitter_handle: 'andconf', uid: 3237999706) }
+      before { FactoryGirl.create(:conference, uid: 3237999706) }
 
       context 'when the account still only follows that conference' do
         let(:friends) { [3237999706] }

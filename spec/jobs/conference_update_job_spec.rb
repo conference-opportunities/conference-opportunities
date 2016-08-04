@@ -20,7 +20,7 @@ RSpec.describe ConferenceUpdateJob, type: :job do
     end
 
     context 'when the conference exists' do
-      let!(:conference) { Conference.create!(twitter_handle: '&:conf', uid: 3237999706) }
+      let!(:conference) { FactoryGirl.create(:conference, uid: 3237999706) }
 
       it 'updates the name' do
         expect {

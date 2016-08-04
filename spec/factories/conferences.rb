@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :conference do
-    twitter_handle { "#{FFaker::Color.name}#{FFaker::Color.name}conf" }
+    twitter_handle { "#{FFaker::Color.name}conf#{rand(1..10_000_000)}" }
     uid { rand(10_000..10_000_000).to_s }
 
     trait :unfollowed do

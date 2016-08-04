@@ -11,7 +11,7 @@ RSpec.describe CreateTweetJob, type: :job do
     end
 
     context 'when the mentioned conference exists' do
-      let!(:conference) { Conference.create!(twitter_handle: 'entitlementconf', uid: 321) }
+      let!(:conference) { FactoryGirl.create(:conference, uid: 321) }
 
       it 'creates a tweet on the conference' do
         expect { job.perform(123, [321]) }.to change { conference.reload.tweets.count }.by(1)
@@ -19,7 +19,7 @@ RSpec.describe CreateTweetJob, type: :job do
     end
 
     context 'when only one mentioned conference exists' do
-      let!(:conference) { Conference.create!(twitter_handle: 'entitlementconf', uid: 321) }
+      let!(:conference) { FactoryGirl.create(:conference, uid: 321) }
 
       it 'creates a tweet on the conference' do
         expect { job.perform(123, [321, 100]) }.to change { conference.reload.tweets.count }.by(1)
@@ -27,8 +27,8 @@ RSpec.describe CreateTweetJob, type: :job do
     end
 
     context 'when both mentioned conferences exist' do
-      let!(:conference) { Conference.create!(twitter_handle: 'entitlementconf', uid: 321) }
-      let!(:other_conference) { Conference.create!(twitter_handle: 'braggadocioconf', uid: 101) }
+      let!(:conference) { FactoryGirl.create(:conference, uid: 321) }
+      let!(:other_conference) { FactoryGirl.create(:conference, uid: 101) }
 
       it 'creates a tweet on the conference' do
         expect { job.perform(123, [321, 101]) }.to change { conference.reload.tweets.count }.by(1)
@@ -40,9 +40,9 @@ RSpec.describe CreateTweetJob, type: :job do
     end
 
     context 'when the mentioned conference has already recorded the tweet' do
-      let!(:conference) { Conference.create!(twitter_handle: 'entitlementconf', uid: 456) }
+      let!(:conference) { FactoryGirl.create(:conference, uid: 456) }
 
-      before { Tweet.create!(twitter_id: 654, conference: conference) }
+      before { FactoryGirl.create(:tweet, twitter_id: 654, conference: conference) }
 
       it 'does not create another tweet on the conference' do
         expect { job.perform(654, [456]) }.not_to change { conference.reload.tweets.count }.from(1)
