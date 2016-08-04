@@ -1,20 +1,6 @@
 GIT
-  remote: https://github.com/afcapel/rack-pjax
-  revision: c776a9a9eaa0641636e9ece5cfe88fc739339072
-  specs:
-    rack-pjax (0.8.0)
-      nokogiri (>= 1.5)
-      rack (>= 1.1)
-
-GIT
-  remote: https://github.com/mshibuya/remotipart
-  revision: 88d9a7d55bde66acb6cf3a3c6036a5a1fc991d5e
-  specs:
-    remotipart (1.2.1)
-
-GIT
-  remote: https://github.com/sferik/rails_admin
-  revision: eefa8acce1f07024c46efbdf560d2ff1b6dec43d
+  remote: https://github.com/minifast/rails_admin
+  revision: 1dfd18748131c1c09d130776f393d74198b6ee31
   specs:
     rails_admin (1.0.0.rc)
       builder (~> 3.1)
@@ -29,6 +15,12 @@ GIT
       rails (>= 4.0, < 6)
       remotipart (~> 1.0)
       sass-rails (>= 4.0, < 6)
+
+GIT
+  remote: https://github.com/mshibuya/remotipart
+  revision: 88d9a7d55bde66acb6cf3a3c6036a5a1fc991d5e
+  specs:
+    remotipart (1.2.1)
 
 GIT
   remote: https://github.com/sinatra/rack-protection
@@ -317,6 +309,9 @@ GEM
     rack (2.0.1)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
+    rack-pjax (1.0.0)
+      nokogiri (~> 1.5)
+      rack (>= 1.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0)
@@ -527,7 +522,6 @@ DEPENDENCIES
   pundit
   pundit-matchers
   rack-mini-profiler
-  rack-pjax!
   rack-protection!
   rails (~> 5.0.0)
   rails-controller-testing
