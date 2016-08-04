@@ -96,15 +96,17 @@ TWITTER_ACCESS_TOKEN_SECRET=[Access Token Secret]
 
 ### First-Time Google Maps API Setup
 
-Conference Opportunities uses the Google Maps API to figure out the latitude and longitude of conferences.  In order to get address information, your application needs secrets from Google's API Console at (https://console.developers.google.com/apis/credentials).
+Conference Opportunities uses the Google Maps API to power its location autocomplete box and figure out the latitude and longitude of conferences.
 
-If you don't have one already, you'll need to make a new project:
+In order to get address information, your application needs secrets from Google's API Console at (https://console.developers.google.com/apis/credentials).  If you don't have one already, you'll need to make a new project:
 
 ![create_project](/app/assets/images/readme_screenshots/create_project.png)
 
 > For example, developers at [Ministry of Velocity](https://ministryofvelocity.com) made a project called `callback-women-development`
 
-Next, go to the "Credentials" section in the sidebar, select the "Credentials" tab (really!), create a new API key, and select "Browser key":
+Next, enable both "Google Places API Web Service" and "Google Maps Geocoding API".
+
+Then, go to the "Credentials" section in the sidebar, select the "Credentials" tab (really!), create a new API key, and select "Browser key":
 
 ![google_api_instruction](/app/assets/images/readme_screenshots/google_api_instruction.png)
 
@@ -116,6 +118,14 @@ Add or change the following lines in your `.env` file (minus the square brackets
 GOOGLE_MAPS_API_KEY=[Key]
 ```
 
+After that, you can optionally create a "Server key" by following the same steps above, and assign that in your `.env` file:
+
+```
+GOOGLE_MAPS_SERVER_KEY=[Key]
+```
+
+**Note** If you're having problems making the autocomplete show up, make sur eyou've enabled both "Google Places API Web Service" and "Google Maps Geocoding API" on the dashboard.  Google's API server can take up to 5 minutes to recognize the change.
+
 
 ## Troubleshooting
 
@@ -124,6 +134,7 @@ GOOGLE_MAPS_API_KEY=[Key]
 * Try `cd`-ing out and back into the folder.
 * Make sure your `.env` file is located at the root level of the project.
 * Make sure the Twitter app has a Callback URL set in the Settings tab. Otherwise you'll see a 401 error from Omniauth.
+* Make sure your Google keys do not have a server listed under "Accept requests from these server IP addresses (Optional)".  This could be blocking your local development environment.
 
 
 ## Testing
