@@ -3,19 +3,7 @@ class Conferences::StructuresController < ApplicationController
 
   def edit
     authorize current_conference
-    @conference_structure = Conference::Structure.new(
-      conference: current_conference,
-      track_count: current_conference.track_count,
-      plenary_count: current_conference.plenary_count,
-      tutorial_count: current_conference.tutorial_count,
-      workshop_count: current_conference.workshop_count,
-      keynote_count: current_conference.keynote_count,
-      talk_count: current_conference.talk_count,
-      other_count: current_conference.other_count,
-      cfp_count: current_conference.cfp_count,
-      prior_submissions_count: current_conference.prior_submissions_count,
-      panel_count: current_conference.panel_count,
-    )
+    @conference_structure = Conference::Structure.new(conference: current_conference)
   end
 
   def update

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Organizer do
+RSpec.describe Organizer, type: :model do
   let(:admin_uid) { '123admin' }
   let(:uid) { '456' }
   let!(:conference) { FactoryGirl.create(:conference, uid: uid) }

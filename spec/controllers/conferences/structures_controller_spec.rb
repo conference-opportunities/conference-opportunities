@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Conferences::StructuresController, type: :controller do
   let(:conference) { FactoryGirl.create(:conference) }
+  let!(:event) { FactoryGirl.create(:event, conference: conference) }
   let(:organizer) { FactoryGirl.create(:organizer, conference: conference) }
 
   describe 'GET #edit' do
@@ -92,13 +93,13 @@ RSpec.describe Conferences::StructuresController, type: :controller do
 
           it 'updates the number of tracks' do
             expect { make_request(valid_data) }
-              .to change { conference.reload.track_count }
+              .to change { event.reload.tracks_count }
               .to(2)
           end
 
           it 'updates the conference plenary count' do
             expect { make_request(valid_data) }
-              .to change { conference.reload.plenary_count }
+              .to change { event.reload.plenaries_count }
               .to(3)
           end
 
@@ -139,4 +140,3 @@ RSpec.describe Conferences::StructuresController, type: :controller do
     end
   end
 end
-

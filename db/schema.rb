@@ -10,44 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722220716) do
+ActiveRecord::Schema.define(version: 20160804205912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "conferences", force: :cascade do |t|
-    t.string   "twitter_handle",             null: false
+    t.string   "twitter_handle", null: false
     t.string   "logo_url"
     t.string   "name"
     t.string   "location"
     t.string   "website_url"
     t.text     "description"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.datetime "approved_at"
-    t.datetime "cfp_deadline"
-    t.string   "cfp_url"
+    t.string   "uid",            null: false
+    t.datetime "unfollowed_at"
+    t.index ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
+    t.index ["uid"], name: "index_conferences_on_uid", unique: true, using: :btree
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "conference_id",                  null: false
+    t.string   "address",                        null: false
+    t.float    "latitude",                       null: false
+    t.float    "longitude",                      null: false
+    t.datetime "starts_at",                      null: false
+    t.datetime "ends_at",                        null: false
+    t.datetime "call_for_proposals_ends_at",     null: false
+    t.string   "call_for_proposals_url"
     t.boolean  "has_travel_funding"
     t.boolean  "has_lodging_funding"
     t.boolean  "has_honorariums"
     t.boolean  "has_diversity_scholarships"
-    t.string   "uid",                        null: false
-    t.datetime "starts_at"
-    t.datetime "ends_at"
-    t.integer  "attendee_count"
-    t.integer  "cfp_count"
-    t.integer  "keynote_count"
-    t.integer  "other_count"
-    t.integer  "panel_count"
-    t.integer  "plenary_count"
+    t.integer  "attendees_count"
+    t.integer  "submission_opportunities_count"
+    t.integer  "keynotes_count"
+    t.integer  "other_talks_count"
+    t.integer  "panels_count"
+    t.integer  "plenaries_count"
     t.integer  "prior_submissions_count"
-    t.integer  "talk_count"
-    t.integer  "track_count"
-    t.integer  "tutorial_count"
-    t.integer  "workshop_count"
-    t.datetime "unfollowed_at"
-    t.index ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
-    t.index ["uid"], name: "index_conferences_on_uid", unique: true, using: :btree
+    t.integer  "talks_count"
+    t.integer  "tracks_count"
+    t.integer  "tutorials_count"
+    t.integer  "workshops_count"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["conference_id"], name: "index_events_on_conference_id", unique: true, using: :btree
   end
 
   create_table "organizer_conferences", force: :cascade do |t|
@@ -76,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160722220716) do
     t.index ["conference_id", "twitter_id"], name: "index_tweets_on_conference_id_and_twitter_id", unique: true, using: :btree
   end
 
+  add_foreign_key "events", "conferences"
   add_foreign_key "organizer_conferences", "conferences"
   add_foreign_key "organizer_conferences", "organizers"
 end

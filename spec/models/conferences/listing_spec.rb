@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Conference::Listing do
+RSpec.describe Conference::Listing, type: :model do
   let(:conference) { FactoryGirl.create(:conference, twitter_handle: 'hamconf') }
   let(:attributes) { {conference: conference} }
 

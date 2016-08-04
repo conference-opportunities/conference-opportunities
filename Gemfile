@@ -14,10 +14,10 @@ gem 'sassc-rails', git: 'https://github.com/sass/sassc-rails'
 
 gem 'coffee-rails'
 gem 'dalli'
-gem 'date_validator'
 gem 'devise'
 gem 'devise-i18n'
 gem 'font-awesome-sass'
+gem 'geocoder'
 gem 'jquery-rails'
 gem 'omniauth-twitter'
 gem 'pundit'
@@ -29,6 +29,7 @@ gem 'sidekiq-scheduler'
 gem 'sidekiq-unique-jobs'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
+gem 'validates_timeliness'
 
 # Rails 5 uses Rack 2, ergo Sinatra 2 is required wherever Sinatra 1 was
 # Sinatra 2 needs the most recent rack-protection, which has not been released

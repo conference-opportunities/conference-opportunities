@@ -1,7 +1,8 @@
 class Conference < ActiveRecord::Base
+  has_one :event, dependent: :destroy, inverse_of: :conference
   has_many :tweets, dependent: :destroy
 
-  validates :twitter_handle, :uid, presence: true, uniqueness: { case_sensitive: false }
+  validates :twitter_handle, :uid, presence: true, uniqueness: {case_sensitive: false}
 
   def self.followed
     where(unfollowed_at: nil)

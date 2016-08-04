@@ -77,21 +77,18 @@ RSpec.describe Conferences::DetailsController, type: :controller do
 
         context 'when the conference information is valid' do
           it 'updates the conference location' do
-            expect { make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today) }
-              .to change { conference.reload.location }
-              .to('Barrow, AK')
+            make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today)
+            expect(conference.reload.event.address).to eq('Barrow, AK')
           end
 
           it 'updates the conference start date' do
-            expect { make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today) }
-              .to change { conference.reload.starts_at }
-              .to(Date.today)
+            make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today)
+            expect(conference.reload.event.starts_at).to eq(Date.today)
           end
 
           it 'updates the conference end date' do
-            expect { make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today + 1.day) }
-              .to change { conference.reload.ends_at }
-              .to(Date.today + 1.day)
+            make_request(location: 'Barrow, AK', starts_at: Date.today, ends_at: Date.today + 1.day)
+            expect(conference.reload.event.ends_at).to eq(Date.today + 1.day)
           end
 
           it 'redirects to the conference structure page' do

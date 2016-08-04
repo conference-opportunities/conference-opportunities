@@ -6,8 +6,6 @@ class Conferences::DetailsController < ApplicationController
     @conference_detail = Conference::Detail.new(
       conference: current_conference,
       location: current_conference.location,
-      starts_at: current_conference.starts_at,
-      ends_at: current_conference.ends_at
     )
   end
 

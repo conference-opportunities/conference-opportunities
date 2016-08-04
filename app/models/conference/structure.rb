@@ -38,17 +38,17 @@ class Conference::Structure
   private
 
   def persist
-    conference.update_attributes!(
-      track_count: track_count.try(&:to_i),
-      plenary_count: plenary_count.try(&:to_i),
-      tutorial_count: tutorial_count.try(&:to_i),
-      workshop_count: workshop_count.try(&:to_i),
-      keynote_count: keynote_count.try(&:to_i),
-      talk_count: talk_count.try(&:to_i),
-      other_count: other_count.try(&:to_i),
-      cfp_count: cfp_count.try(&:to_i),
-      prior_submissions_count: prior_submissions_count.try(&:to_i),
-      panel_count: panel_count.try(&:to_i),
+    conference.event.update_attributes!(
+      tracks_count: track_count,
+      plenaries_count: plenary_count,
+      tutorials_count: tutorial_count,
+      workshops_count: workshop_count,
+      keynotes_count: keynote_count,
+      talks_count: talk_count,
+      other_talks_count: other_count,
+      submission_opportunities_count: cfp_count,
+      prior_submissions_count: prior_submissions_count,
+      panels_count: panel_count,
     )
   end
 end

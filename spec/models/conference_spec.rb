@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Conference do
+RSpec.describe Conference, type: :model do
   subject(:conference) do
     FactoryGirl.create(:conference, twitter_handle: 'pretzel', uid: '321')
   end
 
+  it { is_expected.to have_one(:event).dependent(:destroy).inverse_of(:conference) }
   it { is_expected.to have_many(:tweets).dependent(:destroy) }
   it { is_expected.to validate_presence_of(:twitter_handle) }
   it { is_expected.to validate_uniqueness_of(:twitter_handle).case_insensitive }

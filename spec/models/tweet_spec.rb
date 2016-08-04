@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Tweet do
+RSpec.describe Tweet, type: :model do
   let(:conference) { FactoryGirl.create(:conference) }
 
   subject(:tweet) { FactoryGirl.build(:tweet, conference: conference) }
