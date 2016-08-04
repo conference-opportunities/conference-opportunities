@@ -8,6 +8,10 @@ gem 'puma', '~> 3.0'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+# sassc-rails <= 1.2.1 is incompatible with Rails 5/Sprockets 4
+gem 'sass-rails', require: false
+gem 'sassc-rails', git: 'https://github.com/sass/sassc-rails'
+
 gem 'coffee-rails'
 gem 'dalli'
 gem 'date_validator'
@@ -20,13 +24,11 @@ gem 'pundit'
 gem 'rails-i18n'
 gem 'rails_admin-i18n'
 gem 'rails_locale_detection'
-gem 'sass-rails', '~> 5.0'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'sidekiq-unique-jobs'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
-gem 'virtus'
 
 # Rails 5 uses Rack 2, ergo Sinatra 2 is required wherever Sinatra 1 was
 # Sinatra 2 needs the most recent rack-protection, which has not been released
