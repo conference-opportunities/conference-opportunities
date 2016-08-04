@@ -16,7 +16,7 @@ class EventPolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope
     def resolve
       return scope.all if user.present? && user.admin?
-      scope.followed.approved
+      scope.joins(:conference).merge(Conference.approved.followed)
     end
   end
 end
