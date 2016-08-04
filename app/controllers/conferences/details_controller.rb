@@ -2,18 +2,18 @@ class Conferences::DetailsController < ApplicationController
   before_action :authenticate_organizer!, only: [:edit, :update]
 
   def edit
+    authorize current_conference
     @conference_detail = Conference::Detail.new(
       conference: current_conference,
       location: current_conference.location,
       starts_at: current_conference.starts_at,
       ends_at: current_conference.ends_at
     )
-    authorize @conference_detail
   end
 
   def update
+    authorize current_conference
     @conference_detail = Conference::Detail.new(conference_params.merge(conference: current_conference))
-    authorize @conference_detail
     if @conference_detail.save
       redirect_to(edit_conference_structure_path(@conference_detail.conference))
     else

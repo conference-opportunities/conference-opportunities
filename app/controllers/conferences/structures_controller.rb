@@ -2,6 +2,7 @@ class Conferences::StructuresController < ApplicationController
   before_action :authenticate_organizer!, only: [:edit, :update]
 
   def edit
+    authorize current_conference
     @conference_structure = Conference::Structure.new(
       conference: current_conference,
       track_count: current_conference.track_count,
@@ -15,12 +16,11 @@ class Conferences::StructuresController < ApplicationController
       prior_submissions_count: current_conference.prior_submissions_count,
       panel_count: current_conference.panel_count,
     )
-    authorize @conference_structure
   end
 
   def update
+    authorize current_conference
     @conference_structure = Conference::Structure.new(conference_params.to_h.merge(conference: current_conference))
-    authorize @conference_structure
     if @conference_structure.save
       redirect_to conference_path(@conference_structure.conference)
     else
