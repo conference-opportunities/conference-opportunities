@@ -1,19 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Conference do
-  let(:user) do
-    Twitter::User.new(
-      id: '111',
-      screen_name: 'twitterconf',
-      name: 'Twitter Conf',
-      profile_image_url_https: 'https://example.com/pugs.gif',
-      location: 'Overpriced Urban Conclave',
-      url: 'http://twitterconf.example.com',
-      description: 'Ten hours of pitches',
-    )
+  subject(:conference) do
+    FactoryGirl.create(:conference, twitter_handle: 'pretzel', uid: '321')
   end
-
-  subject(:conference) { Conference.create!(twitter_handle: 'pretzel', uid: '321') }
 
   it { is_expected.to have_many(:tweets).dependent(:destroy) }
   it { is_expected.to validate_presence_of(:twitter_handle) }
@@ -28,13 +18,7 @@ RSpec.describe Conference do
 
     context 'when there is a conference' do
       let(:unfollowed_at) { nil }
-      let!(:conference) do
-        Conference.create!(
-          twitter_handle: 'penultimateconf',
-          uid: '123',
-          unfollowed_at: unfollowed_at
-        )
-      end
+      let!(:conference) { FactoryGirl.create(:conference, unfollowed_at: unfollowed_at) }
 
       context 'when the conference has not been unfollowed' do
         let(:unfollowed_at) { nil }
@@ -57,13 +41,7 @@ RSpec.describe Conference do
 
     context 'when there is a conference' do
       let(:approved_at) { nil }
-      let!(:conference) do
-        Conference.create!(
-          twitter_handle: 'penultimateconf',
-          uid: '123',
-          approved_at: approved_at
-        )
-      end
+      let!(:conference) { FactoryGirl.create(:conference, approved_at: approved_at) }
 
       context 'when the conference has not been approved' do
         let(:approved_at) { nil }
@@ -80,7 +58,19 @@ RSpec.describe Conference do
   end
 
   describe '.from_twitter_user' do
-    subject(:conference) { Conference.from_twitter_user(user) }
+    let(:user) do
+      Twitter::User.new(
+        id: '111',
+        screen_name: 'twitterconf',
+        name: 'Twitter Conf',
+        profile_image_url_https: 'https://example.com/pugs.gif',
+        location: 'Overpriced Urban Conclave',
+        url: 'http://twitterconf.example.com',
+        description: 'Ten hours of pitches',
+      )
+    end
+
+    let(:conference) { Conference.from_twitter_user(user) }
 
     specify { expect(conference).to be_valid }
     specify { expect(conference.twitter_handle).to eq('twitterconf') }
@@ -102,6 +92,7 @@ RSpec.describe Conference do
           description: 'Eleven hours of Ray Kurzweil on a large screen',
         )
       end
+
       before { conference.save! }
 
       it 'updates the modified fields' do
@@ -114,6 +105,18 @@ RSpec.describe Conference do
   end
 
   describe '#update_from_twitter' do
+    let(:user) do
+      Twitter::User.new(
+        id: '111',
+        screen_name: 'twitterconf',
+        name: 'Twitter Conf',
+        profile_image_url_https: 'https://example.com/pugs.gif',
+        location: 'Overpriced Urban Conclave',
+        url: 'http://twitterconf.example.com',
+        description: 'Ten hours of pitches',
+      )
+    end
+
     it 'assigns attributes from the twitter user' do
       expect(conference.update_from_twitter(user)).to eq(conference)
       expect(conference).to be_valid

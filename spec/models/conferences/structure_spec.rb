@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Conference::Structure do
-  let(:conference) { Conference.create!(twitter_handle: 'hamconf', uid: '1') }
+  let(:conference) { FactoryGirl.create(:conference, twitter_handle: 'hamconf') }
   let(:attributes) { {conference: conference} }
 
   subject(:structure) { Conference::Structure.new(attributes) }

@@ -1,20 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Organizer do
-  let(:admin_twitter_id) { '123admin' }
+  let(:admin_uid) { '123admin' }
   let(:uid) { '456' }
-  let!(:conference) do
-    Conference.create!(twitter_handle: 'confconf', uid: uid)
-  end
+  let!(:conference) { FactoryGirl.create(:conference, uid: uid) }
 
-  subject(:organizer) do
-    Organizer.new(provider: 'diogenes', uid: uid, conference: conference)
-  end
+  subject(:organizer) { FactoryGirl.build(:organizer, uid: uid, conference: conference) }
 
   before do
-    allow(Rails.application.config).
-      to receive(:application_twitter_id).
-      and_return(admin_twitter_id)
+    allow(Rails.application.config).to receive(:application_twitter_id).and_return(admin_uid)
   end
 
   it { is_expected.to have_one(:organizer_conference) }
@@ -28,7 +22,7 @@ RSpec.describe Organizer do
 
   describe '#organizer_conference' do
     context 'when the organizer is an admin' do
-      let(:uid) { admin_twitter_id }
+      let(:uid) { admin_uid }
 
       it { is_expected.not_to validate_presence_of(:organizer_conference) }
     end
@@ -39,7 +33,7 @@ RSpec.describe Organizer do
   end
 
   describe ".from_omniauth" do
-    let(:auth) { OpenStruct.new(provider: 'diogenes', uid: uid) }
+    let(:auth) { OpenStruct.new(provider: 'twitter', uid: uid) }
 
     context "when the conference organizer already exist" do
       before { organizer.save! }
@@ -60,7 +54,7 @@ RSpec.describe Organizer do
       end
 
       context "when there is NOT a corresponding conference" do
-        let(:auth) { OpenStruct.new(provider: 'diogenes', uid: '425') }
+        let(:auth) { OpenStruct.new(provider: 'twitter', uid: '425') }
 
         it "returns an invalid organizer" do
           expect(new_organizer).not_to be_valid
@@ -71,7 +65,7 @@ RSpec.describe Organizer do
 
   describe '#admin?' do
     context "when the organizer has the same UID as the app's twitter account" do
-      let(:uid) { admin_twitter_id }
+      let(:uid) { admin_uid }
 
       it 'returns true' do
         expect(organizer.admin?).to eq(true)

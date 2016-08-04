@@ -1,15 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Conference::Detail do
-  let(:conference) do
-    Conference.create!(
-      twitter_handle: 'hamconf',
-      location: 'San Dimas, CA',
-      starts_at: Date.today - 1.year,
-      ends_at: Date.today - 1.year,
-      uid: '1',
-    )
-  end
+  let(:conference) { FactoryGirl.create(:conference, twitter_handle: 'hamconf') }
   let(:attributes) { {conference: conference} }
 
   subject(:details) { Conference::Detail.new(attributes) }

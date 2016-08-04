@@ -1,17 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Tweet do
-  let(:conference) { Conference.create!(twitter_handle: 'tweetconf', uid: '666') }
-  subject(:tweet) { conference.tweets.build(twitter_id: 1) }
+  let(:conference) { FactoryGirl.create(:conference) }
+
+  subject(:tweet) { FactoryGirl.build(:tweet, conference: conference) }
 
   it { is_expected.to belong_to(:conference) }
   it { is_expected.to validate_presence_of(:conference) }
   it { is_expected.to validate_uniqueness_of(:twitter_id).scoped_to(:conference_id).case_insensitive }
 
   describe '.from_twitter' do
-    let!(:conference) { Conference.create!(twitter_handle: 'andconf', uid: "667") }
+    let!(:conference) { FactoryGirl.create(:conference, twitter_handle: 'okconf', uid: '667') }
     let(:conference_mention) do
-      double(:user_mention, screen_name: conference.twitter_handle, id: "667")
+      double(:user_mention, screen_name: 'okconf', id: '667')
     end
     let(:user_mentions) { [conference_mention] }
 
@@ -53,9 +54,9 @@ RSpec.describe Tweet do
       end
 
       context 'when another conference is mentioned' do
-        let!(:other_conference) { Conference.create!(twitter_handle: 'railsconf', uid: "668") }
+        let!(:other_conference) { FactoryGirl.create(:conference, twitter_handle: 'boringconf', uid: '668') }
         let(:other_conference_mention) do
-          double(:user_mention, screen_name: other_conference.twitter_handle, id: "668")
+          double(:user_mention, screen_name: 'boringconf', id: '668')
         end
         let(:user_mentions) { [conference_mention, other_conference_mention] }
 

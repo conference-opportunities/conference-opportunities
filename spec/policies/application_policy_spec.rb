@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationPolicy do
-  let(:conference) { Conference.create!(uid: '765', twitter_handle: 'policyconf') }
+  let(:conference) { FactoryGirl.create(:conference) }
   let(:record) do
     class Application
       def id; 0; end
@@ -29,7 +29,7 @@ RSpec.describe ApplicationPolicy do
   end
 
   context 'when logged in as the admin' do
-    let(:user) { Organizer.create!(conference: conference, uid: '765', provider: 'twitter') }
+    let(:user) { FactoryGirl.create(:organizer, conference: conference, uid: '765') }
 
     before do
       allow(Rails.application.config).to receive(:application_twitter_id).and_return('765')
@@ -49,7 +49,7 @@ RSpec.describe ApplicationPolicy do
   end
 
   context 'when logged in as a normal organizer' do
-    let(:user) { Organizer.create!(conference: conference, uid: '765', provider: 'twitter') }
+    let(:user) { FactoryGirl.create(:organizer, conference: conference, uid: '765') }
 
     it { is_expected.to permit_action(:index) }
     it { is_expected.to permit_action(:show) }
