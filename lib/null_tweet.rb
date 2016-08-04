@@ -1,5 +1,5 @@
 class NullTweet
   def twitter_id
-    '0'
+    1
   end
 end
