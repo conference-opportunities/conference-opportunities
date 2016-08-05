@@ -34,7 +34,7 @@ RSpec.feature 'Organizer', type: :feature do
     expect(find('#conference_detail_location').value).to include('San Francisco, CA')
 
     fill_in 'conference_detail_starts_at', with: '01/01/2016'
-    fill_in 'conference_detail_ends_at', with: '01/01/2016'
+    fill_in 'conference_detail_ends_at', with: '01/02/2016'
     fill_in 'Number of Attendees', with: '2'
 
     click_on 'Next'
