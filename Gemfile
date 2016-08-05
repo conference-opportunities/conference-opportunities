@@ -37,7 +37,7 @@ gem 'rack-protection', git: 'https://github.com/sinatra/rack-protection'
 gem 'sinatra', git: 'https://github.com/sinatra/sinatra', require: false
 
 # RailsAdmin is not compatible with Rails 5 yet, so use compatible forks
-gem 'rails_admin', git: 'https://github.com/minifast/rails_admin', require: 'rails_admin'
+gem 'rails_admin', git: 'https://github.com/sferik/rails_admin'
 gem 'remotipart', git: 'https://github.com/mshibuya/remotipart'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

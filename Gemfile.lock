@@ -1,22 +1,4 @@
 GIT
-  remote: https://github.com/minifast/rails_admin
-  revision: 1dfd18748131c1c09d130776f393d74198b6ee31
-  specs:
-    rails_admin (1.0.0.rc)
-      builder (~> 3.1)
-      coffee-rails (~> 4.0)
-      font-awesome-rails (>= 3.0, < 5)
-      haml (~> 4.0)
-      jquery-rails (>= 3.0, < 5)
-      jquery-ui-rails (~> 5.0)
-      kaminari (~> 0.14)
-      nested_form (~> 0.3)
-      rack-pjax (>= 0.7)
-      rails (>= 4.0, < 6)
-      remotipart (~> 1.0)
-      sass-rails (>= 4.0, < 6)
-
-GIT
   remote: https://github.com/mshibuya/remotipart
   revision: 88d9a7d55bde66acb6cf3a3c6036a5a1fc991d5e
   specs:
@@ -33,6 +15,24 @@ GIT
       sprockets (> 2.11)
       sprockets-rails
       tilt
+
+GIT
+  remote: https://github.com/sferik/rails_admin
+  revision: df3b30c8e205213f000bf1229b7e8a3e1ef4d081
+  specs:
+    rails_admin (1.0.0.rc)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (~> 4.0)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (>= 0.7)
+      rails (>= 4.0, < 6)
+      remotipart (~> 1.0)
+      sass-rails (>= 4.0, < 6)
 
 GIT
   remote: https://github.com/sinatra/rack-protection
