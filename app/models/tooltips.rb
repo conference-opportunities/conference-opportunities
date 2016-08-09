@@ -15,7 +15,7 @@ class Tooltips
 	accomodations_invisible_illness = ""
 	accomodations_religious = ""
 	childcare = ""
-	pumproom = ""
+	pumproom = "<A HREF=\"https://medium.com/@mmsandgren/mother-s-room-manifesto-for-conferences-afc9af6c6d66#.odk4zxdft\">Mother's Room Manifesto for Conferences</a> by Melissa Sandgren"
 	quiet_room = ""
 	proposal_anonymization = ""
 	proposal_section_method = ""
