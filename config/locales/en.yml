@@ -82,3 +82,5 @@ en:
   layouts:
     application:
       title: CallbackWomen
+    style_guide:
+      title: Style Guide

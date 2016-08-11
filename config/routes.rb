@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
   end
   resource :approval, only: [:show]
+  resources :style_guides, only: [:index]
   resources :lets_encrypt_verifications, only: [:show], path: '.well-known/acme-challenge'
   root to: 'conferences#index'
 end

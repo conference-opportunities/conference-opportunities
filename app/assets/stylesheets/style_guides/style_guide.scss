@@ -1,0 +1,16 @@
+.style-guide {
+  @extend .col-xs-12;
+  @extend .col-md-6;
+
+  &__section {
+    @extend .card;
+  }
+
+  &__header {
+    @extend .card-header;
+  }
+
+  &__partial {
+    @extend .card-block;
+  }
+}

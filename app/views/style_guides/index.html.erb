@@ -1,0 +1,12 @@
+<% @style_guides.each do |style_guide| %>
+  <% style_guide.partials.each do |partial| %>
+    <article class='style-guide'>
+      <section class='style-guide__section'>
+        <header class='style-guide__header'><%= partial.name %></header>
+        <section class='style-guide__partial'>
+          <%= render partial: partial.path %>
+        </section>
+      </section>
+    </article>
+  <% end %>
+<% end %>
