@@ -69,6 +69,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'axe-matchers'
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'chromedriver-helper'
