@@ -52,7 +52,7 @@ end
 
 group :development do
   gem 'derailed'
-  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-livereload', require: false
   gem 'license_finder'
   gem 'pivotal_git_scripts'
   gem 'web-console', '~> 3.0'
