@@ -5,7 +5,7 @@ RSpec.feature 'Speaker', type: :feature do
     FactoryGirl.create(:conference, :approved, name: 'InterestingConf', description: 'zzz')
   end
 
-  scenario 'views a conference' do
+  scenario 'views a conference', :js, :accessible do
     visit root_path
     click_on 'InterestingConf'
     expect(page).to have_content('zzz')
