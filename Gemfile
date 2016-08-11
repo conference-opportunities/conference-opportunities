@@ -12,6 +12,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'sass-rails', require: false
 gem 'sassc-rails', git: 'https://github.com/sass/sassc-rails'
 
+gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'coffee-rails'
 gem 'dalli'
 gem 'devise'

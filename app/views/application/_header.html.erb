@@ -1,9 +1,11 @@
-<header>
-  <h1><%= link_to t('.title'), root_path %></h1>
-  <nav>
-    <ul>
-      <li><%= link_to t('.find_a_conference'), root_path %></li>
-      <li><%= link_to t('.log_in_with_twitter'), organizer_twitter_omniauth_authorize_path %></li>
-    </ul>
-  </nav>
-</header>
+<nav class='main-header'>
+  <%= link_to t('.title'), root_path, class: 'main-header__title' %>
+  <ul class='main-header__navigation'>
+    <li class='main-header__navigation-item'>
+      <%= link_to t('.find_a_conference'), root_path, class: 'main-header__link' %>
+    </li>
+    <li class='main-header__navigation-item'>
+      <%= link_to t('.log_in_with_twitter'), organizer_twitter_omniauth_authorize_path, class: 'main-header__link' %>
+    </li>
+  </ul>
+</nav>

@@ -1,33 +1,24 @@
-body > header {
-  padding: 1rem;
-  background-color: $header-background-color;
+.main-header {
+  @extend .navbar;
+  @extend .navbar-light;
+  @extend .bg-faded;
+  @extend .navbar-full;
 
-  display: flex;
-  justify-content: space-between;
-
-  h1 {
-    font-size: 1.7rem;
-    line-height: 1;
-    margin: 0;
+  &__title {
+    @extend .navbar-brand;
   }
 
-  a {
-    color: $callback-blue;
-    text-decoration: none;
+  &__navigation {
+    @extend .nav;
+    @extend .navbar-nav;
   }
 
-  ul {
-    margin: 0;
+  &__navigation-item {
+    @extend .nav-item;
   }
 
-  li {
-    list-style: none;
-  }
-
-  nav a {
-    border: 0.1rem solid $callback-blue;
-    border-radius: $base-border-radius;
-    padding: 0.25rem 0.5rem;
+  &__link {
+    @extend .nav-link;
   }
 }
 
