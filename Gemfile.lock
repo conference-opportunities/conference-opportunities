@@ -6,9 +6,9 @@ GIT
 
 GIT
   remote: https://github.com/sass/sassc-rails
-  revision: efe7a969cb663516ec142506c3dc3e5f0fb4e5cb
+  revision: b76761dd7b3bda9df559cf35f332364878ec7ad8
   specs:
-    sassc-rails (1.2.1)
+    sassc-rails (1.3.0)
       railties (>= 4.0.0)
       sass
       sassc (~> 1.9)
@@ -43,7 +43,7 @@ GIT
 
 GIT
   remote: https://github.com/sinatra/sinatra
-  revision: 98990ef31f42ed00b8a7c0dae1170fe24e182612
+  revision: a7483f48b0a18ba792e642a356e3b25cf30a354b
   specs:
     sinatra (2.0.0.pre.alpha)
       mustermann (~> 0.4)
@@ -96,7 +96,7 @@ GEM
       io-like (~> 0.3.0)
     arel (7.1.1)
     bcrypt (3.1.11)
-    benchmark-ips (2.6.1)
+    benchmark-ips (2.7.1)
     buftok (0.2.0)
     builder (3.2.2)
     bullet (5.2.0)
