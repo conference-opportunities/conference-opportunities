@@ -1,3 +1,7 @@
-<%= render partial: 'conferences/profile', locals: {conference: @conference} %>
-<%= render partial: 'conferences/next_event', locals: {conference: @conference} %>
-<%= render partial: 'conferences/timeline', locals: {tweets: @conference.tweets} %>
+<aside class="conference-column--aside">
+  <%= render partial: 'conferences/profile', locals: {conference: @conference} %>
+  <%= render partial: 'conferences/next_event', locals: {conference: @conference} %>
+</aside>
+<section class="conference-column--content">
+  <%= render partial: 'conferences/timeline', locals: {tweets: @conference.tweets} %>
+</section>

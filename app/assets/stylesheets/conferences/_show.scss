@@ -1,0 +1,16 @@
+body.conferences.show {
+  main {
+    @extend .container;
+    margin-top: 1rem;
+  }
+
+  .conference-column {
+    &--aside {
+      @extend .col-md-4;
+    }
+
+    &--content {
+      @extend .col-md-8;
+    }
+  }
+}
