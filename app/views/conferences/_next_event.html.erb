@@ -1,0 +1,67 @@
+<section class="conference-next-event">
+  <h5 class="conference-next-event__header"><%= t('.title') %></h5>
+  <article class="conference-next-event__body">
+    <table class="conference-next-event__table">
+      <% if conference.starts_at.present? %>
+      <tr>
+        <td><div class="conference-next-event__icon conference-next-event__icon--starts-at"></div></td>
+        <td><%= t('.starts_at', time: l(conference.starts_at, format: :long)) %></td>
+      </tr>
+      <% end %>
+      <% if conference.ends_at.present? %>
+      <tr>
+        <td><div class="conference-next-event__icon conference-next-event__icon--ends-at"></div></td>
+        <td><%= t('.ends_at', time: l(conference.ends_at, format: :long)) %></td>
+      </tr>
+      <% end %>
+      <% if conference.call_for_proposals_ends_at.present? %>
+      <tr>
+        <td><div class="conference-next-event__icon conference-next-event__icon--cfp-closes-at"></div></td>
+        <td><%= t('.call_for_proposals_ends_at', time: l(conference.call_for_proposals_ends_at, format: :long)) %></td>
+      </tr>
+      <% end %>
+      <% if conference.speaker_notifications_at.present? %>
+      <tr>
+        <td><div class="conference-next-event__icon conference-next-event__icon--speakers-notified-at"></div></td>
+        <td><%= t('.speaker_notifications_at', time: l(conference.speaker_notifications_at, format: :long)) %></td>
+      </tr>
+      <% end %>
+      <% if conference.hashtag.present? %>
+      <tr>
+        <td><div class="conference-next-event__icon conference-next-event__icon--hashtag"></div></td>
+        <td><%= t('.hashtag_html', link_html: link_to(conference.hashtag, "https://twitter.com/search?q=#{conference.hashtag}")) %></td>
+      </tr>
+      <% end %>
+      <% if conference.has_childcare %>
+      <tr>
+        <td><div class="conference-next-event__icon conference-next-event__icon--childcare"></div></td>
+        <td><%= t('.has_childcare') %></td>
+      </tr>
+      <% end %>
+      <% if conference.has_honorariums %>
+      <tr>
+        <td><div class="conference-next-event__icon conference-next-event__icon--honoraria"></div></td>
+        <td><%= t('.has_honorariums') %></td>
+      </tr>
+      <% end %>
+      <% if conference.has_diversity_scholarships %>
+      <tr>
+        <td><div class="conference-next-event__icon conference-next-event__icon--diversity-scholarship"></div></td>
+        <td><%= t('.has_diversity_scholarships') %></td>
+      </tr>
+      <% end %>
+      <% if conference.has_travel_funding %>
+      <tr>
+        <td><div class="conference-next-event__icon conference-next-event__icon--travel-funding"></div></td>
+        <td><%= t('.has_travel_funding') %></td>
+      </tr>
+      <% end %>
+      <% if conference.has_lodging_funding %>
+      <tr>
+        <td><div class="conference-next-event__icon conference-next-event__icon--lodging-funding"></div></td>
+        <td><%= t('.has_lodging_funding') %></td>
+      </tr>
+      <% end %>
+    </table>
+  </article>
+</section>

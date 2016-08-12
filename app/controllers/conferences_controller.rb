@@ -1,6 +1,6 @@
 class ConferencesController < ApplicationController
   def index
-    @conferences = policy_scope(Conference)
+    @conferences = policy_scope(Conference).map { |c| ConferencePresenter.new(c) }
   end
 
   def show

@@ -1,0 +1,7 @@
+<section class="conferences-header">
+  <h2 class="conferences-header__title"><%= t('.title') %></h2>
+  <p class="conferences-header__subtitle"><%= t('.description_html', link_html: link_to(t('.learn_more'), 'https://www.callbackwomen.com', class: 'conferences-header__title-link')) %></p>
+  <nav class="conferences-header__filter-list">
+    <%= link_to t('.all_conferences'), root_path, class: 'conferences-header__filter conferences-header__filter--all' %>
+  </nav>
+</section>

@@ -1,0 +1,9 @@
+<section class="conference-profile">
+  <header class="conference-profile__header"></header>
+  <article class="conference-profile__body">
+    <%= image_tag conference.logo_url, class: 'conference-profile__image' if conference.logo_url.present? %>
+    <h5 class="conference-profile__name"><%= conference.name %></h5>
+    <h5 class="conference-profile__name"><%= link_to conference.twitter_name, conference.twitter_url %></h5>
+    <p class="conference-profile__description"><%= conference.description %></p>
+  </article>
+</section>

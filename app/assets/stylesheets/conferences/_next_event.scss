@@ -1,0 +1,64 @@
+.conference-next-event {
+  @extend .card;
+  @extend .card-block;
+  border-color: #d3e0e9;
+
+  &__header {
+    @extend .card-title;
+  }
+
+  &__body {
+    @extend .card-text;
+  }
+
+  &__table {
+    @extend .table;
+    margin-bottom: 0;
+    td { border-top-width: 0; }
+  }
+
+  &__icon {
+    @extend .fa;
+    color: $gray-light;
+
+    &--starts-at {
+      @extend .fa-calendar;
+    }
+
+    &--ends-at {
+      @extend .fa-calendar;
+    }
+
+    &--cfp-closes-at {
+      @extend .fa-calendar;
+    }
+
+    &--speakers-notified-at {
+      @extend .fa-calendar;
+    }
+
+    &--hashtag {
+      @extend .fa-twitter;
+    }
+
+    &--childcare {
+      @extend .fa-child;
+    }
+
+    &--honoraria {
+      @extend .fa-money;
+    }
+
+    &--diversity-scholarship {
+      @extend .fa-graduation-cap;
+    }
+
+    &--travel-funding {
+      @extend .fa-ticket;
+    }
+
+    &--lodging-funding {
+      @extend .fa-bed;
+    }
+  }
+}

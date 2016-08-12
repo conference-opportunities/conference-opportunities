@@ -1,0 +1,55 @@
+.conferences-header {
+  @extend .jumbotron-fluid;
+  position: relative;
+  padding: 6rem 0;
+  background-size: cover;
+  background-image: url('https://bootstrap-themes.github.io/application/assets/img/iceland.jpg');
+
+  &__title,
+  &__subtitle {
+    text-align: center;
+    color: #fff;
+  }
+
+  &__title-link {
+    color: inherit;
+    border-bottom: 0.15rem solid rgba(#333, 0.5);
+
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+
+  &__filter-list {
+    @extend .nav;
+    @extend .nav-inline;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &__filter {
+    @extend .nav-link;
+    color: #fff;
+    position: relative;
+    padding-bottom: 1rem;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      content: '';
+      margin-left: -10px;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid $body-bg;
+    }
+  }
+}

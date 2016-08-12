@@ -1,0 +1,40 @@
+.conferences-list {
+  margin: 1rem 0;
+
+  &__event {
+    @extend .card-group;
+  }
+
+  &__event-container {
+    @extend .card;
+    border-color: #d3e0e9;
+
+    &--icon {
+      width: 200px;
+    }
+  }
+
+  &__event-icon {
+    @extend .card-img-top;
+  }
+
+  &__event-time {
+    @extend .card-header;
+    background-color: #f5f8fa;
+    border-color: #d3e0e9;
+  }
+
+  &__event-description {
+    @extend .card-block;
+  }
+
+  &__event-text {
+    &--name {
+      @extend .card-title;
+    }
+
+    &--location {
+      @extend .card-text;
+    }
+  }
+}

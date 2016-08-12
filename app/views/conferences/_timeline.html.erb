@@ -1,0 +1,11 @@
+<section class="conference-timeline">
+  <article class="conference-timeline__body">
+    <% tweets.each do |tweet| %>
+      <blockquote class="twitter-tweet" data-lang="<%= I18n.locale %>">
+        <%= link_to '', "https://twitter.com/_/status/#{tweet.twitter_id}" %>
+      </blockquote>
+    <% end %>
+  </article>
+</section>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

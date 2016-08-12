@@ -1,0 +1,31 @@
+.conference-profile {
+  @extend .card;
+  border-color: #d3e0e9;
+
+  &__header {
+    @extend .card-img-top;
+    background-color: #f5f5f5;
+    background-size: cover;
+    height: 9em;
+    background-image: url('https://bootstrap-themes.github.io/application/assets/img/iceland.jpg');
+  }
+
+  &__body {
+    @extend .card-block;
+  }
+
+  &__image {
+    background: white;
+    display: block;
+    border-radius: 100%;
+    border: 3px solid white;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    height: 9rem;
+    margin: -6rem auto 1rem auto;
+  }
+
+  &__name,
+  &__description {
+    text-align: center;
+  }
+}

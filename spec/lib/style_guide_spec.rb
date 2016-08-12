@@ -22,7 +22,7 @@ RSpec.describe StyleGuide do
   describe '#partials' do
     it 'returns all of the partials in the world' do
       expect(style_guide.partials).to eq([
-        StyleGuide::Partial.new('ham_sammich', 'section', style_guide_pathname)
+        StyleGuide::Partial.new('_ham_sammich.txt', 'section', style_guide_pathname)
       ])
     end
   end
@@ -33,6 +33,19 @@ RSpec.describe StyleGuide do
     describe '#name' do
       it 'returns a titleized name' do
         expect(style_guide_partial.name).to eq('Ham Sammich')
+      end
+    end
+
+    describe '#basename' do
+      it 'returns a the filename minus extension and leading underscore' do
+        expect(style_guide_partial.basename).to eq('ham_sammich')
+      end
+    end
+
+    describe '#sublime_url' do
+      it 'returns a url for the sublime text url handler' do
+        expect(style_guide_partial.sublime_url).to match(%r(^subl://open\?url=file://))
+        expect(style_guide_partial.sublime_url).to match(%r(spec/support/style_guide/section/ham_sammich$))
       end
     end
 

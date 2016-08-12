@@ -1,8 +1,8 @@
 .main-header {
   @extend .navbar;
-  @extend .navbar-light;
-  @extend .bg-faded;
+  @extend .navbar-dark;
   @extend .navbar-full;
+  background-color: darken(#2882b5, 5);
 
   &__title {
     @extend .navbar-brand;
@@ -19,5 +19,6 @@
 
   &__link {
     @extend .nav-link;
+    font-weight: 100;
   }
 }

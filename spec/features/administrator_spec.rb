@@ -21,7 +21,7 @@ RSpec.feature 'Administrator', type: :feature do
   context 'when not logged in as an organizer', :js do
     scenario 'cannot view the rails admin dashboard' do
       visit rails_admin.dashboard_path
-      expect(current_path).not_to eq(rails_admin.dashboard_path)
+      expect(current_path).to eq(root_path)
     end
   end
 

@@ -8,6 +8,18 @@
 
   &__header {
     @extend .card-header;
+    display: flex;
+  }
+
+  &__name {
+    flex: 1;
+  }
+
+  &__path {
+    font-size: 0.8em;
+    flex: 1;
+    line-height: 2.1;
+    text-align: right;
   }
 
   &__partial {

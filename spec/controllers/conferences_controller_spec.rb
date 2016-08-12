@@ -51,7 +51,7 @@ RSpec.describe ConferencesController, type: :controller do
 
     it 'assigns all the approved conferences' do
       make_request
-      expect(assigns(:conferences)).to eq([conference])
+      expect(assigns(:conferences).map(&:conference)).to eq([conference])
     end
   end
 end

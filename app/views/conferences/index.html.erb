@@ -1,4 +1,4 @@
-<h4>All Conferences:</h4>
+<%= render partial: 'conferences/header' %>
 <% @conferences.each do |conference| %>
-  <section><%= link_to conference.name, conference %></section>
+  <%= render partial: 'conferences/list', locals: {conference: conference} %>
 <% end %>

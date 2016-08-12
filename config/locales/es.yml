@@ -42,6 +42,23 @@ es:
       seeking_speaker_proposals: "¿...submiciones para presentadores?"
       yes_list_me: "¡Sí, agregame!"
   conferences:
+    header:
+      all_conferences: All Conferences
+      title: Speak at Conferences
+      description_html: 'Discover technology conferences looking for speakers like you. %{link_html}'
+      learn_more: Learn more
+    next_event:
+      title: Current event
+      starts_at: 'Starts %{time}'
+      ends_at: 'Ends %{time}'
+      call_for_proposals_ends_at: 'CFP closes %{time}'
+      speaker_notifications_at: 'Speakers notified by %{time}'
+      hashtag_html: '%{link_html}'
+      has_travel_funding: Has travel funding
+      has_lodging_funding: Has lodging funding
+      has_honorariums: Has honorariums
+      has_diversity_scholarships: Has diversity scholarships
+      has_childcare: Has childcaregi
     details:
       edit:
         account: Account

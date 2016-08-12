@@ -1,9 +1,12 @@
 <% @style_guides.each do |style_guide| %>
   <% style_guide.partials.each do |partial| %>
-    <article class='style-guide'>
-      <section class='style-guide__section'>
-        <header class='style-guide__header'><%= partial.name %></header>
-        <section class='style-guide__partial'>
+    <article class="style-guide">
+      <section class="style-guide__section">
+        <header class="style-guide__header">
+          <div class="style-guide__name"><%= style_guide.name %>: <%= partial.name %></div>
+          <div class="style-guide__path"><%= link_to partial.path, partial.sublime_url %></div>
+        </header>
+        <section class="style-guide__partial">
           <%= render partial: partial.path %>
         </section>
       </section>
