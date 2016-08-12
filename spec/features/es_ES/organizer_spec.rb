@@ -13,7 +13,7 @@ RSpec.feature 'Spanish-speaking Organizer', type: :feature do
 
   before { OmniAuth.config.mock_auth[:twitter] = valid_twitter_auth }
 
-  scenario 'approves a conference' do
+  scenario 'approves a conference', :js do
     visit approval_path(locale: :es)
     click_on I18n.t('approvals.show.yes_list_me', locale: :es)
   end

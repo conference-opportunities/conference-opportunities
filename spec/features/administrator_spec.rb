@@ -18,14 +18,14 @@ RSpec.feature 'Administrator', type: :feature do
     allow(Rails.application.config).to receive(:application_twitter_id).and_return(admin_uid)
   end
 
-  context 'when not logged in as an organizer' do
+  context 'when not logged in as an organizer', :js do
     scenario 'cannot view the rails admin dashboard' do
       visit rails_admin.dashboard_path
       expect(current_path).not_to eq(rails_admin.dashboard_path)
     end
   end
 
-  context 'when logged in as an organizer' do
+  context 'when logged in as an organizer', :js do
     let(:organizer_uid) { admin_uid }
 
     before { login_as(organizer, scope: :organizer) }

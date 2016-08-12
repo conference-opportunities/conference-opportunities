@@ -1,5 +1,5 @@
 <header>
-  <div class="logo"><%= image_tag @conference.logo_url if @conference.logo_url %></div>
+  <div class="logo"><%= image_tag @conference.logo_url if @conference.logo_url.present? %></div>
   <div class="name"><%= @conference.name%></div>
   <div class="website-url"><%= link_to icon('external-link'), @conference.website_url, aria: {label: @conference.name} %></div>
   <div class="location"><%= @conference.location%></div>
