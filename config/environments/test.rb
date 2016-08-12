@@ -48,4 +48,6 @@ Rails.application.configure do
   # Use a fake queuing backend for Active Job
   config.active_job.queue_adapter = :test
   config.active_job.queue_name_prefix = "conference-opportunities_#{Rails.env}"
+
+  config.react.variant = :development
 end

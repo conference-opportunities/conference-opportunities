@@ -65,7 +65,7 @@ Teaspoon.configure do |config|
     #suite.hook :fixtures, &proc{}
 
     # Determine whether specs loaded into the test harness should be embedded as individual script tags or concatenated
-    # into a single file. Similar to Rails' asset `debug: true` and `config.assets.debug = true` options. By default, 
+    # into a single file. Similar to Rails' asset `debug: true` and `config.assets.debug = true` options. By default,
     # Teaspoon expands all assets to provide more valuable stack traces that reference individual source files.
     #suite.expand_assets = true
 
@@ -133,10 +133,10 @@ Teaspoon.configure do |config|
   # Note: Output files can be specified by using `"junit>/path/to/output.xml"`.
   #
   # Available: :dot, :clean, :documentation, :json, :junit, :pride, :rspec_html, :snowday, :swayze_or_oprah, :tap, :tap_y, :teamcity
-  #config.formatters = [:dot]
+  config.formatters = [:documentation]
 
   # Specify if you want color output from the formatters.
-  #config.color = true
+  config.color = true
 
   # Teaspoon pipes all console[log/debug/error] to $stdout. This is useful to catch places where you've forgotten to
   # remove them, but in verbose applications this may not be desirable.
