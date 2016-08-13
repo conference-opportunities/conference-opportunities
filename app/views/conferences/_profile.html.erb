@@ -1,5 +1,5 @@
 <section class="conference-profile">
-  <header class="conference-profile__header"></header>
+  <header class="conference-profile__header" style="background-image: url(<%= conference.banner_url %>);"></header>
   <article class="conference-profile__body">
     <%= image_tag conference.logo_url, class: 'conference-profile__image' if conference.logo_url.present? %>
     <h5 class="conference-profile__name"><%= conference.name %></h5>

@@ -1,0 +1,41 @@
+.conferences-event {
+  @extend .card;
+
+  &__header {
+    @extend .card-img-top;
+    background-color: #f5f5f5;
+    background-size: cover;
+    background-position: center top;
+    height: 7rem;
+  }
+
+  &__icon {
+    height: 5rem;
+    border-radius: $border-radius;
+    margin-top: -3.7rem;
+    border: 3px solid white;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  }
+
+  &__body {
+    @extend .card-block;
+  }
+
+  &__text {
+    @extend .card-text;
+
+    &--time {
+      text-align: right;
+    }
+
+    &--name {
+      @extend .card-title;
+      margin-top: 1rem;
+    }
+  }
+
+  &__information {
+    display: flex;
+    justify-content: space-between;
+  }
+}

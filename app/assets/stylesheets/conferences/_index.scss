@@ -1,5 +1,23 @@
 body.conferences.index {
-  .conferences-list {
+  .conferences-column--events {
     @extend .container;
+    @extend .card-columns;
+    margin-top: 1rem;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  body.conferences.index {
+    .conferences-column--events {
+      column-count: 2;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  body.conferences.index {
+    .conferences-column--events {
+      column-count: 3;
+    }
   }
 }

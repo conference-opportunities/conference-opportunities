@@ -20,7 +20,8 @@ class Conference < ActiveRecord::Base
     assign_attributes(
       description: user.description,
       location: user.location,
-      logo_url: user.profile_image_url_https,
+      logo_url: user.profile_image_uri_https(:original),
+      banner_url: user.profile_banner_uri_https(:web_retina),
       name: user.name,
       twitter_handle: user.screen_name,
       website_url: user.website

@@ -1,9 +1,11 @@
 .conferences-header {
   @extend .jumbotron-fluid;
   position: relative;
-  padding: 6rem 0;
+  padding: 7rem 0;
   background-size: cover;
-  background-image: url('https://bootstrap-themes.github.io/application/assets/img/iceland.jpg');
+  background-color: #999;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('https://images.unsplash.com/photo-1462823985959-022de68638a2?dpr=2&auto=format&crop=entropy&fit=crop&w=1500&h=844&q=80&cs=tinysrgb');
+  background-position: center;
 
   &__title,
   &__subtitle {
@@ -13,12 +15,11 @@
 
   &__title-link {
     color: inherit;
-    border-bottom: 0.15rem solid rgba(#333, 0.5);
+    border-bottom: 0.15rem solid rgba(#fff, 0.9);
 
     &:hover {
       text-decoration: none;
       color: inherit;
-      text-decoration: underline;
     }
   }
 

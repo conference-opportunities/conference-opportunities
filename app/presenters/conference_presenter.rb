@@ -1,7 +1,7 @@
 class ConferencePresenter
   attr_reader :conference
 
-  delegate :tweets, :name, :logo_url, :location, :website_url, :description, to: :conference
+  delegate :tweets, :name, :logo_url, :banner_url, :location, :website_url, :description, to: :conference
   delegate :event, to: :conference, prefix: true
   delegate :starts_at, :ends_at, :call_for_proposals_ends_at, :speaker_notifications_at, to: :conference_event, allow_nil: true
   delegate :call_for_proposals_url, :code_of_conduct_url, to: :conference_event, allow_nil: true

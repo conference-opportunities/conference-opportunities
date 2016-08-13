@@ -11,6 +11,7 @@ RSpec.describe ConferencePresenter do
   it { is_expected.to delegate_method(:tweets).to(:conference) }
   it { is_expected.to delegate_method(:name).to(:conference) }
   it { is_expected.to delegate_method(:logo_url).to(:conference) }
+  it { is_expected.to delegate_method(:banner_url).to(:conference) }
   it { is_expected.to delegate_method(:location).to(:conference) }
   it { is_expected.to delegate_method(:website_url).to(:conference) }
   it { is_expected.to delegate_method(:description).to(:conference) }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805194504) do
+ActiveRecord::Schema.define(version: 20160813203541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160805194504) do
     t.datetime "approved_at"
     t.string   "uid",            null: false
     t.datetime "unfollowed_at"
+    t.string   "banner_url"
     t.index ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
     t.index ["uid"], name: "index_conferences_on_uid", unique: true, using: :btree
   end

@@ -65,6 +65,7 @@ RSpec.describe Conference, type: :model do
         screen_name: 'twitterconf',
         name: 'Twitter Conf',
         profile_image_url_https: 'https://example.com/pugs.gif',
+        profile_banner_url: 'https://example.com/pumpkin_field',
         location: 'Overpriced Urban Conclave',
         url: 'http://twitterconf.example.com',
         description: 'Ten hours of pitches',
@@ -77,6 +78,7 @@ RSpec.describe Conference, type: :model do
     specify { expect(conference.twitter_handle).to eq('twitterconf') }
     specify { expect(conference.name).to eq('Twitter Conf') }
     specify { expect(conference.logo_url).to eq('https://example.com/pugs.gif') }
+    specify { expect(conference.banner_url).to eq('https://example.com/pumpkin_field/web_retina') }
     specify { expect(conference.location).to eq('Overpriced Urban Conclave') }
     specify { expect(conference.website_url).to eq('http://twitterconf.example.com') }
     specify { expect(conference.description).to eq('Ten hours of pitches') }

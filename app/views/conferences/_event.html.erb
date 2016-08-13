@@ -1,0 +1,17 @@
+<section class="conferences-event">
+  <header class="conferences-event__header" style="background-image: url(<%= conference.banner_url %>);"></header>
+  <article class="conferences-event__body">
+    <div class="conferences-event__information">
+      <%= image_tag conference.logo_url, class: 'conferences-event__icon' if conference.logo_url.present? %>
+      <div class="conferences-event__text conferences-event__text--time">
+        <%= l(conference.starts_at.to_date, format: :long) if conference.starts_at.present? %>
+      </div>
+    </div>
+    <h5 class="conferences-event__text conferences-event__text--name">
+      <%= link_to conference.name, conference.conference %>
+    </h5>
+    <p class="conferences-event__text conferences-event__text--location">
+      <%= conference.location %>
+    </p>
+  </article>
+</section>

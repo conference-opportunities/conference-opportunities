@@ -1,15 +1,4 @@
 .conference-timeline {
-  @extend .card;
-  @extend .card-block;
-  border-color: #d3e0e9;
-
-  &__header {
-    @extend .card-title;
-  }
-
-  &__body {
-    @extend .card-text;
-  }
 }
 
 .EmbeddedTweet {

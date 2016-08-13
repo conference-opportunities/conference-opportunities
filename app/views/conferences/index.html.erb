@@ -1,4 +1,7 @@
 <%= render partial: 'conferences/header' %>
+
+<section class="conferences-column--events">
 <% @conferences.each do |conference| %>
-  <%= render partial: 'conferences/list', locals: {conference: conference} %>
+  <%= render partial: 'conferences/event', locals: {conference: conference} %>
 <% end %>
+</section>
