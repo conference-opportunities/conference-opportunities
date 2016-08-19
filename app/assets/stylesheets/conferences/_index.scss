@@ -4,6 +4,17 @@ body.conferences.index {
     @extend .card-columns;
     margin-top: 1rem;
   }
+
+  .flash-container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    margin: 0.5rem auto 0 auto;
+  }
+
+  .main-flash {
+    @extend .container;
+  }
 }
 
 @include media-breakpoint-up(sm) {

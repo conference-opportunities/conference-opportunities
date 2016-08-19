@@ -20,7 +20,7 @@ RSpec.feature 'Organizer', type: :feature do
     expect(page).not_to have_content 'Interesting conference'
 
     visit approval_path(locale: :en)
-    click_on 'Yes, list me!'
+    click_on 'Yes'
 
     expect(find_field('Conference name').value).to eq 'Interesting conference'
 

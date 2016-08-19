@@ -1,0 +1,44 @@
+.approval-confirmation {
+  @extend .card;
+
+  &__actions {
+    @extend .card-block;
+  }
+
+  &__qualifications {
+    @extend .list-group;
+    @extend .list-group-flush;
+  }
+
+  &__checkbox {
+    @extend .tag;
+    @extend .tag-default;
+    @extend .fa;
+    @extend .fa-check-square-o;
+    color: #333;
+    background-color: inherit;
+    font-size: 1rem;
+
+    &:empty {
+      display: inline;
+    }
+  }
+
+  &__qualification {
+    &--prompt {
+      @extend .list-group-item;
+      border-width: 0;
+      font-weight: bold;
+    }
+
+    &--question {
+      @extend .list-group-item;
+      border-width: 0;
+    }
+  }
+
+  &__button {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+}

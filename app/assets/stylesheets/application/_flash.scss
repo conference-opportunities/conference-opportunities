@@ -1,0 +1,22 @@
+.main-flash {
+  @extend .alert;
+  @extend .alert-dismissible;
+  position: relative;
+
+  .close {
+    right: 0;
+  }
+
+  &--alert {
+    @extend .alert-warning;
+  }
+
+  &--info {
+    @extend .alert-info;
+  }
+
+  &__body {
+    & + & { margin-top: 0.25rem; }
+    margin-bottom: 0;
+  }
+}

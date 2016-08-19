@@ -29,18 +29,20 @@ es:
             name:
               blank: no se puede dejar en blanco
   application:
+    flash:
+      close: Close
     header:
       find_a_conference: Busque una conferencia
       log_in_with_twitter: Log in con Twitter
       title: CallbackWomen
   approvals:
-    show:
-      encourage_submissions: Apoye miles de presentadores para submitir a su conferencia
-      for_professional_developers: "¿...desarrolladores profesionales?"
-      is_your_event: Busca un evento para...
-      list_your_conference: Enlista su conferencia
-      seeking_speaker_proposals: "¿...submiciones para presentadores?"
-      yes_list_me: "¡Sí, agregame!"
+    confirmation:
+      for_professional_programmers: an in-person conference for professional programmers?
+      seeking_speakers: seeking speakers?
+      about_professional_programming: about professional programming?
+      is_your_event: 'Is your conference:'
+      publicizing_a_cfp: publicizing an open call for proposals (CFP)?
+      yes_list_me: Sí
   conferences:
     header:
       all_conferences: All Conferences

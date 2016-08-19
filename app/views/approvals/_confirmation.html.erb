@@ -1,0 +1,26 @@
+<section class="approval-confirmation">
+  <ul class="approval-confirmation__qualifications">
+    <li class="approval-confirmation__qualification approval-confirmation__qualification--prompt">
+      <%= t('.is_your_event') %>
+    </li>
+    <li class="approval-confirmation__qualification approval-confirmation__qualification--question">
+      <span class="approval-confirmation__checkbox"></span>
+      <%= t('.for_professional_programmers') %>
+    </li>
+    <li class="approval-confirmation__qualification approval-confirmation__qualification--question">
+      <span class="approval-confirmation__checkbox"></span>
+      <%= t('.seeking_speakers') %>
+    </li>
+    <li class="approval-confirmation__qualification approval-confirmation__qualification--question">
+      <span class="approval-confirmation__checkbox"></span>
+      <%= t('.about_professional_programming') %>
+    </li>
+    <li class="approval-confirmation__qualification approval-confirmation__qualification--question">
+      <span class="approval-confirmation__checkbox"></span>
+      <%= t('.publicizing_a_cfp') %>
+    </li>
+  </ul>
+  <div class="approval-confirmation__actions">
+    <%= link_to t('.yes_list_me'), organizer_twitter_omniauth_authorize_path, class: "approval-confirmation__button" %>
+  </div>
+</section>

@@ -15,6 +15,6 @@ RSpec.feature 'Spanish-speaking Organizer', type: :feature do
 
   scenario 'approves a conference', :js do
     visit approval_path(locale: :es)
-    click_on I18n.t('approvals.show.yes_list_me', locale: :es)
+    click_on 'Sí'
   end
 end

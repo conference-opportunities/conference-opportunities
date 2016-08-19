@@ -1,15 +1,10 @@
-<% if flash.any? %>
-<section class="flash">
-  <%- flash.each do |key, value| %>
-    <%= check_box_tag key %>
-    <%= content_tag(:article, class: key) do %>
-      <%= content_tag :ul do %>
-        <%- Array(value).map do |message| %>
-          <%= content_tag(:li, message) %>
-        <%- end %>
-      <%- end %>
-      <%= content_tag(:label, '&times;'.html_safe, for: key) %>
+<%- flash.each do |key, value| %>
+  <%= content_tag(:article, class: "main-flash main-flash--#{key}", role: 'alert') do %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="<%= t(:'.close') %>">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%- Array(value).map do |message| %>
+      <%= content_tag(:p, message, class: 'main-flash__body') %>
     <%- end %>
   <%- end %>
-</section>
-<% end %>
+<%- end %>

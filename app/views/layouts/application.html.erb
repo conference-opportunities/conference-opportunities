@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
-<%= render 'application/header' %>
-<%= render 'flash', flash: flash %>
+<%= render partial: 'application/header' %>
+<% if flash.any? %>
+<section class="flash-container">
+  <%= render partial: 'flash', locals: {flash: flash} %>
+</section>
+<% end %>
 <main role="main">
 <%= yield %>
 </main>
