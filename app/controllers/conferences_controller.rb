@@ -11,6 +11,6 @@ class ConferencesController < ApplicationController
   private
 
   def current_conference
-    Conference.find_by_twitter_handle!(params[:id])
+    Conference.includes(:event).find_by_twitter_handle!(params[:id])
   end
 end
