@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
 
-  after_action :verify_authorized, except: :index, unless: :devise_controller?
+  after_action :verify_authorized, except: :index, unless: :skipped_controller?
   after_action :verify_policy_scoped, only: :index, unless: :skipped_controller?
 
   # Prevent CSRF attacks by raising an exception.
