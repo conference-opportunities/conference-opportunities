@@ -8,10 +8,6 @@ gem 'puma', '~> 3.0'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-# sassc-rails <= 1.2.1 is incompatible with Rails 5/Sprockets 4
-gem 'sass-rails', require: false
-gem 'sassc-rails', git: 'https://github.com/sass/sassc-rails'
-
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'coffee-rails'
 gem 'dalli'
@@ -25,6 +21,8 @@ gem 'pundit'
 gem 'rails-i18n'
 gem 'rails_admin-i18n'
 gem 'rails_locale_detection'
+gem 'sass-rails', require: false
+gem 'sassc-rails'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'sidekiq-unique-jobs'
@@ -32,14 +30,12 @@ gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'validates_timeliness'
 
-# Rails 5 uses Rack 2, ergo Sinatra 2 is required wherever Sinatra 1 was
-# Sinatra 2 needs the most recent rack-protection, which has not been released
-gem 'rack-protection', git: 'https://github.com/sinatra/rack-protection'
-gem 'sinatra', git: 'https://github.com/sinatra/sinatra', require: false
+# Rails 5 uses Rack 2; Sinatra 2 is required wherever Sinatra 1 was
+gem 'sinatra', git: 'https://github.com/sinatra/sinatra', ref: '6b5a0ef3a4598366138fefe3f2b696ddeb371f3c', require: false
 
 # RailsAdmin is not compatible with Rails 5 yet, so use compatible forks
-gem 'rails_admin', git: 'https://github.com/sferik/rails_admin'
-gem 'remotipart', git: 'https://github.com/mshibuya/remotipart'
+gem 'rails_admin', '1.0.0.rc'
+gem 'remotipart', git: 'https://github.com/mshibuya/remotipart', ref: '88d9a7d55bde66acb6cf3a3c6036a5a1fc991d5e'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
