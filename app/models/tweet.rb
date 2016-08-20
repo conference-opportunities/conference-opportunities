@@ -1,5 +1,5 @@
 class Tweet < ActiveRecord::Base
-  belongs_to :conference
+  belongs_to :conference, counter_cache: true
   validates :conference, presence: true
   validates :twitter_id, uniqueness: {scope: :conference_id, case_sensitive: false}
 

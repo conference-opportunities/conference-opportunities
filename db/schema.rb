@@ -10,24 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160813203541) do
+ActiveRecord::Schema.define(version: 20160819235728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "conferences", force: :cascade do |t|
-    t.string   "twitter_handle", null: false
+    t.string   "twitter_handle",             null: false
     t.string   "logo_url"
     t.string   "name"
     t.string   "location"
     t.string   "website_url"
     t.text     "description"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.datetime "approved_at"
-    t.string   "uid",            null: false
+    t.string   "uid",                        null: false
     t.datetime "unfollowed_at"
     t.string   "banner_url"
+    t.integer  "tweets_count",   default: 0, null: false
     t.index ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
     t.index ["uid"], name: "index_conferences_on_uid", unique: true, using: :btree
   end
