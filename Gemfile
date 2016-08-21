@@ -8,7 +8,8 @@ gem 'puma', '~> 3.0'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'autoprefixer-rails'
+gem 'bootstrap', '~> 4.0.0.alpha'
 gem 'coffee-rails'
 gem 'dalli'
 gem 'devise'

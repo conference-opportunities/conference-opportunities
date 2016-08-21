@@ -465,7 +465,7 @@ GEM
       simple_oauth (~> 0.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.1)
+    uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -502,8 +502,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   axe-matchers
-  bootstrap (~> 4.0.0.alpha3)
+  bootstrap (~> 4.0.0.alpha)
   bullet
   byebug
   capybara
