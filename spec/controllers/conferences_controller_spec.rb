@@ -31,7 +31,7 @@ RSpec.describe ConferencesController, type: :controller do
   end
 
   describe 'GET #index' do
-    let!(:conference) { create :conference, :approved }
+    let!(:conferences) { create_list :conference, 3, :approved }
 
     subject(:make_request) { get :index }
 
@@ -39,7 +39,7 @@ RSpec.describe ConferencesController, type: :controller do
 
     it 'assigns all the approved conferences' do
       make_request
-      expect(assigns(:conferences).map(&:conference)).to eq([conference])
+      expect(assigns(:conferences).map(&:conference)).to match_array conferences
     end
   end
 end
