@@ -18,14 +18,16 @@ RSpec.describe ConferencesController, type: :controller do
     end
 
     context 'when the conference is not approved' do
-      it { expect { make_request }.to raise_error(Pundit::NotAuthorizedError) }
+      it { expect { make_request }
+        .to raise_error(Pundit::NotAuthorizedError) }
     end
 
     context 'when the requested conference does not exist' do
       before { conference.destroy! }
 
       it 'raises a not found exception' do
-        expect { make_request }.to raise_error(ActiveRecord::RecordNotFound)
+        expect { make_request }
+          .to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end
