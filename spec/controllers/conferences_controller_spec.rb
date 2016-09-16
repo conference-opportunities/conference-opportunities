@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe ConferencesController, type: :controller do
   describe 'GET #show' do
+    let(:conference) { create :conference }
 
     subject(:make_request) { get :show, params: { id: conference } }
-    let(:conference) { create :conference }
 
     context 'when requested conference is approved' do
       before { conference.update!(approved_at: 2.hours.ago) }
@@ -31,15 +31,19 @@ RSpec.describe ConferencesController, type: :controller do
   end
 
   describe 'GET #index' do
-    let!(:conferences) { create_list :conference, 3, :approved }
+    let!(:non_approved_conference) { create :conference }
+    let!(:approved_conferences) { create_list :conference, 3, :approved }
 
     subject(:make_request) { get :index }
 
     it { is_expected.to be_success }
 
-    it 'assigns all the approved conferences' do
-      make_request
-      expect(assigns(:conferences).map(&:conference)).to match_array conferences
+    context 'when listing conferences' do
+      subject { assigns(:conferences).map(&:conference) }
+
+        before { get :index }
+        it { is_expected.not_to include non_approved_conference }
+        it { is_expected.to match_array approved_conferences }
     end
   end
 end
