@@ -4,7 +4,7 @@ RSpec.describe ConferencesController, type: :controller do
   describe 'GET #show' do
 
     subject(:make_request) { get :show, params: { id: conference } }
-    let(:conference) { FactoryGirl.create :conference }
+    let(:conference) { create :conference }
 
     context 'when requested conference is approved' do
       before { conference.update!(approved_at: 2.hours.ago) }
@@ -31,7 +31,7 @@ RSpec.describe ConferencesController, type: :controller do
   end
 
   describe 'GET #index' do
-    let!(:conference) { FactoryGirl.create(:conference, :approved) }
+    let!(:conference) { create :conference, :approved }
 
     subject(:make_request) { get :index }
 
